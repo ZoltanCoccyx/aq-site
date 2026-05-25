@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>{title}</title>
+  <!-- Anti-FOUC : applique le thème avant le rendu -->
+  <script>(function(){{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}})();</script>
+  <link rel="stylesheet" href="style.css">
+  <!-- MathJax pour le rendu des équations LaTeX -->
+  <script>
+  MathJax = {{
+    tex: {{
+      inlineMath: [["$", "$"]],
+      displayMath: [["$$", "$$"]]
+    }},
+    options: {{
+      enableMenu: false
+    }}
+  }};
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+
+<button id="sidebar-toggle" aria-label="Menu">☰</button>
+<button id="theme-toggle" aria-label="Mode jour/nuit" title="Mode jour/nuit">🌙</button>
+
+<nav id="sidebar" aria-label="Navigation du chapitre">
+  <div id="sidebar-header">
+    <div id="sidebar-top">
+      <a href="index.html">⬅ Table des matières</a>
+      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
+    </div>
+    {chapter_links}
+    <div id="sidebar-title">Dans ce chapitre</div>
+  </div>
+  {toc_html}
+</nav>
+
+<main id="main">
+  {body}
+  <footer>
+    Analyse quantitative en sciences humaines — Balthazar Charles, 2026
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Analyse quantitative — Table des matières</title>
+  <!-- Anti-FOUC : applique le thème avant le rendu -->
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+  <link rel="stylesheet" href="style.css">
+  <!-- MathJax pour le rendu des équations LaTeX -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+      displayMath: [["$$", "$$"]]
+    },
+    options: {
+      enableMenu: false
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+
+<button id="sidebar-toggle" aria-label="Menu">☰</button>
+<button id="theme-toggle" aria-label="Mode jour/nuit" title="Mode jour/nuit">🌙</button>
+
+<nav id="sidebar" aria-label="Navigation du chapitre">
+  <div id="sidebar-header">
+    <div id="sidebar-top">
+      <a href="index.html">⬅ Table des matières</a>
+      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
+    </div>
+    
+    <div id="sidebar-title">Dans ce chapitre</div>
+  </div>
+  
+</nav>
+
+<main id="main">
+  <h1>Analyse quantitative en sciences humaines</h1>
+<p>Balthazar Charles, 2026</p>
+<hr>
+<h2>Table des chapitres</h2>
+<ul>
+<li><a href="chapitre_01.html">Chapitre I — Utilité et limites de l&#x27;analyse quantitative</a></li>
+<li><a href="chapitre_02.html">Chapitre II — Démarche méthodologique</a></li>
+<li><a href="chapitre_03.html">Chapitre III — Concepts fondamentaux</a></li>
+<li><a href="chapitre_04.html">Chapitre IV — Statistiques descriptives</a></li>
+<li><a href="chapitre_05.html">Chapitre V — Statistiques inférentielles</a></li>
+<li><a href="chapitre_06.html">Chapitre VI — Analyse bivariée</a></li>
+</ul>
+
+  <footer>
+    Analyse quantitative en sciences humaines — Balthazar Charles, 2026
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
