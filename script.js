@@ -36,7 +36,7 @@
     // Ne pas intercepter les ancres internes (#...), les liens externes, ou vides
     if (href.startsWith('#') || href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:')) return;
     var currentTheme = html.getAttribute('data-theme') || 'light';
-    var linkUrl = new URL(href, window.location.origin);
+    var linkUrl = new URL(href, window.location.href);
     linkUrl.searchParams.set('theme', currentTheme);
     // Sauvegarder aussi dans localStorage pour les pages qui n'auraient pas JS
     localStorage.setItem('theme', currentTheme);
