@@ -35,8 +35,14 @@
     if (!href) return;
     // Ne pas intercepter les ancres internes (#...), les liens externes, ou vides
     if (href.startsWith('#') || href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:')) return;
-    var currentTheme = html.getAttribute('data-theme') || 'light';
     var linkUrl = new URL(href, window.location.href);
+
+    // Le thème ne concerne que les pages HTML du site. Les assets comme
+    // main.pdf doivent rester des liens simples, sans ?theme=...
+    if (linkUrl.origin !== window.location.origin) return;
+    if (!/\/(?:index|chapitre_\d+)\.html$/.test(linkUrl.pathname)) return;
+
+    var currentTheme = html.getAttribute('data-theme') || 'light';
     linkUrl.searchParams.set('theme', currentTheme);
     // Sauvegarder aussi dans localStorage pour les pages qui n'auraient pas JS
     localStorage.setItem('theme', currentTheme);
