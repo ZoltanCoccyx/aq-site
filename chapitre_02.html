@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Chapitre II — Démarche méthodologique</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
-  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
-  <link rel="stylesheet" href="style.css">
+  <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="style.css?v=1779804476">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -31,8 +31,6 @@
   <div id="sidebar-header">
     <div id="sidebar-top">
       <a href="index.html">⬅ Table des matières</a>
-      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
-    </div>
     <a href="chapitre_01.html">Chap. 01</a>
 <span style="font-weight:700;color:var(--bleu)">Chap. 02</span>
 <a href="chapitre_03.html">Chap. 03</a>
@@ -40,29 +38,30 @@
 <a href="chapitre_05.html">Chap. 05</a>
 <a href="chapitre_06.html">Chap. 06</a>
     <div id="sidebar-title">Dans ce chapitre</div>
+    </div>
   </div>
-  <a class="nav-item level-h2" href="#identification-dun-sujet-de-recherche" data-id="identification-dun-sujet-de-recherche">Identification d&#x27;un sujet de recherche</a>
-<a class="nav-item level-h2" href="#opérationnalisation-et-outils-de-collecte-des-données" data-id="opérationnalisation-et-outils-de-collecte-des-données">Opérationnalisation et outils de collecte des données</a>
-<a class="nav-item level-h3" href="#opérationnalisation" data-id="opérationnalisation">Opérationnalisation</a>
-<a class="nav-item level-h3" href="#comment-opérationnaliser-un-concept" data-id="comment-opérationnaliser-un-concept">Comment opérationnaliser un concept ?</a>
-<a class="nav-item level-h3" href="#sélection-des-outils-de-collecte" data-id="sélection-des-outils-de-collecte">Sélection des outils de collecte</a>
-<a class="nav-item level-h2" href="#collecte-des-données" data-id="collecte-des-données">Collecte des données</a>
-<a class="nav-item level-h3" href="#recensement" data-id="recensement">Recensement</a>
-<a class="nav-item level-h3" href="#échantillonnage" data-id="échantillonnage">Échantillonnage</a>
-<a class="nav-item level-h3" href="#méthodes-déchantillonnage-probabilistes" data-id="méthodes-déchantillonnage-probabilistes">Méthodes d&#x27;échantillonnage probabilistes</a>
-<a class="nav-item level-h3" href="#méthodes-déchantillonnage-non-probabilistes" data-id="méthodes-déchantillonnage-non-probabilistes">Méthodes d&#x27;échantillonnage non probabilistes</a>
-<a class="nav-item level-h2" href="#analyse-des-données" data-id="analyse-des-données">Analyse des données</a>
-<a class="nav-item level-h3" href="#nettoyage-et-préparation-des-données" data-id="nettoyage-et-préparation-des-données">Nettoyage et préparation des données</a>
-<a class="nav-item level-h3" href="#traitement-statistique-des-données" data-id="traitement-statistique-des-données">Traitement statistique des données</a>
-<a class="nav-item level-h3" href="#interprétation-des-mesures" data-id="interprétation-des-mesures">Interprétation des mesures</a>
-<a class="nav-item level-h2" href="#communication-des-résultats" data-id="communication-des-résultats">Communication des résultats</a>
+  <a class="nav-item level-h2" href="#identification-dun-sujet-de-recherche" data-id="identification-dun-sujet-de-recherche">II.1 Identification d&#x27;un sujet de recherche</a>
+<a class="nav-item level-h2" href="#opérationnalisation-et-outils-de-collecte-des-données" data-id="opérationnalisation-et-outils-de-collecte-des-données">II.2 Opérationnalisation et outils de collecte des données</a>
+<a class="nav-item level-h3" href="#opérationnalisation" data-id="opérationnalisation">II.2.1 Opérationnalisation</a>
+<a class="nav-item level-h3" href="#comment-opérationnaliser-un-concept" data-id="comment-opérationnaliser-un-concept">II.2.2 Comment opérationnaliser un concept ?</a>
+<a class="nav-item level-h3" href="#sélection-des-outils-de-collecte" data-id="sélection-des-outils-de-collecte">II.2.3 Sélection des outils de collecte</a>
+<a class="nav-item level-h2" href="#collecte-des-données" data-id="collecte-des-données">II.3 Collecte des données</a>
+<a class="nav-item level-h3" href="#recensement" data-id="recensement">II.3.1 Recensement</a>
+<a class="nav-item level-h3" href="#échantillonnage" data-id="échantillonnage">II.3.2 Échantillonnage</a>
+<a class="nav-item level-h3" href="#méthodes-déchantillonnage-probabilistes" data-id="méthodes-déchantillonnage-probabilistes">II.3.3 Méthodes d&#x27;échantillonnage probabilistes</a>
+<a class="nav-item level-h3" href="#méthodes-déchantillonnage-non-probabilistes" data-id="méthodes-déchantillonnage-non-probabilistes">II.3.4 Méthodes d&#x27;échantillonnage non probabilistes</a>
+<a class="nav-item level-h2" href="#analyse-des-données" data-id="analyse-des-données">II.4 Analyse des données</a>
+<a class="nav-item level-h3" href="#nettoyage-et-préparation-des-données" data-id="nettoyage-et-préparation-des-données">II.4.1 Nettoyage et préparation des données</a>
+<a class="nav-item level-h3" href="#traitement-statistique-des-données" data-id="traitement-statistique-des-données">II.4.2 Traitement statistique des données</a>
+<a class="nav-item level-h3" href="#interprétation-des-mesures" data-id="interprétation-des-mesures">II.4.3 Interprétation des mesures</a>
+<a class="nav-item level-h2" href="#communication-des-résultats" data-id="communication-des-résultats">II.5 Communication des résultats</a>
 <a class="nav-item level-h2" href="#résumé-du-chapitre" data-id="résumé-du-chapitre">Résumé du chapitre</a>
 </nav>
 
 <main id="main">
   <h1 id="chapitre-ii-démarche-méthodologique">Chapitre II — Démarche méthodologique</h1>
 <p>On l'a dit, les méthodes quantitatives sont une manifestation de la méthode scientifique. La phase d'analyse elle-même (et dans une moindre mesure, la phase de communication) constitue l'essentiel de ce cours, mais on voit dans cette section les autres étapes de la démarche scientifique en analyse quantitative.</p>
-<h2 id="identification-dun-sujet-de-recherche">Identification d'un sujet de recherche</h2>
+<h2 id="identification-dun-sujet-de-recherche">II.1 Identification d'un sujet de recherche</h2>
 <p>La formulation d'une question de recherche claire et précise est la première étape cruciale de toute étude quantitative. Une bonne question de recherche doit être :</p>
 <ul>
 <li><strong>Spécifique</strong> : Éviter les questions trop larges ou vagues,</li>
@@ -87,8 +86,8 @@
 <p>Dans le cadre de la méthode scientifique, et pour un but de recherche explicatif, la formulation de l'hypothèse <em>à l'avance</em> est une étape cruciale. D'une part, le contenu de l'hypothèse informe la construction de l'expérience et la collecte des données. D'autre part, formuler l'hypothèse à l'avance permet au chercheur de ne pas être influencé par les données lors de la formulation de l'hypothèse, ce qui pourrait biaiser l'analyse. En effet, il est toujours facile de formuler une hypothèse en ayant vu les données, mais ce qui permet de décider de la validité d'une hypothèse, c'est sa capacité à prédire des résultats <em>avant</em> de les voir.<br />
 Nous verrons plus tard dans ce cours comment tester formellement des hypothèses à l'aide de tests statistiques. Nous verrons également comment sans formuler d'hypothèse à l'avance, on prend le risque de "trouver" des relations qui n'existent pas réellement dans les données.</p>
 <p>En fait, quand on teste une hypothèse, on compare deux hypothèses alternatives : l'hypothèse nulle (notée $H_0$) et l'hypothèse alternative (souvent notée $H_a$). L'hypothèse nulle est généralement une affirmation de "non-effet" ou "non-relation", tandis que l'hypothèse alternative est ce que le chercheur cherche à montrer. Par exemple, si l'on veut tester si un nouveau médicament est efficace, l'hypothèse nulle pourrait être "le médicament n'a pas d'effet sur la maladie", tandis que l'hypothèse alternative serait "le médicament améliore la condition des patients". Dans certains cas, quand des connaissances existent déjà sur le sujet, l'hypothèse nulle peut être plus spécifique que "pas de relation" et l'hypothèse alternative en constitue une version qu'on espère plus précise. Par exemple, on peut déjà savoir qu'il existe une relation entre deux variables, mais on veut tester si cette relation est positive ou négative.</p>
-<h2 id="opérationnalisation-et-outils-de-collecte-des-données">Opérationnalisation et outils de collecte des données</h2>
-<h3 id="opérationnalisation">Opérationnalisation</h3>
+<h2 id="opérationnalisation-et-outils-de-collecte-des-données">II.2 Opérationnalisation et outils de collecte des données</h2>
+<h3 id="opérationnalisation">II.2.1 Opérationnalisation</h3>
 <p>L'opérationnalisation consiste à transformer des concepts abstraits en variables concrètes et mesurables. C'est le processus qui permet de passer de l'idée théorique à la mesure empirique.</p>
 <p>Par exemple, pour décider des directions à suivre dans une politique de santé publique, on pourrait avoir envie de mesurer "l'accès aux soins". Tel quel, ce concept est trop vague pour pouvoir être mesuré. Il faut donc <em>choisir</em> quel sens quantitatif on donne à ce concept. On peut choisir de l'opérationnaliser comme :</p>
 <ul>
@@ -136,7 +135,7 @@ Le fait que les deux groupes aient des évolutions opposées alors qu'ils sont e
 
 <p>Être fidèle ne garantit pas d'être valide, et inversement. Par exemple, se peser avec une balance dont la tare n'est pas faite donne des mesures fidèles, mais pas valides. De même, les mesures phrénologiques (mesure des bosses sur le crâne) étaient considérées comme fidèles (plusieurs observateurs mesuraient les mêmes bosses de la même manière), mais pas valides (elles ne mesuraient pas réellement les traits de personnalité).</p>
 <p>La validité d'un test est souvent plus difficile à établir que sa fidélité, pour laquelle on peut appliquer "réflexivement" les méthodes de l'analyse quantitative : nous y reviendrons.</p>
-<h3 id="comment-opérationnaliser-un-concept">Comment opérationnaliser un concept ?</h3>
+<h3 id="comment-opérationnaliser-un-concept">II.2.2 Comment opérationnaliser un concept ?</h3>
 <p>La réponse dépend fortement de la question de recherche, du concept à mesurer, mais aussi des moyens de l'étude et des restrictions qui l'encadrent. Cependant, en général, on peut partir du principe qu'<em>opérationnaliser, c'est décomposer</em>. Si la question de recherche s'intéresse à un domaine très restreint, on peut souvent transformer directement la question en une variable mesurable.</p>
 <div class="bloc bloc-exemple" id="exemple-5">
   <div class="bloc-header">💡 Exemple 5 — Incidence du diabète <span class="bloc-id">(exemple-5)</span></div>
@@ -192,7 +191,7 @@ $$\text{IDH} = (I_{sante} \times I_{education} \times I_{revenu})^{1/3}$$</p>
 </div>
 
 <p>À la fin du processus d'opérationnalisation, on doit disposer d'une liste claire des informations que l'on veut mesurer pour chacune des unités statistiques étudiées, ainsi que leurs unités de mesure. Chaque indicateur mesuré sur un des sujets de l'étude forme ce que l'on appelle une <em>variable</em><sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>. On a également un plan clair de la façon dont on va combiner (ou pas) ces variables. Il reste à les récolter.</p>
-<h3 id="sélection-des-outils-de-collecte">Sélection des outils de collecte</h3>
+<h3 id="sélection-des-outils-de-collecte">II.2.3 Sélection des outils de collecte</h3>
 <p>Une fois les variables opérationnalisées, il faut concevoir les instruments qui permettront de collecter les données.<br />
 Dans certains cas, on est chanceux, et tout ou partie des données voulues existe déjà. On parle de <strong>données secondaires</strong>, par opposition aux <strong>données primaires</strong>, qui sont collectées spécifiquement pour l'étude en cours. Dans ce cas, "l'outil de collecte" est le protocole d'extraction de ces données des bases où elles sont conservées.<br />
 Bien que simple<sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup> d'un point de vue logistique, l'utilisation de données existantes impose souvent des contraintes sur les variables disponibles et leur qualité. Si deux (ou plus) jeux de données sont combinés, il faut aussi s'assurer de la compatibilité des formats et définitions, des populations étudiées, etc. Il est fréquent qu'à la fois des données primaires et secondaires soient utilisées dans une même étude, par exemple pour compléter des données existantes ou pour les valider, ou, a minima, pour les comparer.</p>
@@ -221,9 +220,9 @@ On distingue deux types de questions dans les questionnaires :</p>
 <p><strong>Grilles d'observation</strong> — Formulaires standardisés remplis par le chercheur pour enregistrer systématiquement des comportements ou événements observés. On peut voir les grilles d'analyse de documents comme un cas particulier de grilles d'observation. Par exemple, un chercheur étudiant le comportement de la foule lors d'un événement sportif peut utiliser une grille d'observation pour enregistrer des données telles que le nombre de personnes présentes, les types de comportements observés (applaudissements, chants, etc.), et les réactions à différents moments du match.</p>
 <p><strong>Tests standardisés</strong> — Instruments validés mesurant des capacités, aptitudes ou traits. Souvent, la construction de ces tests est un projet de recherche en soi, nécessitant des études préliminaires pour établir leur validité et fidélité. Une fois la qualité du test établie, il peut être utilisé dans d'autres études pour mesurer le même concept de manière fiable.</p>
 <p><strong>Entretiens structurés</strong> — On définit un protocole d'entretien : on a des questions prédéfinies posées de manière uniforme à tous les participants, et éventuellement un arbre de décision pour guider les questions en fonction des réponses.</p>
-<h2 id="collecte-des-données">Collecte des données</h2>
+<h2 id="collecte-des-données">II.3 Collecte des données</h2>
 <p>Une fois les outils de collecte définis, il reste à procéder à la collecte des données : appliquer les outils de mesure à chaque unité statistique de l'étude. Dans le cas idéal, on mesure toutes les unités de la population d'intérêt : on parle de <strong>recensement</strong>. Cependant, cela est souvent impossible en pratique, pour des raisons de coût, de temps ou de faisabilité. On utilise alors des techniques d'<strong>échantillonnage</strong> pour sélectionner un sous-ensemble dont la composition, pour les mesures qui nous intéressent au moins, reflètent celle de la population. On dit dans ce cas que l'échantillon est <strong>représentatif</strong>.</p>
-<h3 id="recensement">Recensement</h3>
+<h3 id="recensement">II.3.1 Recensement</h3>
 <p>Dans son sens habituel, un recensement d'une population signifie la collecte des données démographiques et socio-économiques de tous les individus d'une population donnée. Par exemple, le recensement de la population canadienne, effectué tous les 5 ans par Statistique Canada, vise à collecter des informations détaillées sur chaque résident du pays. Les données recueillies comprennent des informations sur l'âge, le sexe, la langue parlée, le niveau d'éducation, l'emploi, le revenu, etc. Ces données sont cruciales pour la planification des politiques publiques, la répartition des ressources et la compréhension des tendances démographiques.</p>
 <p>Dans le langage des méthodes quantitatives, le mot recensement désigne plus généralement la collecte des données pour <em>toutes</em> les unités statistiques d'une population donnée. Par exemple, un archéologue peut décider de recenser tous les artefacts trouvés sur un site donné ou un historien peut décider de recenser tous les documents d'une archive spécifique.<br />
 Le recensement est la méthode de collecte de données la plus complète, car elle permet d'obtenir des informations sur chaque unité de la population. Si le recensement est possible, il va nécessairement fournir les données les plus précises et complètes pour l'analyse quantitative. Cependant, mener un recensement complet peut être infaisable en pratique, pour diverses raisons. On peut au moins considérer les suivantes :</p>
@@ -233,7 +232,7 @@ Le recensement est la méthode de collecte de données la plus complète, car el
 <li><strong>Accessibilité</strong> : Certaines unités de la population peuvent être difficiles à atteindre ou à mesurer. Par exemple, certaines populations marginalisées ou isolées peuvent être difficiles à inclure dans un recensement.</li>
 <li><strong>Perturbation</strong> : Le processus de recensement peut perturber la population étudiée, surtout si la collecte de données est intrusive ou exigeante. Par exemple, un recensement médical peut nécessiter des examens physiques ou des tests invasifs. Dans le cas d'un recensement archéologique, le processus de fouille peut endommager les artefacts ou les contextes stratigraphiques : on pourrait vouloir par exemple broyer des dents trouvées dans un site néolithique pour détecter la présence de la peste : on évite en général de broyer <em>toutes</em> celles qu'on trouve.</li>
 </ul>
-<h3 id="échantillonnage">Échantillonnage</h3>
+<h3 id="échantillonnage">II.3.2 Échantillonnage</h3>
 <p>L'échantillonnage est le processus de sélection d'un sous-ensemble représentatif de la population. Il existe plusieurs méthodes, chacune avec ses avantages et limites. La qualité de l'échantillonnage influence directement la validité des conclusions tirées de l'analyse quantitative. Toutes choses étant égales par ailleurs, plus un échantillon est grand, plus la précision des estimations sera bonne. Dans le cas idéal, on prend comme échantillon la population entière et les conclusions sont parfaites. Ce n'est pas souvent possible en pratique, pour des raisons de coût, de temps ou de faisabilité et il appartient au chercheur de trouver un équilibre entre les ressources disponibles de son étude et la précision désirée, en fonction de la variabilité de la population étudiée.</p>
 <div class="bloc bloc-exemple" id="exemple-9">
   <div class="bloc-header">💡 Exemple 9 — Biais d&#x27;échantillonnage <span class="bloc-id">(exemple-9)</span></div>
@@ -256,7 +255,7 @@ Le recensement est la méthode de collecte de données la plus complète, car el
   <div class="bloc-body"><p>L'<strong>échantillonnage</strong> est l'ensemble des techniques utilisées pour sélectionner un échantillon à partir d'une population, de manière que les caractéristiques de l'échantillon reflètent celles de la population.</p></div>
 </div>
 
-<h3 id="méthodes-déchantillonnage-probabilistes">Méthodes d'échantillonnage probabilistes</h3>
+<h3 id="méthodes-déchantillonnage-probabilistes">II.3.3 Méthodes d'échantillonnage probabilistes</h3>
 <p>Le principe fondamental des méthodes d'échantillonnage probabilistes est que chaque unité de la population a une probabilité connue et non nulle d'être incluse dans l'échantillon. Cela permet de minimiser les biais de sélection et de garantir une forte probabilité que l'échantillon soit représentatif de la population. De plus, les méthodes probabilistes permettent d'estimer la marge d'erreur et la précision des résultats obtenus à partir de l'échantillon.</p>
 <p>En contrepartie de cette précision, la majorité des méthodes d'échantillonnage probabilistes nécessitent une liste complète des unités de la population, appelée <strong>cadre</strong> ou <strong>base d'échantillonnage</strong>. Cette liste permet de sélectionner les unités de manière aléatoire selon la méthode choisie. On suppose que pour chaque unité de la population, on peut récolter les données voulues (joindre la personne, accéder à l'artéfact pour le mesurer, lire le document, etc.).</p>
 <p><strong>Aléatoire simple</strong> — On numérote chaque unité de la population, puis on utilise un générateur de nombres aléatoires pour sélectionner les unités (distinctes) à inclure dans l'échantillon. Chaque unité a la même probabilité d'être sélectionnée.</p>
@@ -318,7 +317,7 @@ Une question plus adaptée serait par exemple le temps de trajet domicile-école
 </ul></div>
 </div>
 
-<h3 id="méthodes-déchantillonnage-non-probabilistes">Méthodes d'échantillonnage non probabilistes</h3>
+<h3 id="méthodes-déchantillonnage-non-probabilistes">II.3.4 Méthodes d'échantillonnage non probabilistes</h3>
 <p>Contrairement aux méthodes probabilistes, les méthodes d'échantillonnage non probabilistes ne reposent pas sur le hasard pour sélectionner les unités de l'échantillon. Elles sont souvent utilisées lorsque la constitution d'une liste exhaustive de la population est impossible ou lorsque des contraintes pratiques l'imposent. Cependant, elles présentent un risque plus élevé de biais et ne permettent généralement pas de généraliser les résultats à l'ensemble de la population.</p>
 <p><strong>Échantillonnage par convenance</strong> — On sélectionne les individus les plus facilement accessibles ou disponibles (ex. : interroger les passants dans la rue, les étudiants présents en classe).</p>
 <ul>
@@ -360,9 +359,9 @@ Une question plus adaptée serait par exemple le temps de trajet domicile-école
   <div class="bloc-body"><p>Les méthodes non probabilistes sont parfois inévitables, mais il faut être conscient de leurs limites et éviter de généraliser les résultats à l'ensemble de la population sans précautions.</p></div>
 </div>
 
-<h2 id="analyse-des-données">Analyse des données</h2>
+<h2 id="analyse-des-données">II.4 Analyse des données</h2>
 <p>L'analyse elle-même est le sujet principal de ce cours, que l'on explorera en détails dans les chapitres suivants. Cependant, avant de plonger dans les méthodes statistiques, il est important de comprendre les étapes préliminaires cruciales qui garantissent la qualité et la fiabilité des résultats obtenus. Cette section présente un aperçu des principales étapes de l'analyse des données, depuis le nettoyage initial jusqu'à l'interprétation des résultats.</p>
-<h3 id="nettoyage-et-préparation-des-données">Nettoyage et préparation des données</h3>
+<h3 id="nettoyage-et-préparation-des-données">II.4.1 Nettoyage et préparation des données</h3>
 <p>Avant d'analyser les données, il est essentiel de les nettoyer et de les préparer. Cette étape, souvent sous-estimée, peut représenter jusqu'à 80 % du temps de la phase d'analyse. Heureusement pour nous, on supposera dans ce cours que les données sont déjà collectées et disponibles sous une forme exploitable (tableur, base de données, etc.). Cependant, il est rare que les données brutes soient prêtes à l'analyse sans un certain travail de préparation. Le nettoyage des données vise à identifier et corriger les erreurs, gérer les valeurs manquantes, et transformer les données pour les rendre cohérentes et adaptées aux analyses statistiques prévues.</p>
 <div class="bloc bloc-exemple" id="exemple-18">
   <div class="bloc-header">💡 Exemple 18 — Nettoyage de données <span class="bloc-id">(exemple-18)</span></div>
@@ -516,11 +515,11 @@ Une question plus adaptée serait par exemple le temps de trajet domicile-école
 <p>Toute décision de nettoyage doit être documentée et justifiée. La suppression ou modification de données doit être faite avec précaution et transparence pour maintenir l'intégrité de la recherche.</p></div>
 </div>
 
-<h3 id="traitement-statistique-des-données">Traitement statistique des données</h3>
+<h3 id="traitement-statistique-des-données">II.4.2 Traitement statistique des données</h3>
 <p>On abordera en détail les différentes méthodes statistiques dans les chapitres suivants. De nombreuses techniques existent pour décrire, résumer, et analyser les données et le choix de la méthode dépend des objectifs de l'étude, du type de données et des hypothèses sous-jacentes.</p>
-<h3 id="interprétation-des-mesures">Interprétation des mesures</h3>
+<h3 id="interprétation-des-mesures">II.4.3 Interprétation des mesures</h3>
 <p>Bien que certaines constructions statistiques soient intuitives (comme la moyenne ou la médiane), d'autres le sont moins (comme l'écart-type, les intervalles de confiance, les tests d'hypothèses, etc.). Il est crucial de comprendre non seulement comment calculer ces mesures, mais aussi comment les interpréter correctement dans le contexte de l'étude. Au cours des prochains chapitres, nous verrons en détail à quelles questions chaque mesure répond, comment les interpréter et quelles précautions prendre pour éviter les erreurs d'interprétation courantes.</p>
-<h2 id="communication-des-résultats">Communication des résultats</h2>
+<h2 id="communication-des-résultats">II.5 Communication des résultats</h2>
 <p>Tout le travail effectué pour collecter, nettoyer, analyser et interpréter les données n'a de valeur que si les résultats sont communiqués de manière claire et efficace. La communication des résultats peut prendre plusieurs formes, en fonction du public-cible et des objectifs de la communication. Les chercheurs tendent à publier leurs résultats dans des articles scientifiques, tandis que les décideurs peuvent préférer des rapports exécutifs ou des présentations visuelles. Les instituts de sondage communiquent souvent leurs résultats via des infographies ou des communiqués de presse.</p>
 <p>D'une façon générale, une bonne communication en analyse quantitative donne toutes les informations nécessaires pour que le lecteur puisse comprendre les résultats, évaluer leur validité, et les utiliser pour prendre des décisions éclairées. Cela inclut la description claire de la méthodologie utilisée, la présentation transparente des résultats, et de leur interprétation. En général, cela représente un volume d'information assez important et il est donc important de structurer la communication de manière logique et accessible.</p>
 <p>La communication efficace des résultats statistiques eux-mêmes appelle souvent à utiliser des tableaux et graphiques de toutes sortes. Le choix des représentations utilisées dépend du type de données, des résultats à mettre en avant et du type de public visé. Par exemple, si les données sont naturellement ordonnées (comme des dates ou des revenus), on préférera les présenter dans le bon ordre dans une table ou choisir une représentation graphique qui reflète cet ordre. On consacrera un chapitre à l'organisation et à la présentation des données.</p>
@@ -573,10 +572,10 @@ Une question plus adaptée serait par exemple le temps de trajet domicile-école
 </div>
 
 <hr />
-<h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
 <div class="bloc bloc-resume" id="resume-1">
-  <div class="bloc-header">📋 Résumé du chapitre 1 <span class="bloc-id">(resume-1)</span></div>
-  <div class="bloc-body"><h3>Les étapes de la recherche quantitative</h3>
+  <div class="bloc-header">📋 Résumé du chapitre II <span class="bloc-id">(resume-1)</span></div>
+  <div class="bloc-body"><h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<h3>Les étapes de la recherche quantitative</h3>
 <div class="bloc bloc-figure" id="fig-3">
   <div class="bloc-header">🖼 Figure 3 — Processus de recherche quantitative <span class="bloc-id">(fig-3)</span></div>
   <div class="bloc-body"><img src="figures/processus_recherche.png" alt="Figure"></div>
@@ -669,6 +668,6 @@ Une question plus adaptée serait par exemple le temps de trajet domicile-école
   </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=1779802943"></script>
 </body>
 </html>

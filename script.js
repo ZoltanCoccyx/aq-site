@@ -1,4 +1,48 @@
 (function () {
+  // ── Thème : lecture depuis l'URL, localStorage ou OS ─────────────────────
+  var html = document.documentElement;
+  var urlParams = new URLSearchParams(window.location.search);
+  var themeFromUrl = urlParams.get('theme');
+  var themeFromStorage = localStorage.getItem('theme');
+
+  // Appliquer le thème : URL > localStorage > OS
+  var initialTheme;
+  if (themeFromUrl) {
+    initialTheme = themeFromUrl;
+  } else if (themeFromStorage) {
+    initialTheme = themeFromStorage;
+  } else {
+    initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  html.setAttribute('data-theme', initialTheme);
+
+  // ── Propager le thème dans l'URL (sans rechargement) ────────────────────
+  function setUrlTheme(theme) {
+    var url = new URL(window.location);
+    if (theme === 'dark') {
+      url.searchParams.set('theme', 'dark');
+    } else {
+      url.searchParams.set('theme', 'light');
+    }
+    window.history.replaceState({}, '', url);
+  }
+
+  // ── Intercepter les liens internes pour propager le thème ────────────────
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (!href) return;
+    // Ne pas intercepter les ancres internes (#...), les liens externes, ou vides
+    if (href.startsWith('#') || href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:')) return;
+    var currentTheme = html.getAttribute('data-theme') || 'light';
+    var linkUrl = new URL(href, window.location.origin);
+    linkUrl.searchParams.set('theme', currentTheme);
+    // Sauvegarder aussi dans localStorage pour les pages qui n'auraient pas JS
+    localStorage.setItem('theme', currentTheme);
+    link.href = linkUrl.toString();
+  });
+
   // ── Sidebar toggle (mobile) ───────────────────────────────────────────────
   var toggle = document.getElementById('sidebar-toggle');
   var sidebar = document.getElementById('sidebar');
@@ -45,37 +89,40 @@
   }
 
   // ── Bouton mode sombre / clair ───────────────────────────────────────────
-  var themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) {
-    var html = document.documentElement;
-
+  var themeBtns = document.querySelectorAll('#theme-toggle, .theme-toggle');
+  if (themeBtns.length) {
     function getTheme() {
       return html.getAttribute('data-theme') || 'light';
     }
 
-    function updateBtn() {
+    function updateBtns() {
       var dark = getTheme() === 'dark';
-      themeBtn.textContent = dark ? '☀️' : '🌙';
-      themeBtn.title = dark ? 'Passer en mode clair' : 'Passer en mode sombre';
+      themeBtns.forEach(function (btn) {
+        btn.textContent = dark ? '☀️' : '🌙';
+        btn.title = dark ? 'Passer en mode clair' : 'Passer en mode sombre';
+      });
     }
 
-    themeBtn.addEventListener('click', function () {
-      var newTheme = getTheme() === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateBtn();
+    themeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var newTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        setUrlTheme(newTheme);
+        updateBtns();
+      });
     });
 
     // Suivre la préférence OS (seulement si pas de choix explicite)
     var mq = window.matchMedia('(prefers-color-scheme: dark)');
     mq.addEventListener('change', function () {
-      if (!localStorage.getItem('theme')) {
+      if (!localStorage.getItem('theme') && !urlParams.get('theme')) {
         html.setAttribute('data-theme', mq.matches ? 'dark' : 'light');
-        updateBtn();
+        updateBtns();
       }
     });
 
-    updateBtn();
+    updateBtns();
   }
 
   // ── Pied de page : année dynamique ───────────────────────────────────────

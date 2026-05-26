@@ -391,8 +391,6 @@ Avant d'analyser les données, il est essentiel de les nettoyer et de les prépa
 - ID 3, 5 : Codage incohérent du sexe (m vs M, H vs M)
 
 On a *choisi*[^8] de remplacer les âges et notes manquantes par "ND" (Non Disponible) et de corriger le codage du sexe pour le rendre uniforme. On aurait pu choisir d'imputer les valeurs manquantes par la moyenne des âges et des notes, mais dans ce cas précis, vu le petit nombre de données, on préfère garder l'information de manque.
-
-
 <!-- BLOC:methode id="methode-2" titre="Nettoyage des données" -->
 **Méthode — Nettoyage des données**
 
@@ -492,11 +490,13 @@ Pour le plaisir, voici un exemple extrême de mauvaise communication statistique
 <!-- BLOC:figure id="fig-2" image="figures/costco.jpeg" -->
 **Figure 2 — Exemple de mauvaise communication statistique**
 <!-- /BLOC:figure -->
+
 ---
+
+<!-- BLOC:resume id="resume-1" -->
 
 ## Résumé du chapitre
 
-<!-- BLOC:resume id="resume-1" -->
 ### Les étapes de la recherche quantitative
 
 <!-- BLOC:figure id="fig-3" image="figures/processus_recherche.png" -->

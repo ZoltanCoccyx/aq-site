@@ -135,7 +135,14 @@ body {
 }
 
 .nav-item.level-h2 { font-weight: 600; margin-top: .3rem; }
-.nav-item.level-h3 { padding-left: 2.1rem; font-size: .8rem; color: #475569; }
+.nav-item.level-h3 {
+  padding-left: 2.1rem;
+  font-size: .8rem;
+  font-weight: 400;
+  color: #475569;
+}
+
+.nav-item.level-h3.active { font-weight: 600; color: var(--bleu); }
 
 /* Toggle sidebar sur mobile */
 #sidebar-toggle {

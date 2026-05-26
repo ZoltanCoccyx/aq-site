@@ -504,9 +504,9 @@ L'absurdité du modèle est claire si on le pousse plus loin encore : assez loin
 
 ---
 
-## Résumé du chapitre
-
 <!-- BLOC:resume id="resume-1" -->
+
+## Résumé du chapitre
 
 ### Concepts clés
 

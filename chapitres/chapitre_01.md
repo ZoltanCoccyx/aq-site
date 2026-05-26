@@ -189,13 +189,10 @@ En résumé, voici une liste non exhaustive de problèmes éthiques qui peuvent 
 - **Problèmes impactant directement la validité des conclusions :** Interprétation biaisée des résultats pour soutenir un agenda particulier, incluant la validation de préjudices, la stigmatisation ou marginalisation des groupes étudiés, le gain personnel, conflits d'intérêts non divulgués, publication de résultats non vérifiés ou non reproductibles, etc.
 
 Évidemment, un problème en amont peut entraîner des problèmes en aval : par exemple, la collecte de données sans consentement éclairé peut conduire à des données biaisées, ce qui peut à son tour conduire à des conclusions erronées ou biaisées. De même, l'interprétation biaisée des résultats peut conduire à des politiques publiques inappropriées ou injustes. Il est donc crucial de maintenir des normes éthiques élevées à chaque étape du processus de recherche pour garantir la qualité et l'intégrité de la recherche en sciences humaines.
-
-## Résumé du chapitre
-
+<!-- BLOC:resume id="resume-1" -->
 ---
 
-<!-- BLOC:resume id="resume-1" -->
-
+## Résumé du chapitre
 ### Concepts clés
 
 <!-- BLOC:tableau id="tab-3" titre="Concepts clés de l'analyse quantitative" -->

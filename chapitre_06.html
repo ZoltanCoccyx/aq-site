@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Chapitre VI — Analyse bivariée</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
-  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
-  <link rel="stylesheet" href="style.css">
+  <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="style.css?v=1779804476">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -31,8 +31,6 @@
   <div id="sidebar-header">
     <div id="sidebar-top">
       <a href="index.html">⬅ Table des matières</a>
-      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
-    </div>
     <a href="chapitre_01.html">Chap. 01</a>
 <a href="chapitre_02.html">Chap. 02</a>
 <a href="chapitre_03.html">Chap. 03</a>
@@ -40,19 +38,20 @@
 <a href="chapitre_05.html">Chap. 05</a>
 <span style="font-weight:700;color:var(--bleu)">Chap. 06</span>
     <div id="sidebar-title">Dans ce chapitre</div>
+    </div>
   </div>
-  <a class="nav-item level-h2" href="#types-de-lien-entre-deux-variables" data-id="types-de-lien-entre-deux-variables">Types de lien entre deux variables</a>
-<a class="nav-item level-h3" href="#causalité" data-id="causalité">Causalité</a>
-<a class="nav-item level-h3" href="#influence-mutuelle" data-id="influence-mutuelle">Influence (mutuelle)</a>
-<a class="nav-item level-h3" href="#concomitance" data-id="concomitance">Concomitance</a>
-<a class="nav-item level-h3" href="#indépendance" data-id="indépendance">Indépendance</a>
-<a class="nav-item level-h2" href="#test-dhypothèse-le-chi2" data-id="test-dhypothèse-le-chi2">Test d&#x27;hypothèse : le $\chi^2$</a>
-<a class="nav-item level-h3" href="#généralités-sur-les-tests-statistiques" data-id="généralités-sur-les-tests-statistiques">Généralités sur les tests statistiques</a>
-<a class="nav-item level-h3" href="#test-du-chi2" data-id="test-du-chi2">Test du $\chi^2$</a>
-<a class="nav-item level-h2" href="#corrélation-et-régression-linéaire" data-id="corrélation-et-régression-linéaire">Corrélation et régression linéaire</a>
-<a class="nav-item level-h3" href="#corrélation" data-id="corrélation">Corrélation</a>
-<a class="nav-item level-h3" href="#régression" data-id="régression">Régression</a>
-<a class="nav-item level-h3" href="#prédictions" data-id="prédictions">Prédictions ?</a>
+  <a class="nav-item level-h2" href="#types-de-lien-entre-deux-variables" data-id="types-de-lien-entre-deux-variables">VI.1 Types de lien entre deux variables</a>
+<a class="nav-item level-h3" href="#causalité" data-id="causalité">VI.1.1 Causalité</a>
+<a class="nav-item level-h3" href="#influence-mutuelle" data-id="influence-mutuelle">VI.1.2 Influence (mutuelle)</a>
+<a class="nav-item level-h3" href="#concomitance" data-id="concomitance">VI.1.3 Concomitance</a>
+<a class="nav-item level-h3" href="#indépendance" data-id="indépendance">VI.1.4 Indépendance</a>
+<a class="nav-item level-h2" href="#test-dhypothèse-le-chi2" data-id="test-dhypothèse-le-chi2">VI.2 Test d&#x27;hypothèse : le $\chi^2$</a>
+<a class="nav-item level-h3" href="#généralités-sur-les-tests-statistiques" data-id="généralités-sur-les-tests-statistiques">VI.2.1 Généralités sur les tests statistiques</a>
+<a class="nav-item level-h3" href="#test-du-chi2" data-id="test-du-chi2">VI.2.2 Test du $\chi^2$</a>
+<a class="nav-item level-h2" href="#corrélation-et-régression-linéaire" data-id="corrélation-et-régression-linéaire">VI.3 Corrélation et régression linéaire</a>
+<a class="nav-item level-h3" href="#corrélation" data-id="corrélation">VI.3.1 Corrélation</a>
+<a class="nav-item level-h3" href="#régression" data-id="régression">VI.3.2 Régression</a>
+<a class="nav-item level-h3" href="#prédictions" data-id="prédictions">VI.3.3 Prédictions ?</a>
 <a class="nav-item level-h2" href="#résumé-du-chapitre" data-id="résumé-du-chapitre">Résumé du chapitre</a>
 </nav>
 
@@ -64,7 +63,7 @@
 <li>Comment détecter et mesurer ce lien ?</li>
 <li>Comment utiliser ce lien pour faire des prédictions ?</li>
 </ul>
-<h2 id="types-de-lien-entre-deux-variables">Types de lien entre deux variables</h2>
+<h2 id="types-de-lien-entre-deux-variables">VI.1 Types de lien entre deux variables</h2>
 <p>Rappelons les notions de variable indépendante et variable dépendante, vues dans le chapitre 2.</p>
 <div class="bloc bloc-definition" id="definition-1">
   <div class="bloc-header">📘 Définition 1 — Variable indépendante et variable dépendante <span class="bloc-id">(definition-1)</span></div>
@@ -72,7 +71,7 @@
 </div>
 
 <p>On rappelle que contrairement au langage courant, la variable dépendante ne dépend pas nécessairement de la variable indépendante : cette terminologie reflète le rôle joué par les variables dans une expérience, et non pas la nature de leur relation. Notons aussi que la "manipulation" de la variable indépendante peut être plus ou moins artificielle : dans une expérience, le chercheur peut faire varier la variable indépendante en assignant les participants à différents groupes, ou en leur faisant suivre différentes procédures. Mais dans une étude observationnelle, le chercheur peut simplement mesurer la variable indépendante telle qu'elle existe naturellement, sans intervenir et utiliser ses variations naturelles pour expliquer les variations de la variable dépendante.</p>
-<h3 id="causalité">Causalité</h3>
+<h3 id="causalité">VI.1.1 Causalité</h3>
 <div class="bloc bloc-definition" id="definition-2">
   <div class="bloc-header">📘 Définition 2 — Relation de causalité <span class="bloc-id">(definition-2)</span></div>
   <div class="bloc-body"><p>Dire que la variable $X$ cause la variable $Y$ signifie que la présence ou l'amplitude de $X$ est directement responsable de la présence ou de l'amplitude de $Y$. En d'autres termes, la variable $Y$ dépend de la variable $X$ au sens habituel du terme "dépendance" : $Y$ ne peut pas exister ou ne peut pas prendre certaines valeurs sans $X$. On dit que $X$ est la variable causale de $Y$.</p></div>
@@ -84,7 +83,7 @@
   <div class="bloc-body"><p>Le tabagisme est une cause du cancer du poumon : fumer des cigarettes augmente le risque de développer un cancer du poumon, mais développer un cancer du poumon ne fait pas augmenter le risque de devenir fumeur.</p></div>
 </div>
 
-<h3 id="influence-mutuelle">Influence (mutuelle)</h3>
+<h3 id="influence-mutuelle">VI.1.2 Influence (mutuelle)</h3>
 <p>Dans la réalité, il est relativement rare que les liens de cause et d'effet entre deux variables soient clairs et surtout "totaux" au sens où une variable explique complètement l'autre. Souvent, pour un effet donné, les causes sont multifactorielles et il n'est pas rare que des rétroactions fassent que la variable "d'effet" entraine des variations dans la variable de "cause". Dans ces cas où il existe une influence mais où la causalité n'est pas aussi nette que pour un lien de causalité à proprement parler, on parle, sans surprise de <em>lien d'influence</em>.</p>
 <div class="bloc bloc-definition" id="definition-3">
   <div class="bloc-header">📘 Définition 3 — Relation d&#x27;influence <span class="bloc-id">(definition-3)</span></div>
@@ -97,7 +96,7 @@
   <div class="bloc-body"><p>L'inflation est, grossièrement, causée par le fait que "trop" d'argent se dispute "trop peu" de biens. Une manière de faire baisser l'inflation est d'encourager les gens à garder leur argent dans leur épargne, en augmentant les taux d'intérêts. Ainsi, il y a un lien entre les taux d'intérêts et l'inflation, et ce lien est bidirectionnel. En effet, trop d'inflation est mauvaise pour l'économie et une inflation élevée pousse les banques centrales à augmenter leur taux directeur qui, à son tour, pousse l'inflation vers le bas.</p></div>
 </div>
 
-<h3 id="concomitance">Concomitance</h3>
+<h3 id="concomitance">VI.1.3 Concomitance</h3>
 <p>On l'a déjà vu dans la première partie du cours, des grandeurs peuvent varier ensemble sans que l'une soit la cause de l'autre, ni même que les deux s'influencent mutuellement : par exemple, les parapluies et les bottes de pluie sont concomitants, car ils sont tous les deux liés à la pluie, mais ils ne causent pas l'un l'autre et ne s'influencent pas mutuellement.</p>
 <div class="bloc bloc-definition" id="definition-4">
   <div class="bloc-header">📘 Définition 4 — Relation de concomitance <span class="bloc-id">(definition-4)</span></div>
@@ -110,7 +109,7 @@
   <div class="bloc-body"><p>Le nombre de visites à l'opéra, en concert, etc, et la valeur de la voiture possédée sont positivement liés, mais aucun des deux ne cause l'autre : les deux sont influencés positivement par le revenu disponible.</p></div>
 </div>
 
-<h3 id="indépendance">Indépendance</h3>
+<h3 id="indépendance">VI.1.4 Indépendance</h3>
 <p>À l'opposé de la causalité, il peut y avoir indépendance entre deux variables : les variations de l'une n'ont aucune influence sur les variations de l'autre.</p>
 <div class="bloc bloc-definition" id="definition-5">
   <div class="bloc-header">📘 Définition 5 — Indépendance <span class="bloc-id">(definition-5)</span></div>
@@ -124,8 +123,8 @@
 <p>Inversement, le fait d'être allé au cinéma et le fait d'avoir mangé du pop-corn ne sont pas indépendants, car parmi les personnes allant au cinéma, la proportion de celles ayant mangé du pop-corn est plus élevée que dans la population générale.</p></div>
 </div>
 
-<h2 id="test-dhypothèse-le-chi2">Test d'hypothèse : le $\chi^2$</h2>
-<h3 id="généralités-sur-les-tests-statistiques">Généralités sur les tests statistiques</h3>
+<h2 id="test-dhypothèse-le-chi2">VI.2 Test d'hypothèse : le $\chi^2$</h2>
+<h3 id="généralités-sur-les-tests-statistiques">VI.2.1 Généralités sur les tests statistiques</h3>
 <p>L'idée générale d'un test statistique pour différencier entre deux hypothèses $H_0$ et $H_1$ est de construire un nombre à partir d'un échantillon de données, appelé <em>statistique de test</em>, qui va prendre des valeurs "extrêmes" si l'hypothèse nulle $H_0$ est fausse et des valeurs "modérées" si l'hypothèse nulle $H_0$ est vraie. On calcule cette statistique sur notre échantillon, puis on se pose la question de savoir à quel point l'observation d'une valeur au moins aussi extrême que celle que l'on a observée est probable si $H_0$ est vraie. Si l'observation est très improbable (à un niveau fixé à l'avance que l'on appelle le <em>seuil de signification</em>) sous $H_0$, alors on rejette $H_0$ au profit de $H_1$. Inversement, si l'observation donne quelque chose "d'attendu" sous $H_0$, on continue de croire que $H_0$ est vraie (au moins provisoirement) et on ne rejette pas $H_0$ au profit de $H_1$.</p>
 <div class="bloc bloc-exemple" id="exemple-5">
   <div class="bloc-header">💡 Exemple 5 <span class="bloc-id">(exemple-5)</span></div>
@@ -164,7 +163,7 @@
 <p>Si on ajoute à cela l'information que seule une personne sur 10 000 est infectée, si une personne fait un test qui revient positif, le risque que cette personne soit malade est en fait assez faible, car il y a beaucoup plus de chance (a priori) que cette personne soit sur la courbe bleue, où elle a de grande chance d'être détectée par erreur. C'est pour cela que dans le cas de maladies graves avec des traitements lourds, on préfère souvent faire un test de dépistage avec un seuil de détection bas, pour être sûr de détecter les patients ayant besoin de traitement, puis faire un test de confirmation avec un seuil de détection plus élevé, pour être sûr de ne pas traiter des patients sains.</p></div>
 </div>
 
-<h3 id="test-du-chi2">Test du $\chi^2$</h3>
+<h3 id="test-du-chi2">VI.2.2 Test du $\chi^2$</h3>
 <p>Imaginons que l'on choisisse 100 personnes au hasard au Québec, et qu'on leur fasse chacun tirer une pièce, puis qu'on enregistre le genre de la personne et le résultat du tirage. Comme il y a autant d'hommes que de femmes au Québec (à très peu de choses près), on s'attend à ce qu'on ait 50% d'hommes et, si la pièce n'est pas truquée, que 50% d'entre eux tirent pile, pour un total de 25% d'hommes qui tirent pile. De même, on s'attend à ce que 25% d'hommes tirent face, 25% de femmes tirent pile et 25% de femmes tirent face. Imaginons que l'on observe la répartition suivante :</p>
 <div class="bloc bloc-tableau" id="tab-2">
   <div class="bloc-header">📊 Tableau 2 — Tableau croisé genre et résultat du tirage <span class="bloc-id">(tab-2)</span></div>
@@ -395,7 +394,7 @@ On peut l'interpréter de la manière suivante :</p>
 <li>$V \geq 0,4$ : il existe une association très forte entre les variables.</li>
 </ul>
 <p>Ces niveaux d'interprétations sont conventionnels et peuvent varier en fonction du contexte de l'étude. Il est important de noter que le coefficient de Cramér ne mesure que la force de l'association entre les variables, et non la direction de cette association.</p>
-<h2 id="corrélation-et-régression-linéaire">Corrélation et régression linéaire</h2>
+<h2 id="corrélation-et-régression-linéaire">VI.3 Corrélation et régression linéaire</h2>
 <p>Dans le cas de deux variables quantitatives, on a à notre disposition davantage d'outils mathématiques. En premier lieu, comme chaque donnée peut être placée sur une droite numérique, on peut représenter les données par un nuage de points dans le plan, pour visualiser la relation entre les deux variables.</p>
 <div class="bloc bloc-definition" id="definition-12">
   <div class="bloc-header">📘 Définition 12 — Nuage de points <span class="bloc-id">(definition-12)</span></div>
@@ -454,7 +453,7 @@ Au contraire, dans les nuages (a) et (c), $X$ et $Y$ ne sont pas liés. Dans le 
   <div class="bloc-body"><img src="figures/nuage_sans_relation.png" alt="Figure"></div>
 </div>
 
-<h3 id="corrélation">Corrélation</h3>
+<h3 id="corrélation">VI.3.1 Corrélation</h3>
 <p>L'<em>existence</em> de toutes sortes de relations peut être établie via le test du $\chi^2$, mais on peut également tenter de décrire certaines relations en plus grands détail en utilisant les opérations arithmétiques offertes par les variables quantitatives. En particulier, en ce qui concerne le type de relation le plus simple qui soit, une relation "linéaire", où le nuage de points se répartit autour d'une droite, on peut mesurer à quel point le nuage de points est bien approximé par une droite à l'aide du <em>coefficient de corrélation linéaire</em>.</p>
 <div class="bloc bloc-definition" id="definition-13">
   <div class="bloc-header">📘 Définition 13 — Coefficient de corrélation linéaire <span class="bloc-id">(definition-13)</span></div>
@@ -514,7 +513,7 @@ $$</p></div>
 </table></div>
 </div>
 
-<h3 id="régression">Régression</h3>
+<h3 id="régression">VI.3.2 Régression</h3>
 <p>Une fois déterminé que $X$ et $Y$ sont liés par une relation linéaire, on peut tenter de trouver la droite qui "s'ajuste" le mieux au nuage de points, c'est-à-dire la droite qui minimise la distance entre les points du nuage de points et la droite.</p>
 <div class="bloc bloc-definition" id="definition-14">
   <div class="bloc-header">📘 Définition 14 — Droite de régression linéaire <span class="bloc-id">(definition-14)</span></div>
@@ -575,7 +574,7 @@ Ainsi, plus la taille de l'échantillon est faible, plus il faut que la relation
   <div class="bloc-body"><table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Seuil de signification</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="6">Taille de l'échantillon</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">5</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">10</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">20</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">50</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">100</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">1000</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$5\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}878$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}632$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}279$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}197$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}062$</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$2\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}934$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}715$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}328$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}232$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}074$</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$1\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}959$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}765$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}561$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}361$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}256$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}081$</td></tr></tbody></table></div>
 </div>
 
-<h3 id="prédictions">Prédictions ?</h3>
+<h3 id="prédictions">VI.3.3 Prédictions ?</h3>
 <p>Si on a réussi à extraire une droite de régression ou de tendance des données, on peut l'utiliser pour inférer des valeurs de $Y$ à partir de valeurs de $X$ : si on a une droite de régression linéaire de $Y$ sur $X$ donnée par l'équation $y = a + b x$, alors pour une valeur donnée de $X$, disons $x_0$, on peut prédire la valeur correspondante de $Y$ en calculant $y_0 = a + b x_0$.</p>
 <div class="bloc bloc-exemple" id="exemple-16">
   <div class="bloc-header">💡 Exemple 16 <span class="bloc-id">(exemple-16)</span></div>
@@ -597,10 +596,10 @@ Ainsi, plus la taille de l'échantillon est faible, plus il faut que la relation
 </div>
 
 <hr />
-<h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
 <div class="bloc bloc-resume" id="resume-1">
-  <div class="bloc-header">📋 Résumé du chapitre 1 <span class="bloc-id">(resume-1)</span></div>
-  <div class="bloc-body"><h3>Concepts clés</h3>
+  <div class="bloc-header">📋 Résumé du chapitre VI <span class="bloc-id">(resume-1)</span></div>
+  <div class="bloc-body"><h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<h3>Concepts clés</h3>
 <ul>
 <li><strong>Causalité</strong> : $X$ cause $Y$ si la présence ou l'amplitude de $X$ est directement responsable de $Y$</li>
 <li><strong>Influence</strong> : $X$ et $Y$ varient ensemble de manière bidirectionnelle</li>
@@ -635,6 +634,6 @@ Ainsi, plus la taille de l'échantillon est faible, plus il faut que la relation
   </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=1779802943"></script>
 </body>
 </html>

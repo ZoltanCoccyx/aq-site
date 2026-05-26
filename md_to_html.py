@@ -28,15 +28,14 @@ import re
 import sys
 import glob
 import os
+import shlex
 import html as html_mod
 
 try:
     import markdown
-    from markdown.extensions.tables import TableExtension
     MD_AVAILABLE = True
 except ImportError:
     MD_AVAILABLE = False
-    print("⚠  Module 'markdown' manquant. Lancez : pip install markdown\n")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -65,6 +64,13 @@ def _load_resource(filename: str) -> str:
     with open(path, encoding="utf-8") as f:
         return f.read()
 
+
+def asset_href(filename: str) -> str:
+    """Ajoute une version d'asset pour éviter les CSS/JS périmés en cache."""
+    path = os.path.join(_SCRIPT_DIR, filename)
+    version = int(os.path.getmtime(path))
+    return f"{filename}?v={version}"
+
 try:
     CSS  = _load_resource("style.css")
     JS   = _load_resource("script.js")
@@ -80,7 +86,35 @@ except FileNotFoundError as e:
 # Extraction du titre et de la table des matières
 # ─────────────────────────────────────────────────────────────────────────────
 
-HEADING_RE = re.compile(r'^(#{1,3})\s+(.*)', re.MULTILINE)
+HEADING_RE = re.compile(r'^(#{1,3})[ \t]+(.+?)(?:[ \t]+#+)?[ \t]*$', re.MULTILINE)
+
+
+ROMAN_RE = re.compile(r'Chapitre\s+([IVXLCDM]+)')
+
+
+def extract_chapter_num(title: str) -> str:
+    m = ROMAN_RE.match(title)
+    return m.group(1) if m else ''
+
+
+def compute_section_numbers(headings: list[dict], chapter_num: str) -> list[dict]:
+    """Ajoute un champ 'num' à chaque heading."""
+    section_counter = 0
+    subsection_counter = 0
+    for h in headings:
+        if h["text"] == "Résumé du chapitre":
+            h["num"] = ""
+            continue
+        if h["level"] == 2:
+            section_counter += 1
+            subsection_counter = 0
+            h["num"] = f"{chapter_num}.{section_counter}"
+        elif h["level"] == 3:
+            subsection_counter += 1
+            h["num"] = f"{chapter_num}.{section_counter}.{subsection_counter}"
+        else:
+            h["num"] = ""
+    return headings
 
 
 def slugify(text: str) -> str:
@@ -89,6 +123,14 @@ def slugify(text: str) -> str:
     text = re.sub(r'[^\w\s-]', '', text)
     text = re.sub(r'[\s_-]+', '-', text)
     return text.strip('-') or 'section'
+
+
+def normalize_heading_text(text: str) -> str:
+    """Normalise un titre Markdown/HTML pour pouvoir le comparer."""
+    text = re.sub(r'<[^>]+>', '', text)
+    text = html_mod.unescape(text)
+    text = re.sub(r'[*_`]+', '', text)
+    return slugify(text)
 
 
 def extract_headings(md_source: str) -> list[dict]:
@@ -101,7 +143,7 @@ def extract_headings(md_source: str) -> list[dict]:
     skip_until_h2 = 0  # > 0 → on saute les sous-titres jusqu'au prochain h2
     lines = md_source.splitlines()
     for line in lines:
-        m = HEADING_RE.search(line)
+        m = HEADING_RE.match(line)
         if m:
             level = len(m.group(1))
             text = m.group(2).strip()
@@ -139,7 +181,8 @@ def build_toc_html(headings: list[dict]) -> str:
         if h["level"] == 1:
             continue  # le titre du chapitre est déjà visible
         cls = f"nav-item level-h{h['level']}"
-        text = html_mod.escape(h["text"])
+        display = f"{h['num']} {h['text']}" if h.get('num') else h['text']
+        text = html_mod.escape(display)
         items.append(
             f'<a class="{cls}" href="#{h["slug"]}" data-id="{h["slug"]}">{text}</a>'
         )
@@ -154,22 +197,30 @@ HEADING_HTML_RE = re.compile(r'<(h[1-3])>(.*?)</\1>', re.DOTALL)
 
 
 def inject_heading_ids(body_html: str, headings: list[dict]) -> str:
-    """Ajoute id="slug" aux balises <h1>–<h3> dans le HTML généré."""
+    """Ajoute id="slug" aux balises <h1>–<h3> qui sont dans la table des matières."""
     idx = [0]  # compteur mutable dans la closure
 
     def replacer(m):
         tag = m.group(1)
         content = m.group(2)
-        level_map = {"h1": 1, "h2": 2, "h3": 3, "h4": 4}
+        level_map = {"h1": 1, "h2": 2, "h3": 3}
         level = level_map.get(tag, 2)
-        # Trouver le prochain heading de bon niveau dans notre liste
-        while idx[0] < len(headings) and headings[idx[0]]["level"] != level:
-            idx[0] += 1
-        if idx[0] < len(headings):
-            slug = headings[idx[0]]["slug"]
-            idx[0] += 1
-            return f'<{tag} id="{slug}">{content}</{tag}>'
-        return m.group(0)
+
+        if idx[0] >= len(headings):
+            return m.group(0)
+
+        h = headings[idx[0]]
+        if h["level"] != level:
+            return m.group(0)
+
+        if normalize_heading_text(content) != normalize_heading_text(h["text"]):
+            return m.group(0)
+
+        slug = h["slug"]
+        num = h.get("num", "")
+        display = f"{num} {content}" if num else content
+        idx[0] += 1
+        return f'<{tag} id="{slug}">{display}</{tag}>'
 
     return HEADING_HTML_RE.sub(replacer, body_html)
 
@@ -178,13 +229,25 @@ def inject_heading_ids(body_html: str, headings: list[dict]) -> str:
 # Traitement des blocs annotés
 # ─────────────────────────────────────────────────────────────────────────────
 
-BLOC_OPEN_RE  = re.compile(r'<!--\s*BLOC:(\w+)\s*(.*?)-->', re.IGNORECASE)
-BLOC_CLOSE_RE = re.compile(r'<!--\s*/BLOC:(\w+)\s*-->', re.IGNORECASE)
-ATTR_RE       = re.compile(r'(\w+)="([^"]*)"')
+BLOC_OPEN_RE  = re.compile(r'^\s*<!--\s*BLOC:(\w+)\s*(.*?)-->\s*$', re.IGNORECASE)
+BLOC_CLOSE_RE = re.compile(r'^\s*<!--\s*/BLOC:(\w+)\s*-->\s*$', re.IGNORECASE)
+ATTR_RE       = re.compile(r'(\w+)=["\']([^"\']*)["\']')
 
 
 def parse_attrs(attr_str: str) -> dict:
-    return dict(ATTR_RE.findall(attr_str))
+    attrs = {}
+    try:
+        parts = shlex.split(attr_str)
+    except ValueError:
+        return dict(ATTR_RE.findall(attr_str))
+
+    for part in parts:
+        if "=" not in part:
+            continue
+        key, value = part.split("=", 1)
+        if key:
+            attrs[key] = value
+    return attrs
 
 
 def md_to_html_fragment(text: str) -> str:
@@ -221,7 +284,7 @@ def md_to_html_fragment(text: str) -> str:
         # Conversion Markdown → HTML
         html = markdown.markdown(
             text,
-            extensions=[TableExtension(), "fenced_code", "nl2br"],
+            extensions=["tables", "fenced_code", "nl2br"],
         )
 
         # Restaurer le LaTeX (remettre les $, \, etc.)
@@ -243,7 +306,13 @@ def md_to_html_fragment(text: str) -> str:
     return "\n".join(result)
 
 
-def render_bloc(bloc_type: str, attrs: dict, content_md: str, md_file_dir: str, bloc_num: str = "") -> str:
+def strip_single_paragraph(html: str) -> str:
+    """Retire uniquement l'enveloppe <p>...</p> simple, sans casser les blocs riches."""
+    match = re.fullmatch(r'\s*<p>(.*?)</p>\s*', html, flags=re.DOTALL)
+    return match.group(1).strip() if match else html.strip()
+
+
+def render_bloc(bloc_type: str, attrs: dict, content_md: str, md_file_dir: str, bloc_num: str = "", chapter_num: str = "") -> str:
     cfg = BLOC_CONFIG.get(bloc_type.lower(), {
         "label": bloc_type.capitalize(), "css": f"bloc-{bloc_type.lower()}", "icon": "📌"
     })
@@ -264,7 +333,13 @@ def render_bloc(bloc_type: str, attrs: dict, content_md: str, md_file_dir: str, 
 
     # Header
     id_span = f'<span class="bloc-id">({html_mod.escape(bloc_id)})</span>' if bloc_id else ""
-    num_label = f'{cfg["label"]} {bloc_num}' if bloc_num else cfg["label"]
+    # Pour le résumé : utiliser le numéro de chapitre au lieu du compteur séquentiel
+    if bloc_type.lower() == "resume" and chapter_num:
+        num_label = f'{cfg["label"]} {chapter_num}'
+    elif bloc_type.lower() == "resume":
+        num_label = cfg["label"]  # pas de numéro du tout
+    else:
+        num_label = f'{cfg["label"]} {bloc_num}' if bloc_num else cfg["label"]
     if titre:
         header_txt = f'{cfg["icon"]} {num_label} — {html_mod.escape(titre)} {id_span}'
     else:
@@ -286,8 +361,7 @@ def render_bloc(bloc_type: str, attrs: dict, content_md: str, md_file_dir: str, 
         # "Type — Titre" ou "Type" seulement
         bold_parts = re.split(r'\s*[—–]\s*', bold_text, maxsplit=1)
         bold_type = bold_parts[0].strip().lower()
-        bold_subtitle = bold_parts[1].strip().lower() if len(bold_parts) > 1 else ''
-        
+
         # Vérifier si cette ligne est redondante avec l'en-tête généré :
         #   - soit le type boldé correspond au label de config (insensible à la casse)
         #   - soit le type boldé est "propriété" et le label config est "théorème"
@@ -330,7 +404,7 @@ def render_bloc(bloc_type: str, attrs: dict, content_md: str, md_file_dir: str, 
 
 _BLOC_COUNTERS = {}
 
-def process_markdown(source: str, md_file_dir: str) -> str:
+def process_markdown(source: str, md_file_dir: str, chapter_title: str = "") -> str:
     """Parse le source markdown et retourne le HTML complet du corps.
     Reinitialise les compteurs de blocs automatiques."""
     global _BLOC_COUNTERS
@@ -342,6 +416,8 @@ def process_markdown(source: str, md_file_dir: str) -> str:
     # pour les gérer manuellement.
     FOOTNOTE_DEF_RE = re.compile(r'^\[\^(\d+)\]\s*:\s*(.*?)(?=\n\[\^\d+\]\s*:|\n\s*\n|\Z)', re.MULTILINE | re.DOTALL)
     footnotes: dict[str, str] = {}
+    footnote_refs: dict[str, list[str]] = {}
+
     def _extract_footnote(m):
         num = m.group(1)
         text = m.group(2).strip()
@@ -352,7 +428,10 @@ def process_markdown(source: str, md_file_dir: str) -> str:
     # Remplacer les références [^n] par des ancres HTML
     def _replace_ref(m):
         num = m.group(1)
-        return f'<sup id="fnref-{num}"><a href="#fn-{num}" class="footnote-ref">{num}</a></sup>'
+        refs = footnote_refs.setdefault(num, [])
+        ref_id = f"fnref-{num}" if not refs else f"fnref-{num}-{len(refs) + 1}"
+        refs.append(ref_id)
+        return f'<sup id="{ref_id}"><a href="#fn-{num}" class="footnote-ref">{num}</a></sup>'
     source = re.sub(r'\[\^(\d+)\]', _replace_ref, source)
 
     lines = source.splitlines(keepends=True)
@@ -361,29 +440,47 @@ def process_markdown(source: str, md_file_dir: str) -> str:
     # Chaque entrée : [bloc_type, attrs, lignes_accumulées]
     stack: list = []
 
+    def _next_bloc_num(bloc_type: str) -> int:
+        key = bloc_type.lower()
+        _BLOC_COUNTERS[key] = _BLOC_COUNTERS.get(key, 0) + 1
+        return _BLOC_COUNTERS[key]
+
+    def _chapter_num_for(bloc_type: str) -> str:
+        if bloc_type.lower() != "resume" or not chapter_title:
+            return ""
+        return extract_chapter_num(chapter_title)
+
+    def _append_rendered_bloc(bloc_type: str, attrs: dict, content: str):
+        bloc_num = _next_bloc_num(bloc_type)
+        chapter_num = _chapter_num_for(bloc_type)
+        if stack:
+            rendered = render_bloc(bloc_type, attrs, content, md_file_dir, str(bloc_num), chapter_num)
+            stack[-1][2].append(rendered)
+        else:
+            segments.append(("bloc", (bloc_type, attrs, content, bloc_num, chapter_num)))
+
     for line in lines:
-        open_m  = BLOC_OPEN_RE.search(line)
-        close_m = BLOC_CLOSE_RE.search(line)
+        open_m  = BLOC_OPEN_RE.match(line)
+        close_m = BLOC_CLOSE_RE.match(line)
 
         if open_m:
             bt    = open_m.group(1)
             attrs = parse_attrs(open_m.group(2))
             stack.append([bt, attrs, []])
 
-        elif close_m and stack:
+        elif close_m:
             close_type = close_m.group(1)
-            if stack[-1][0].lower() == close_type.lower():
+            if stack and stack[-1][0].lower() == close_type.lower():
                 bt, attrs, bloc_lines = stack.pop()
                 content = "".join(bloc_lines)
-                if stack:
-                    # Sous-bloc : rendre en HTML et injecter dans le parent
-                    _BLOC_COUNTERS[bt.lower()] = _BLOC_COUNTERS.get(bt.lower(), 0) + 1
-                    rendered = render_bloc(bt, attrs, content, md_file_dir, str(_BLOC_COUNTERS[bt.lower()]))
-                    stack[-1][2].append(rendered)
+                _append_rendered_bloc(bt, attrs, content)
+            elif stack:
+                stack[-1][2].append(line)
+            else:
+                if segments and segments[-1][0] == "md":
+                    segments[-1][1].append(line)
                 else:
-                    # Bloc racine : ajouter aux segments
-                    _BLOC_COUNTERS[bt.lower()] = _BLOC_COUNTERS.get(bt.lower(), 0) + 1
-                    segments.append(("bloc", (bt, attrs, content, _BLOC_COUNTERS[bt.lower()])))
+                    segments.append(("md", [line]))
 
         elif stack:
             stack[-1][2].append(line)
@@ -397,7 +494,7 @@ def process_markdown(source: str, md_file_dir: str) -> str:
     # Fermer les blocs non fermés
     while stack:
         bt, attrs, bloc_lines = stack.pop()
-        segments.append(("bloc", (bt, attrs, "".join(bloc_lines))))
+        _append_rendered_bloc(bt, attrs, "".join(bloc_lines))
 
     parts = []
     for seg_type, seg_data in segments:
@@ -406,7 +503,8 @@ def process_markdown(source: str, md_file_dir: str) -> str:
         else:
             bloc_type, attrs, content = seg_data[:3]
             num = seg_data[3] if len(seg_data) > 3 else ""
-            parts.append(render_bloc(bloc_type, attrs, content, md_file_dir, str(num)))
+            chapter_num = seg_data[4] if len(seg_data) > 4 else ""
+            parts.append(render_bloc(bloc_type, attrs, content, md_file_dir, str(num), chapter_num))
 
     body = "\n".join(parts)
 
@@ -415,10 +513,14 @@ def process_markdown(source: str, md_file_dir: str) -> str:
         fn_items = []
         for num in sorted(footnotes.keys(), key=int):
             # Convertir le texte de la note (peut contenir du markdown)
-            fn_text = md_to_html_fragment(footnotes[num]).replace('<p>', '').replace('</p>', '').strip()
+            fn_text = strip_single_paragraph(md_to_html_fragment(footnotes[num]))
+            backrefs = " ".join(
+                f'<a href="#{ref_id}" class="footnote-backref">↩</a>'
+                for ref_id in footnote_refs.get(num, [f"fnref-{num}"])
+            )
             fn_items.append(
                 f'<li id="fn-{num}">{fn_text} '
-                f'<a href="#fnref-{num}" class="footnote-backref">↩</a></li>'
+                f'{backrefs}</li>'
             )
         body += (
             '<hr class="footnotes-sep">\n'
@@ -454,7 +556,7 @@ def build_chapter_links(all_md_files: list[str], current_file: str) -> str:
     return "\n".join(links)
 
 
-def convert_file(md_path: str, all_md_files: list[str], output_dir: str | None = None):
+def convert_file(md_path: str, all_md_files: list[str], output_dir: str | None = None) -> str:
     with open(md_path, encoding="utf-8") as f:
         source = f.read()
 
@@ -462,15 +564,19 @@ def convert_file(md_path: str, all_md_files: list[str], output_dir: str | None =
 
     title    = extract_title(source)
     headings = extract_headings(source)
+    chapter_num = extract_chapter_num(title)
+    headings = compute_section_numbers(headings, chapter_num)
     toc_html = build_toc_html(headings)
 
-    body_html = process_markdown(source, md_file_dir)
+    body_html = process_markdown(source, md_file_dir, title)
     body_html = inject_heading_ids(body_html, headings)
 
     chapter_links = build_chapter_links(all_md_files, md_path)
 
     page = HTML_TEMPLATE.format(
         title=html_mod.escape(title),
+        style_href=asset_href("style.css"),
+        script_href=asset_href("script.js"),
         chapter_links=chapter_links,
         toc_html=toc_html,
         body=body_html,
@@ -521,6 +627,8 @@ def build_index(all_md_files: list[str], output_dir: str, intro_md: str | None =
 
     page = HTML_TEMPLATE.format(
         title=page_title,
+        style_href=asset_href("style.css"),
+        script_href=asset_href("script.js"),
         chapter_links="",
         toc_html="",
         body=body,
@@ -555,10 +663,9 @@ def main():
         sys.exit(1)
 
     if not MD_AVAILABLE:
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "markdown", "-q"])
-        print("Module 'markdown' installé. Relancez le script.\n")
-        sys.exit(0)
+        print("Module 'markdown' manquant. Lancez :")
+        print(f"  {sys.executable} -m pip install markdown")
+        sys.exit(1)
 
     # Les fichiers HTML sont générés dans le dossier du script (cours_website/)
     output_dir = script_dir

@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Chapitre V — Statistiques inférentielles</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
-  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
-  <link rel="stylesheet" href="style.css">
+  <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="style.css?v=1779804476">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -31,8 +31,6 @@
   <div id="sidebar-header">
     <div id="sidebar-top">
       <a href="index.html">⬅ Table des matières</a>
-      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
-    </div>
     <a href="chapitre_01.html">Chap. 01</a>
 <a href="chapitre_02.html">Chap. 02</a>
 <a href="chapitre_03.html">Chap. 03</a>
@@ -40,20 +38,21 @@
 <span style="font-weight:700;color:var(--bleu)">Chap. 05</span>
 <a href="chapitre_06.html">Chap. 06</a>
     <div id="sidebar-title">Dans ce chapitre</div>
+    </div>
   </div>
-  <a class="nav-item level-h2" href="#loi-normale" data-id="loi-normale">Loi normale</a>
-<a class="nav-item level-h3" href="#courbe-de-gauss" data-id="courbe-de-gauss">Courbe de Gauss</a>
-<a class="nav-item level-h3" href="#loi-normale-1" data-id="loi-normale-1">Loi normale</a>
-<a class="nav-item level-h3" href="#des-phénomènes-normaux" data-id="des-phénomènes-normaux">Des phénomènes « normaux »</a>
-<a class="nav-item level-h2" href="#estimation-dun-paramètre" data-id="estimation-dun-paramètre">Estimation d&#x27;un paramètre</a>
-<a class="nav-item level-h3" href="#théorème-central-limite" data-id="théorème-central-limite">Théorème central limite</a>
-<a class="nav-item level-h3" href="#tcl-appliqué-à-léchantillonnage" data-id="tcl-appliqué-à-léchantillonnage">TCL appliqué à l&#x27;échantillonnage</a>
-<a class="nav-item level-h3" href="#intervalle-de-confiance" data-id="intervalle-de-confiance">Intervalle de confiance</a>
-<a class="nav-item level-h3" href="#estimation-dune-proportion" data-id="estimation-dune-proportion">Estimation d&#x27;une proportion</a>
-<a class="nav-item level-h2" href="#digression-1-la-table-du-livre" data-id="digression-1-la-table-du-livre">Digression 1 : la table du livre</a>
-<a class="nav-item level-h2" href="#digression-2-estimateur-sans-biais" data-id="digression-2-estimateur-sans-biais">Digression 2 : estimateur sans biais</a>
+  <a class="nav-item level-h2" href="#loi-normale" data-id="loi-normale">V.1 Loi normale</a>
+<a class="nav-item level-h3" href="#courbe-de-gauss" data-id="courbe-de-gauss">V.1.1 Courbe de Gauss</a>
+<a class="nav-item level-h3" href="#loi-normale-1" data-id="loi-normale-1">V.1.2 Loi normale</a>
+<a class="nav-item level-h3" href="#des-phénomènes-normaux" data-id="des-phénomènes-normaux">V.1.3 Des phénomènes « normaux »</a>
+<a class="nav-item level-h2" href="#estimation-dun-paramètre" data-id="estimation-dun-paramètre">V.2 Estimation d&#x27;un paramètre</a>
+<a class="nav-item level-h3" href="#théorème-central-limite" data-id="théorème-central-limite">V.2.1 Théorème central limite</a>
+<a class="nav-item level-h3" href="#tcl-appliqué-à-léchantillonnage" data-id="tcl-appliqué-à-léchantillonnage">V.2.2 TCL appliqué à l&#x27;échantillonnage</a>
+<a class="nav-item level-h3" href="#intervalle-de-confiance" data-id="intervalle-de-confiance">V.2.3 Intervalle de confiance</a>
+<a class="nav-item level-h3" href="#estimation-dune-proportion" data-id="estimation-dune-proportion">V.2.4 Estimation d&#x27;une proportion</a>
+<a class="nav-item level-h2" href="#digression-1-la-table-du-livre" data-id="digression-1-la-table-du-livre">V.3 Digression 1 : la table du livre</a>
+<a class="nav-item level-h2" href="#digression-2-estimateur-sans-biais" data-id="digression-2-estimateur-sans-biais">V.4 Digression 2 : estimateur sans biais</a>
 <a class="nav-item level-h2" href="#résumé-du-chapitre" data-id="résumé-du-chapitre">Résumé du chapitre</a>
-<a class="nav-item level-h2" href="#appendice-les-valeurs-de-loi-normale-à-partir-de-0" data-id="appendice-les-valeurs-de-loi-normale-à-partir-de-0">Appendice : les valeurs de loi normale (à partir de 0)</a>
+<a class="nav-item level-h2" href="#appendice-les-valeurs-de-loi-normale-à-partir-de-0" data-id="appendice-les-valeurs-de-loi-normale-à-partir-de-0">V.5 Appendice : les valeurs de loi normale (à partir de 0)</a>
 </nav>
 
 <main id="main">
@@ -66,8 +65,8 @@
 </div>
 
 <p>Ce passage du particulier au général est rendu possible grâce à des outils mathématiques, notamment la <strong>loi normale</strong> et le <strong>théorème central limite</strong>, que nous allons étudier dans ce chapitre.</p>
-<h2 id="loi-normale">Loi normale</h2>
-<h3 id="courbe-de-gauss">Courbe de Gauss</h3>
+<h2 id="loi-normale">V.1 Loi normale</h2>
+<h3 id="courbe-de-gauss">V.1.1 Courbe de Gauss</h3>
 <div class="bloc bloc-definition" id="definition-1">
   <div class="bloc-header">📘 Définition 1 — Courbe de Gauss <span class="bloc-id">(definition-1)</span></div>
   <div class="bloc-body"><p>Une courbe de Gauss, ou courbe gaussienne, courbe normale, courbe en cloche, normale, est une fonction définie par la formule :</p>
@@ -116,7 +115,7 @@ $$</p>
   <div class="bloc-body"><img src="figures/inflexion.png" alt="Figure"></div>
 </div>
 
-<h3 id="loi-normale-1">Loi normale</h3>
+<h3 id="loi-normale-1">V.1.2 Loi normale</h3>
 <div class="bloc bloc-definition" id="definition-2">
   <div class="bloc-header">📘 Définition 2 — Loi normale <span class="bloc-id">(definition-2)</span></div>
   <div class="bloc-body"><p>On dit qu'une variable quantitative $x$ suit une loi normale de paramètres $\mu$ et $\sigma$ si la proportion des observations de $x$ entre deux valeurs $a$ et $b$ (quand le nombre d'observations tend vers l'infini) est égale à l'aire sous la courbe de Gauss de paramètres $\mu$ et $\sigma$ entre les points $a$ et $b$.</p>
@@ -330,14 +329,14 @@ $$</p>
 </table></div>
 </div>
 
-<h3 id="des-phénomènes-normaux">Des phénomènes « normaux »</h3>
+<h3 id="des-phénomènes-normaux">V.1.3 Des phénomènes « normaux »</h3>
 <p>Il est très fréquent que des grandeurs de la vraie vie suivent d'elles-mêmes une loi normale : c'est le cas dès que de nombreux facteurs indépendants contribuent à la grandeur en question. Par exemple, la taille d'une personne est influencée par de nombreux facteurs génétiques et environnementaux, qui sont tous indépendants les uns des autres. C'est pourquoi la taille suit souvent une loi normale. C'est le cas d'autres grandeurs : le poids, le QI, le temps de trajet au travail.</p>
-<h2 id="estimation-dun-paramètre">Estimation d'un paramètre</h2>
+<h2 id="estimation-dun-paramètre">V.2 Estimation d'un paramètre</h2>
 <p>Pourquoi prendre le temps de discuter d'une répartition en particulier alors que nous avons vu que les distributions de fréquences peuvent prendre des formes très variées ?</p>
 <p>D'abord — on l'a déjà évoqué — parce que la loi normale est une distribution très fréquente dans les sciences humaines, et que de nombreux phénomènes suivent une loi normale.</p>
 <p>Ensuite, parce que la loi normale est très importante pour l'estimation d'un paramètre à partir d'un échantillon, ce qui, on le rappelle, est tout l'objectif des statistiques en tant que science.</p>
 <p>Ces deux raisons sont en fait liées : leur cause commune est un phénomène mathématique appelé le <strong>théorème central limite</strong>, qui explique pourquoi la loi normale est si fréquente et pourquoi elle est si importante pour l'estimation d'un paramètre à partir d'un échantillon.</p>
-<h3 id="théorème-central-limite">Théorème central limite</h3>
+<h3 id="théorème-central-limite">V.2.1 Théorème central limite</h3>
 <div class="bloc bloc-definition" id="definition-3">
   <div class="bloc-header">📘 Définition 3 — Observations indépendantes <span class="bloc-id">(definition-3)</span></div>
   <div class="bloc-body"><p>On dit que des observations sont indépendantes si la réalisation de l'une d'entre elles n'influence pas la réalisation des autres.</p></div>
@@ -379,7 +378,7 @@ $$</p>
 <p>Si on avait fait 400 observations, la probabilité que $\bar{x}$ soit entre 9 et 11 serait encore plus grande, environ 99,994 %, car $\sqrt{400}\cdot\frac{\bar{x}-10}{5}$ serait entre $-4$ et $4$, ce qui correspond à une proportion de 99,994 % d'observations de la loi normale standard. De même, la proportion des observations entre 9,5 et 10,5 serait d'environ 68,27 % pour $n = 100$ et de 95,45 % pour $n = 400$.</p></div>
 </div>
 
-<h3 id="tcl-appliqué-à-léchantillonnage">TCL appliqué à l'échantillonnage</h3>
+<h3 id="tcl-appliqué-à-léchantillonnage">V.2.2 TCL appliqué à l'échantillonnage</h3>
 <p>Ce théorème est <em>central</em> pour la science des statistiques (d'où son nom…). Pour nos besoins, il se manifeste de la façon suivante, qui est celle que vous devriez retenir :</p>
 <div class="bloc bloc-theoreme" id="theoreme-3">
   <div class="bloc-header">📐 Théorème 3 — TCL appliqué à l&#x27;échantillonnage <span class="bloc-id">(theoreme-3)</span></div>
@@ -398,7 +397,7 @@ $$</p>
 <h4>Interprétation du théorème central limite</h4>
 <p>Le théorème central limite nous rassure sur deux choses que notre intuition nous disait déjà : d'une part, que la moyenne $\bar{x}$ de $n$ observations indépendantes de $x$ est une bonne estimation de la moyenne $\mu$ de $x$, et d'autre part, que plus le nombre $n$ d'observations est grand, plus la moyenne $\bar{x}$ est proche de la moyenne $\mu$ (car l'écart-type de $\bar{x}$ est égal à $\sigma / \sqrt{n}$, qui devient de plus en plus petit à mesure que $n$ devient grand). Ce dernier point est une confirmation forte d'un autre principe plus faible : la <em>loi des grands nombres</em>, qui dit que la moyenne $\bar{x}$ de $n$ observations indépendantes de $x$ converge vers la moyenne $\mu$ de $x$ quand $n$ devient grand, mais sans dire à quelle vitesse cette convergence se fait ni quelle est la distribution de $\bar{x}$ pour un $n$ donné.</p>
 <p>Par ailleurs, et c'est un point beaucoup moins intuitif mais très important, le théorème nous dit que le processus d'échantillonnage permet de transformer une distribution de départ quelconque (celle de $x$), sur laquelle on sait entre rien et pas grand-chose, en une distribution de moyenne $\bar{x}$ qui est une loi normale, sur laquelle on sait « tout faire ».</p>
-<h3 id="intervalle-de-confiance">Intervalle de confiance</h3>
+<h3 id="intervalle-de-confiance">V.2.3 Intervalle de confiance</h3>
 <p>La plus grande force des statistiques est de pouvoir quantifier l'incertitude de nos estimations. Par exemple, si on a un échantillon de 100 observations indépendantes d'une variable $x$ de moyenne $\mu$ et d'écart-type $\sigma$, on peut calculer la moyenne $\bar{x}$ de ces observations, qui est une estimation de la moyenne $\mu$ de $x$. Cependant, cette estimation que l'on dit <em>ponctuelle</em> (car on donne seulement un « point » comme estimé), est incertaine : si on avait tiré un autre échantillon de 100 observations indépendantes de $x$, on aurait probablement obtenu une moyenne différente.</p>
 <p>On introduit la notion d'intervalle de confiance pour quantifier cette incertitude.</p>
 <div class="bloc bloc-definition" id="definition-4">
@@ -440,7 +439,7 @@ $$</p></div>
 </div>
 
 <p>Comme la fonction de répartition de la loi normale est croissante, il est clair que plus on veut un niveau de confiance élevé, plus la taille de l'intervalle de confiance augmente. Inversement, comme la marge d'erreur est inversement proportionnelle à $\sqrt{n}$, plus le nombre $n$ d'observations indépendantes de $x$ est grand, plus la taille de l'intervalle de confiance diminue.</p>
-<h3 id="estimation-dune-proportion">Estimation d'une proportion</h3>
+<h3 id="estimation-dune-proportion">V.2.4 Estimation d'une proportion</h3>
 <p>Évaluer une proportion à partir d'un échantillon est un cas particulier de l'estimation d'une moyenne : imaginons que la population soit constituée d'individus ayant ou n'ayant pas une caractéristique donnée $C$ (par exemple, des individus qui sont pour ou contre une réforme). On peut alors définir une variable $x$ qui vaut 1 pour les individus ayant la caractéristique $C$ et 0 pour les autres. On peut calculer la moyenne $\mu_x$ de $x$ dans la population avec la formule « fréquence absolue », c'est-à-dire :</p>
 <p>$$
 
@@ -506,7 +505,7 @@ $$</p></div>
 <p>Comme avant, le nombre $1,96$ apparaît dans la formule de l'intervalle de confiance à $95\%$, mais si on veut un autre niveau de certitude $p\%$, il suffit de remplacer $1,96$ par le nombre d'écarts-types $a$ tel que :</p>
 <p>$$P(-a \leq z \leq a) = p\%.$$</p>
 <hr />
-<h2 id="digression-1-la-table-du-livre">Digression 1 : la table du livre</h2>
+<h2 id="digression-1-la-table-du-livre">V.3 Digression 1 : la table du livre</h2>
 <p>Vous verrez parfois<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> une table de la loi normale standard qui donne la proportion d'observations entre 0 et une valeur positive de $z$ :</p>
 <div style="text-align:center;">
 $$
@@ -549,7 +548,7 @@ $0{,}5 + \Psi(a) = $
 
 <p>Bien entendu, si on a affaire à une loi normale non standard, on se ramène à ce qui peut être lu dans cette table via la cote $z$.</p>
 <hr />
-<h2 id="digression-2-estimateur-sans-biais">Digression 2 : estimateur sans biais</h2>
+<h2 id="digression-2-estimateur-sans-biais">V.4 Digression 2 : estimateur sans biais</h2>
 <div class="bloc bloc-definition" id="definition-6">
   <div class="bloc-header">📘 Définition 6 — Estimateur <span class="bloc-id">(definition-6)</span></div>
   <div class="bloc-body"><p>Un estimateur $\hat{\theta}$ d'un paramètre $\theta$ est une statistique, calculée à partir d'un échantillon, qui est utilisée pour estimer la valeur du paramètre $\theta$ dans la population.</p></div>
@@ -639,10 +638,10 @@ $$</p>
 </div>
 
 <p>La démonstration est considérablement plus technique si on ne dispose pas d'outils supplémentaires.</p>
-<h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<hr />
 <div class="bloc bloc-resume" id="resume-1">
-  <div class="bloc-header">📋 Résumé du chapitre 1 <span class="bloc-id">(resume-1)</span></div>
-  <div class="bloc-body"><hr />
+  <div class="bloc-header">📋 Résumé du chapitre V <span class="bloc-id">(resume-1)</span></div>
+  <div class="bloc-body"><h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
 <h3>Loi normale et courbe de Gauss</h3>
 <div class="bloc bloc-figure" id="fig-9">
   <div class="bloc-header">🖼 Figure 9 — Intervalle de confiance à 95 % <span class="bloc-id">(fig-9)</span></div>
@@ -719,7 +718,7 @@ $$</p>
 <hr /></div>
 </div>
 
-<h2>Appendice : les valeurs de loi normale (à partir de 0)</h2>
+<h2 id="appendice-les-valeurs-de-loi-normale-à-partir-de-0">V.5 Appendice : les valeurs de loi normale (à partir de 0)</h2>
 <p>Ce tableau donne la correspondance entre les cotes $z$ et les aires $P(0 < Z < z)$ où $Z \sim \mathcal{N}(0,1)$.</p>
 <div class="bloc bloc-tableau" id="tab-4">
   <div class="bloc-header">📊 Tableau 4 <span class="bloc-id">(tab-4)</span></div>
@@ -1275,6 +1274,6 @@ $$</p>
   </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=1779802943"></script>
 </body>
 </html>

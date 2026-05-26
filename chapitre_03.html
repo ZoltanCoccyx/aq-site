@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Chapitre III — Concepts fondamentaux</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
-  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
-  <link rel="stylesheet" href="style.css">
+  <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="style.css?v=1779804476">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -31,8 +31,6 @@
   <div id="sidebar-header">
     <div id="sidebar-top">
       <a href="index.html">⬅ Table des matières</a>
-      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
-    </div>
     <a href="chapitre_01.html">Chap. 01</a>
 <a href="chapitre_02.html">Chap. 02</a>
 <span style="font-weight:700;color:var(--bleu)">Chap. 03</span>
@@ -40,36 +38,37 @@
 <a href="chapitre_05.html">Chap. 05</a>
 <a href="chapitre_06.html">Chap. 06</a>
     <div id="sidebar-title">Dans ce chapitre</div>
+    </div>
   </div>
-  <a class="nav-item level-h2" href="#le-tout-vs-la-partie" data-id="le-tout-vs-la-partie">Le tout vs la partie</a>
-<a class="nav-item level-h3" href="#population-et-échantillon" data-id="population-et-échantillon">Population et échantillon</a>
-<a class="nav-item level-h3" href="#paramètres-et-statistiques" data-id="paramètres-et-statistiques">Paramètres et statistiques</a>
-<a class="nav-item level-h2" href="#variables" data-id="variables">Variables</a>
-<a class="nav-item level-h3" href="#variables-et-types-de-données" data-id="variables-et-types-de-données">Variables et types de données</a>
-<a class="nav-item level-h3" href="#variables-dépendantes-et-indépendantes" data-id="variables-dépendantes-et-indépendantes">Variables dépendantes et indépendantes</a>
-<a class="nav-item level-h2" href="#organisation-des-données" data-id="organisation-des-données">Organisation des données</a>
-<a class="nav-item level-h3" href="#données-brutes" data-id="données-brutes">Données brutes</a>
-<a class="nav-item level-h3" href="#données-traitées-distributions-de-fréquences-et-tableaux" data-id="données-traitées-distributions-de-fréquences-et-tableaux">Données traitées : distributions de fréquences et tableaux</a>
-<a class="nav-item level-h3" href="#données-traitées-distributions-de-fréquences-et-graphiques" data-id="données-traitées-distributions-de-fréquences-et-graphiques">Données traitées : distributions de fréquences et graphiques</a>
-<a class="nav-item level-h3" href="#un-cas-particulier-les-séries-chronologiques" data-id="un-cas-particulier-les-séries-chronologiques">Un cas particulier : les séries chronologiques</a>
-<a class="nav-item level-h3" href="#pourquoi-et-comment-présenter-les-données" data-id="pourquoi-et-comment-présenter-les-données">Pourquoi et comment présenter les données ?</a>
-<a class="nav-item level-h2" href="#interlude-comparer-des-grandeurs" data-id="interlude-comparer-des-grandeurs">Interlude : comparer des grandeurs</a>
-<a class="nav-item level-h3" href="#comparer-avec-des-quotients" data-id="comparer-avec-des-quotients">Comparer avec des quotients</a>
-<a class="nav-item level-h3" href="#comparer-avec-des-différences" data-id="comparer-avec-des-différences">Comparer avec des différences</a>
-<a class="nav-item level-h3" href="#indicateurs-démographiques" data-id="indicateurs-démographiques">Indicateurs démographiques</a>
+  <a class="nav-item level-h2" href="#le-tout-vs-la-partie" data-id="le-tout-vs-la-partie">III.1 Le tout vs la partie</a>
+<a class="nav-item level-h3" href="#population-et-échantillon" data-id="population-et-échantillon">III.1.1 Population et échantillon</a>
+<a class="nav-item level-h3" href="#paramètres-et-statistiques" data-id="paramètres-et-statistiques">III.1.2 Paramètres et statistiques</a>
+<a class="nav-item level-h2" href="#variables" data-id="variables">III.2 Variables</a>
+<a class="nav-item level-h3" href="#variables-et-types-de-données" data-id="variables-et-types-de-données">III.2.1 Variables et types de données</a>
+<a class="nav-item level-h3" href="#variables-dépendantes-et-indépendantes" data-id="variables-dépendantes-et-indépendantes">III.2.2 Variables dépendantes et indépendantes</a>
+<a class="nav-item level-h2" href="#organisation-des-données" data-id="organisation-des-données">III.3 Organisation des données</a>
+<a class="nav-item level-h3" href="#données-brutes" data-id="données-brutes">III.3.1 Données brutes</a>
+<a class="nav-item level-h3" href="#données-traitées-distributions-de-fréquences-et-tableaux" data-id="données-traitées-distributions-de-fréquences-et-tableaux">III.3.2 Données traitées : distributions de fréquences et tableaux</a>
+<a class="nav-item level-h3" href="#données-traitées-distributions-de-fréquences-et-graphiques" data-id="données-traitées-distributions-de-fréquences-et-graphiques">III.3.3 Données traitées : distributions de fréquences et graphiques</a>
+<a class="nav-item level-h3" href="#un-cas-particulier-les-séries-chronologiques" data-id="un-cas-particulier-les-séries-chronologiques">III.3.4 Un cas particulier : les séries chronologiques</a>
+<a class="nav-item level-h3" href="#pourquoi-et-comment-présenter-les-données" data-id="pourquoi-et-comment-présenter-les-données">III.3.5 Pourquoi et comment présenter les données ?</a>
+<a class="nav-item level-h2" href="#interlude-comparer-des-grandeurs" data-id="interlude-comparer-des-grandeurs">III.4 Interlude : comparer des grandeurs</a>
+<a class="nav-item level-h3" href="#comparer-avec-des-quotients" data-id="comparer-avec-des-quotients">III.4.1 Comparer avec des quotients</a>
+<a class="nav-item level-h3" href="#comparer-avec-des-différences" data-id="comparer-avec-des-différences">III.4.2 Comparer avec des différences</a>
+<a class="nav-item level-h3" href="#indicateurs-démographiques" data-id="indicateurs-démographiques">III.4.3 Indicateurs démographiques</a>
 <a class="nav-item level-h2" href="#résumé-du-chapitre" data-id="résumé-du-chapitre">Résumé du chapitre</a>
 </nav>
 
 <main id="main">
   <h1 id="chapitre-iii-concepts-fondamentaux">Chapitre III — Concepts fondamentaux</h1>
 <p>Avant d'aborder les méthodes statistiques, il est essentiel de maîtriser le vocabulaire et les concepts de base de l'analyse quantitative. Cette section présente les notions fondamentales qui seront utilisées tout au long du cours.</p>
-<h2 id="le-tout-vs-la-partie">Le tout vs la partie</h2>
+<h2 id="le-tout-vs-la-partie">III.1 Le tout vs la partie</h2>
 <p>Un des buts fondamentaux des statistiques est d'évaluer les caractéristiques d'une population donnée. Malheureusement, dans certains cas<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>, il est difficile, coûteux, ou tout simplement impossible de recueillir des données sur l'ensemble de la population. C'est pourquoi on se contente souvent d'étudier un échantillon représentatif de cette population. On se donne donc du vocabulaire permettant de distinguer ce que l'on veut étudier : les <em>paramètres</em> de la <em>population</em>, de ce que l'on peut réellement mesurer : les <em>statistiques</em> de l'<em>échantillon</em>.</p>
-<h3 id="population-et-échantillon">Population et échantillon</h3>
+<h3 id="population-et-échantillon">III.1.1 Population et échantillon</h3>
 <div class="bloc bloc-definition" id="definition-1">
   <div class="bloc-header">📘 Définition 1 — Population <span class="bloc-id">(definition-1)</span></div>
-  <div class="bloc-body"><p>La <strong>population</strong> (ou univers) est l'ensemble complet de tous les éléments qui font l'objet d'une étude statistique.</p>
-<p><strong>Notation</strong> (Taille de la population) : $N$ (pas toujours connu).</p></div>
+  <div class="bloc-body"><p>La <strong>population</strong> (ou univers) est l'ensemble complet de tous les éléments qui font l'objet d'une étude statistique.<br />
+<strong>Notation</strong> (Taille de la population) : $N$ (pas toujours connu).</p></div>
 </div>
 
 <p>Comme le note la définition, la population dépend de l'étude statistique envisagée. Par exemple, si je veux réaliser une étude sur les préférences musicales des élèves du Cégep André-Laurendeau, ma population sera l'ensemble des élèves inscrits dans ce Cégep. L'ensemble de tous les cégépiens du Québec n'est pas ma population pour cette étude spécifique : c'est un ensemble trop grand. De même, l'ensemble des élèves des sections techniques d'André-Laurendeau n'est pas ma population, car je veux inclure tous les élèves, peu importe leur programme d'études.</p>
@@ -89,18 +88,16 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-remarque" id="remarque-1">
   <div class="bloc-header">⚠️ Remarque 1 — Nature de la population <span class="bloc-id">(remarque-1)</span></div>
-  <div class="bloc-body"><p>Attention, comme le montrent les exemples précédents, la population n'est pas toujours un ensemble de personnes. Elle peut aussi être un ensemble d'objets, d'événements, de mesures...</p>
-<p><strong>Les populations étudiées dans ce cours seront dans tous les cas finies.</strong></p></div>
+  <div class="bloc-body"><p>Attention, comme le montrent les exemples précédents, la population n'est pas toujours un ensemble de personnes. Elle peut aussi être un ensemble d'objets, d'événements, de mesures...<br />
+<strong>Les populations étudiées dans ce cours seront dans tous les cas finies.</strong></p></div>
 </div>
-
 
 <div class="bloc bloc-definition" id="definition-2">
   <div class="bloc-header">📘 Définition 2 — Échantillon <span class="bloc-id">(definition-2)</span></div>
-  <div class="bloc-body"><p>Un <strong>échantillon</strong> est un sous-ensemble de la population, sélectionné pour être étudié.</p>
-<p><strong>Notation</strong> (Taille de l'échantillon) : $n$ (où $n < N$)</p></div>
+  <div class="bloc-body"><p>Un <strong>échantillon</strong> est un sous-ensemble de la population, sélectionné pour être étudié.<br />
+<strong>Notation</strong> (Taille de l'échantillon) : $n$ (où $n < N$)</p></div>
 </div>
 
 <p>L'échantillon doit être représentatif de la population pour permettre des généralisations valides. Les questions de comment choisir un échantillon représentatif, de mesurer la représentativité, et de corriger les biais d'échantillonnage sont centrales et seront abordées plus tard dans le cours.</p>
@@ -109,12 +106,10 @@
   <div class="bloc-body"><p>Je veux savoir si les élèves de ma classe de statistiques (population) ont bien compris ce que je viens d'expliquer. Je demande aux élèves du premier rang (échantillon) s'ils ont compris. Cet échantillon n'est probablement pas représentatif de la population, car les élèves du premier rang sont souvent les plus attentifs. A priori, choisir de demander aux élèves dont le nom de famille commence par A, B ou C serait un échantillon plus représentatif, car il n'y a pas de raison que la compréhension des statistiques soit liée à l'ordre alphabétique des noms de famille.</p></div>
 </div>
 
-
 <div class="bloc bloc-definition" id="definition-3">
   <div class="bloc-header">📘 Définition 3 — Unité statistique <span class="bloc-id">(definition-3)</span></div>
   <div class="bloc-body"><p>L'<strong>unité statistique</strong> (ou individu statistique) est chaque élément de la population ou de l'échantillon sur lequel on effectue des observations.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-3">
   <div class="bloc-header">💡 Exemple 3 <span class="bloc-id">(exemple-3)</span></div>
@@ -124,23 +119,21 @@
 <p>On a vu dans la partie sur la méthodologie de la recherche scientifique différentes méthodes de sélection d'un échantillon (aléatoire : simple, systématique, stratifié, par grappes et non aléatoire : de convenance, volontaire, boule de neige, par quota). Le choix de la méthode d'échantillonnage dépend de la nature de la population, des ressources disponibles et des objectifs de l'étude.</p>
 <div class="bloc bloc-definition" id="definition-4">
   <div class="bloc-header">📘 Définition 4 — Taux et poids d&#x27;échantillonnage <span class="bloc-id">(definition-4)</span></div>
-  <div class="bloc-body"><p>On appelle <strong>taux d'échantillonnage</strong> (ou taux de sondage) le rapport entre la taille de l'échantillon et la taille de la population, soit $\frac{n}{N}$ : c'est la proportion de la population qui est incluse dans l'échantillon.</p>
-<p>On appelle <strong>poids d'échantillonnage</strong> (ou poids de sondage) l'inverse du taux d'échantillonnage, soit $\frac{N}{n}$ : c'est le nombre d'unités de la population que représente chaque unité de l'échantillon.</p></div>
+  <div class="bloc-body"><p>On appelle <strong>taux d'échantillonnage</strong> (ou taux de sondage) le rapport entre la taille de l'échantillon et la taille de la population, soit $\frac{n}{N}$ : c'est la proportion de la population qui est incluse dans l'échantillon.<br />
+On appelle <strong>poids d'échantillonnage</strong> (ou poids de sondage) l'inverse du taux d'échantillonnage, soit $\frac{N}{n}$ : c'est le nombre d'unités de la population que représente chaque unité de l'échantillon.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-4">
   <div class="bloc-header">💡 Exemple 4 <span class="bloc-id">(exemple-4)</span></div>
   <div class="bloc-body"><p>Supposons que nous avons une population de 1000 individus et que nous sélectionnons un échantillon de 100 individus. Le taux d'échantillonnage est alors $\frac{100}{1000} = 0.1$ (10%), ce qui signifie que nous avons inclus 10% de la population dans notre échantillon. Le poids d'échantillonnage est l'inverse de ce taux, soit $\frac{1000}{100} = 10$, ce qui signifie que chaque individu de l'échantillon représente 10 individus de la population.</p></div>
 </div>
 
-<h3 id="paramètres-et-statistiques">Paramètres et statistiques</h3>
+<h3 id="paramètres-et-statistiques">III.1.2 Paramètres et statistiques</h3>
 <p>Je ne saurais trop insister sur l'importance de distinguer clairement les <em>paramètres de la population</em> des <em>statistiques de l'échantillon</em>. Encore une fois, une large part du travail du statisticien consiste à estimer les paramètres inconnus de la population à partir des statistiques calculées sur un échantillon.</p>
 <div class="bloc bloc-definition" id="definition-5">
   <div class="bloc-header">📘 Définition 5 — Paramètre <span class="bloc-id">(definition-5)</span></div>
   <div class="bloc-body"><p>Un <strong>paramètre</strong> est une valeur numérique qui décrit une caractéristique de la <em>population</em>. Les paramètres sont généralement inconnus et notés avec des lettres grecques.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-5">
   <div class="bloc-header">💡 Exemple 5 <span class="bloc-id">(exemple-5)</span></div>
@@ -155,12 +148,10 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-definition" id="definition-6">
   <div class="bloc-header">📘 Définition 6 — Statistique <span class="bloc-id">(definition-6)</span></div>
   <div class="bloc-body"><p>Une <strong>statistique</strong> est une valeur numérique calculée à partir des données d'un <em>échantillon</em>. Les statistiques sont notées avec des lettres latines.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-6">
   <div class="bloc-header">💡 Exemple 6 <span class="bloc-id">(exemple-6)</span></div>
@@ -175,16 +166,16 @@
 </ul></div>
 </div>
 
-<h2 id="variables">Variables</h2>
+<h2 id="variables">III.2 Variables</h2>
 <p>Une fois la méthodologie de collecte des données établie et l'échantillon constitué, on commence à récolter les données.</p>
 <div class="bloc bloc-definition" id="definition-7">
   <div class="bloc-header">📘 Définition 7 — Donnée et variable <span class="bloc-id">(definition-7)</span></div>
-  <div class="bloc-body"><p>Une <strong>donnée</strong> est une valeur mesurée ou observée pour une variable sur une unité statistique.</p>
-<p>Une <strong>variable</strong> est une caractéristique mesurée ou observée sur chaque unité statistique. Les variables peuvent être classées selon leur nature et leur échelle de mesure.</p></div>
+  <div class="bloc-body"><p>Une <strong>donnée</strong> est une valeur mesurée ou observée pour une variable sur une unité statistique.<br />
+Une <strong>variable</strong> est une caractéristique mesurée ou observée sur chaque unité statistique. Les variables peuvent être classées selon leur nature et leur échelle de mesure.</p></div>
 </div>
 
 <p>En d'autres termes, pour chaque unité statistique (individu) de l'échantillon, on mesure ou observe une ou plusieurs caractéristiques (variables) qui prennent des valeurs spécifiques (données).</p>
-<h3 id="variables-et-types-de-données">Variables et types de données</h3>
+<h3 id="variables-et-types-de-données">III.2.1 Variables et types de données</h3>
 <p>Les variables peuvent prendre différentes natures selon le type de données qu'elles représentent. On distingue principalement deux grandes catégories de variables : les variables qualitatives (ou catégorielles) et les variables quantitatives (ou numériques). Dans chaque catégorie, il existe des sous-types de variables.</p>
 <h4>Variables qualitatives</h4>
 <p>Une variable qualitative décrit une caractéristique non numérique qui peut être classée en catégories ou groupes. Les variables qualitatives peuvent être divisées en deux sous-types : nominales et ordinales.</p>
@@ -192,7 +183,6 @@
   <div class="bloc-header">📘 Définition 8 — Variable nominale <span class="bloc-id">(definition-8)</span></div>
   <div class="bloc-body"><p>Variable dont les catégories n'ont pas d'ordre naturel. Les valeurs sont des étiquettes ou des noms. On peut seulement dire si deux valeurs sont égales ou différentes. On les appelle aussi <em>variables catégorielles</em>.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-7">
   <div class="bloc-header">💡 Exemple 7 <span class="bloc-id">(exemple-7)</span></div>
@@ -212,12 +202,10 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-definition" id="definition-9">
   <div class="bloc-header">📘 Définition 9 — Variable ordinale <span class="bloc-id">(definition-9)</span></div>
   <div class="bloc-body"><p>Variable dont les catégories ont un ordre naturel, mais sans distance mesurable entre elles. En plus de pouvoir dire si deux valeurs sont égales ou différentes, on peut aussi dire si une valeur est supérieure ou inférieure à une autre.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-8">
   <div class="bloc-header">💡 Exemple 8 <span class="bloc-id">(exemple-8)</span></div>
@@ -237,7 +225,6 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-remarque" id="remarque-2">
   <div class="bloc-header">⚠️ Remarque 2 — Modalités <span class="bloc-id">(remarque-2)</span></div>
   <div class="bloc-body"><p>On appelle les valeurs prises par des variables qualitatives des <strong>modalités</strong>.</p></div>
@@ -251,7 +238,6 @@
   <div class="bloc-body"><p>Une variable d'<strong>intervalle</strong> est une variable quantitative pour laquelle les différences entre les valeurs sont significatives et mesurables, mais qui ne possède pas de zéro absolu (le zéro est arbitraire). En plus de pouvoir tester l'égalité et l'ordre, on peut mesurer les distances entre les valeurs (au sens de calculer leur différence), mais pas les rapports.</p></div>
 </div>
 
-
 <div class="bloc bloc-exemple" id="exemple-9">
   <div class="bloc-header">💡 Exemple 9 <span class="bloc-id">(exemple-9)</span></div>
   <div class="bloc-body"><ul>
@@ -263,7 +249,6 @@
 </li>
 </ul></div>
 </div>
-
 
 <div class="bloc bloc-definition" id="definition-11">
   <div class="bloc-header">📘 Définition 11 — Variable de rapport <span class="bloc-id">(definition-11)</span></div>
@@ -330,7 +315,6 @@
   <div class="bloc-body"><p>Variable qui ne peut prendre qu'un nombre fini ou dénombrable de valeurs, généralement des nombres entiers.</p></div>
 </div>
 
-
 <div class="bloc bloc-exemple" id="exemple-11">
   <div class="bloc-header">💡 Exemple 11 <span class="bloc-id">(exemple-11)</span></div>
   <div class="bloc-body"><ul>
@@ -349,12 +333,10 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-definition" id="definition-13">
   <div class="bloc-header">📘 Définition 13 — Variable continue <span class="bloc-id">(definition-13)</span></div>
   <div class="bloc-body"><p>Variable qui peut prendre n'importe quelle valeur dans un intervalle donné.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-12">
   <div class="bloc-header">💡 Exemple 12 <span class="bloc-id">(exemple-12)</span></div>
@@ -400,14 +382,13 @@
 </table></div>
 </div>
 
-<h3 id="variables-dépendantes-et-indépendantes">Variables dépendantes et indépendantes</h3>
+<h3 id="variables-dépendantes-et-indépendantes">III.2.2 Variables dépendantes et indépendantes</h3>
 <p>Dans une étude de relation entre variables, on distingue :</p>
 <div class="bloc bloc-definition" id="definition-14">
   <div class="bloc-header">📘 Définition 14 — Variable indépendante <span class="bloc-id">(definition-14)</span></div>
-  <div class="bloc-body"><p>La <strong>variable indépendante</strong> (ou variable explicative, prédictive) est la variable que le chercheur manipule ou observe pour en étudier l'effet. Elle est considérée comme la cause dans une relation de causalité.</p>
-<p><strong>Notation :</strong> Généralement notée $X$</p></div>
+  <div class="bloc-body"><p>La <strong>variable indépendante</strong> (ou variable explicative, prédictive) est la variable que le chercheur manipule ou observe pour en étudier l'effet. Elle est considérée comme la cause dans une relation de causalité.<br />
+<strong>Notation :</strong> Généralement notée $X$</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-13">
   <div class="bloc-header">💡 Exemple 13 <span class="bloc-id">(exemple-13)</span></div>
@@ -424,13 +405,11 @@
 </ul></div>
 </div>
 
-
 <div class="bloc bloc-definition" id="definition-15">
   <div class="bloc-header">📘 Définition 15 — Variable dépendante <span class="bloc-id">(definition-15)</span></div>
-  <div class="bloc-body"><p>La <strong>variable dépendante</strong> (ou variable à expliquer, variable réponse) est la variable dont on cherche à expliquer ou prédire les variations. Elle est considérée comme l'effet dans une relation de causalité.</p>
-<p><strong>Notation :</strong> Généralement notée $Y$</p></div>
+  <div class="bloc-body"><p>La <strong>variable dépendante</strong> (ou variable à expliquer, variable réponse) est la variable dont on cherche à expliquer ou prédire les variations. Elle est considérée comme l'effet dans une relation de causalité.<br />
+<strong>Notation :</strong> Généralement notée $Y$</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-14">
   <div class="bloc-header">💡 Exemple 14 <span class="bloc-id">(exemple-14)</span></div>
@@ -447,30 +426,29 @@
 </ul></div>
 </div>
 
-<p>Il peut y avoir plusieurs variables indépendantes et dépendantes dans une même étude : par exemple, le prix d'une maison (variable dépendante) peut être influencé par plusieurs variables indépendantes telles que la superficie, le nombre de chambres, l'emplacement, etc.</p>
-<p>En fonction du nombre de variables en jeu, on distingue :</p>
+<p>Il peut y avoir plusieurs variables indépendantes et dépendantes dans une même étude : par exemple, le prix d'une maison (variable dépendante) peut être influencé par plusieurs variables indépendantes telles que la superficie, le nombre de chambres, l'emplacement, etc.<br />
+En fonction du nombre de variables en jeu, on distingue :</p>
 <ul>
 <li>
 <p><strong>Relation bivariée</strong> : Analyse d'une variable dépendante par une variable indépendante.</p>
 </li>
 <li>
-<p><strong>Relation multivariée</strong> : Analyse d'une variable dépendante par deux ou plusieurs variables indépendantes.</p>
+<p><strong>Relation multivariée</strong> : Analyse d'une variable dépendante par deux ou plusieurs variables indépendantes.<br />
+Dans ce cours, on se concentrera principalement sur les relations univariées, mais la majorité des concepts peuvent être étendus aux relations multivariées.<br />
+<strong>Attention :</strong> malgré leur nom, il est possible dans une analyse d'une variable dépendante $Y$ par une variable indépendante $X$, que la variable $Y$ ne "dépende" pas de $X$ au sens habituel du mot. Dans le cas le plus simple, il se peut qu'on ne trouve aucun lien : par exemple, entre la taille d'un étudiant et sa note finale à ce cours, et $Y$ ne dépend pas de $X$. Mais supposons par exemple qu'on étudie le lien entre le nombre de visites annuelles à l'opéra (variable dépendante) et la surface de la résidence principale (variable indépendante). Il est tout à fait possible que l'on trouve un lien entre les deux : plus la maison est grande, plus le nombre de visites à l'opéra est élevé. Cependant, cela ne signifie pas que la taille de la maison cause une augmentation du nombre de visites à l'opéra. Il peut y avoir une variable cachée (par exemple, le revenu) qui influence à la fois la taille de la maison et le nombre de visites à l'opéra. Ainsi, même si $Y$ dépend de $X$ dans le modèle statistique, cela ne signifie pas nécessairement une relation causale directe entre les deux variables. On résumera cela par la phrase suivante :</p>
 </li>
 </ul>
-<p>Dans ce cours, on se concentrera principalement sur les relations univariées, mais la majorité des concepts peuvent être étendus aux relations multivariées.</p>
-<p><strong>Attention :</strong> malgré leur nom, il est possible dans une analyse d'une variable dépendante $Y$ par une variable indépendante $X$, que la variable $Y$ ne "dépende" pas de $X$ au sens habituel du mot. Dans le cas le plus simple, il se peut qu'on ne trouve aucun lien : par exemple, entre la taille d'un étudiant et sa note finale à ce cours, et $Y$ ne dépend pas de $X$. Mais supposons par exemple qu'on étudie le lien entre le nombre de visites annuelles à l'opéra (variable dépendante) et la surface de la résidence principale (variable indépendante). Il est tout à fait possible que l'on trouve un lien entre les deux : plus la maison est grande, plus le nombre de visites à l'opéra est élevé. Cependant, cela ne signifie pas que la taille de la maison cause une augmentation du nombre de visites à l'opéra. Il peut y avoir une variable cachée (par exemple, le revenu) qui influence à la fois la taille de la maison et le nombre de visites à l'opéra. Ainsi, même si $Y$ dépend de $X$ dans le modèle statistique, cela ne signifie pas nécessairement une relation causale directe entre les deux variables. On résumera cela par la phrase suivante :</p>
 <div style="text-align:center;"><strong>Corrélation n'implique pas causalité.</strong></div>
 
 <p>On reviendra en détail sur les types de liens entre variables dans la partie de statistiques bivariées (tests d'indépendance, corrélation et régression) du cours.</p>
-<h2 id="organisation-des-données">Organisation des données</h2>
-<h3 id="données-brutes">Données brutes</h3>
+<h2 id="organisation-des-données">III.3 Organisation des données</h2>
+<h3 id="données-brutes">III.3.1 Données brutes</h3>
 <p>Les données brutes peuvent théoriquement prendre toutes sortes de forme : notes manuscrites, enregistrements audio, vidéos, images, etc. Si par exemple l'instrument de mesure est une série d'entretiens guidés avec chacun des membres de l'échantillon, les données brutes peuvent être les notes prises par le chercheur qui mène l'entretien, voire l'ensemble des enregistrements vidéo de l'entretien.</p>
 <p>Cependant, comme on l'a déjà dit, on suppose dans ce cours que l'on a accès à des données quantitatives déjà "nettoyées" et prêtes à l'emploi, au sens où tous ces formats riches tels que les vidéos, images, enregistrements audio, etc. ont été transformés et encodés de sorte à pouvoir être traités numériquement. Dans ce cas, les données sont généralement présentées sous forme de tableaux que l'on appelle <em>matrices de données</em>. On parle aussi souvent de <em>jeu de données</em> (dataset en anglais) pour désigner une matrice de données.</p>
 <div class="bloc bloc-definition" id="definition-16">
   <div class="bloc-header">📘 Définition 16 — Matrice de données <span class="bloc-id">(definition-16)</span></div>
   <div class="bloc-body"><p>Une <strong>matrice de données</strong> est une présentation des données sous forme de tableau où chaque ligne représente une unité statistique (individu) et chaque colonne représente une variable mesurée ou observée. On appelle l'ensemble des données stockées dans une colonne une <strong>série de données</strong>, et l'ensemble des données dans une ligne une <strong>observation</strong> ou un <strong>enregistrement</strong>.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-15">
   <div class="bloc-header">💡 Exemple 15 <span class="bloc-id">(exemple-15)</span></div>
@@ -526,14 +504,13 @@
 </tbody>
 </table></div>
 </div>
-
 <p>Chaque ligne correspond à une personne différente (unité statistique) et chaque colonne correspond à une variable mesurée (genre, statut, nombre de cafés bus par jour), chaque cellule contenant la donnée spécifique pour cette unité et cette variable.</p></div>
 </div>
 
 <p>Dans ce cas, qu'appelle-t-on une <em>base de données</em> ? En fait, une base de données est un ensemble organisé de données, souvent stockées électroniquement dans un système informatique. Une base de données peut contenir plusieurs matrices de données (ou tables) reliées entre elles. Par exemple, dans une base de données d'une université, on pourrait avoir une table pour les étudiants, une autre pour les cours, et une troisième pour les inscriptions aux cours, toutes reliées entre elles. De plus, la base de données peut être stockée sous une forme plus abstraite ou plus riche que de simples matrices, avec des relations complexes entre les différentes tables. Dans ce cours, on se concentre sur l'analyse de matrices de données individuelles.</p>
-<h3 id="données-traitées-distributions-de-fréquences-et-tableaux">Données traitées : distributions de fréquences et tableaux</h3>
-<p>La matrice de données est la matière première de l'analyse statistique. Cependant, pour analyser efficacement les données, il est souvent nécessaire de les organiser et de les résumer de manière plus structurée, en présentant les données après un premier traitement, par exemple en rassemblant les valeurs similaires et en comptant leur fréquence d'apparition. On appelle cela une <em>distribution de fréquences</em>. Les fréquences peuvent être exprimées de plusieurs manières : en effectifs (nombre d'occurrences), en fréquences relatives (proportions), en pourcentages, etc. Techniquement, la distribution de fréquences est l'ensemble des fréquences des différents cas de figures possibles dans les données, indépendamment de leur présentation. Cependant, on présente souvent les distributions de fréquences sous forme de tableaux ou de graphiques pour faciliter l'interprétation.</p>
-<p><strong>Types de fréquences :</strong></p>
+<h3 id="données-traitées-distributions-de-fréquences-et-tableaux">III.3.2 Données traitées : distributions de fréquences et tableaux</h3>
+<p>La matrice de données est la matière première de l'analyse statistique. Cependant, pour analyser efficacement les données, il est souvent nécessaire de les organiser et de les résumer de manière plus structurée, en présentant les données après un premier traitement, par exemple en rassemblant les valeurs similaires et en comptant leur fréquence d'apparition. On appelle cela une <em>distribution de fréquences</em>. Les fréquences peuvent être exprimées de plusieurs manières : en effectifs (nombre d'occurrences), en fréquences relatives (proportions), en pourcentages, etc. Techniquement, la distribution de fréquences est l'ensemble des fréquences des différents cas de figures possibles dans les données, indépendamment de leur présentation. Cependant, on présente souvent les distributions de fréquences sous forme de tableaux ou de graphiques pour faciliter l'interprétation.<br />
+<strong>Types de fréquences :</strong></p>
 <ul>
 <li>
 <p><strong>Effectif</strong> ($n_i$) : Nombre d'observations dans chaque catégorie. Cette quantité est parfois appelée <em>fréquence brute</em> ou <em>fréquence absolue</em>. On préfèrera parler d'effectif dans ce cours pour éviter toute confusion.</p>
@@ -545,8 +522,8 @@
 <p><strong>Fréquence cumulée</strong> ou <strong>cumulative</strong> : Somme des fréquences jusqu'à une certaine valeur. Formellement, la $i$-ième fréquence cumulée est définie comme $\displaystyle F_i = \sum_{j=1}^{i} f_j$.</p>
 </li>
 </ul>
-<p>En français, cette formule se lit : "la fréquence cumulée de la $i$-ième catégorie ($F_i$) est égale à la somme ($\Sigma$) des fréquences ($f_j$) de toutes les catégories inférieures ou égales à $i$ ($j=1$ à $i$)". On évite en général de parler de fréquences cumulées pour des variables non ordonnées. La fréquence cumulée permet de savoir quelle proportion des observations se trouve en dessous d'une certaine valeur.</p>
-<p>On utilise souvent une majuscule pour les fréquences cumulées ($F_i$) pour les différencier des fréquences simples ($f_i$), mais ce n'est pas une règle absolue.</p>
+<p>En français, cette formule se lit : "la fréquence cumulée de la $i$-ième catégorie ($F_i$) est égale à la somme ($\Sigma$) des fréquences ($f_j$) de toutes les catégories inférieures ou égales à $i$ ($j=1$ à $i$)". On évite en général de parler de fréquences cumulées pour des variables non ordonnées. La fréquence cumulée permet de savoir quelle proportion des observations se trouve en dessous d'une certaine valeur.<br />
+  On utilise souvent une majuscule pour les fréquences cumulées ($F_i$) pour les différencier des fréquences simples ($f_i$), mais ce n'est pas une règle absolue.</p>
 <ul>
 <li><strong>Pourcentage</strong> : Fréquence relative $\times$ 100. On peut aussi donner la fréquence cumulée en pourcentage.</li>
 </ul>
@@ -616,7 +593,6 @@
 </tbody>
 </table></div>
 </div>
-
 <p>On peut aussi présenter les mêmes données en termes de fréquences relatives ou de pourcentages comme c'est le cas dans le tableau suivant, où l'on omet la distinction entre genre et statut d'activité pour ne se concentrer que sur le nombre de cafés bus par jour.</p>
 <div class="bloc bloc-tableau" id="tab-5">
   <div class="bloc-header">📊 Tableau 5 — Nombre de cafés bus par jour <span class="bloc-id">(tab-5)</span></div>
@@ -683,14 +659,13 @@
 </tbody>
 </table></div>
 </div>
-
 <p>On voit dans cette table que 34,5% des personnes de l'échantillon boivent 2 cafés par jour, et que 78,5% boivent au plus 2 cafés par jour.</p></div>
 </div>
 
-<p><strong>Tableau de fréquences à une entrée</strong></p>
-<p>On appelle tableau de fréquences à une entrée un tableau qui présente la distribution de fréquences d'une seule variable. Chaque ligne du tableau correspond à une modalité (ou, dans le cas des variables quantitatives, à un intervalle de valeurs) de la variable et ces classes sont indiquées dans la première colonne.</p>
-<p>La (ou les) colonne(s) suivante(s) présente(nt) une ou plusieurs des mesures de fréquences (effectifs, fréquences relatives, pourcentages, etc.) pour chaque modalité.</p>
-<p>Il est important, comme dans toute présentation de données, de respecter la structure de données : si les modalités ou les classes sont ordonnées, il faut les présenter dans l'ordre.</p>
+<p><strong>Tableau de fréquences à une entrée</strong><br />
+On appelle tableau de fréquences à une entrée un tableau qui présente la distribution de fréquences d'une seule variable. Chaque ligne du tableau correspond à une modalité (ou, dans le cas des variables quantitatives, à un intervalle de valeurs) de la variable et ces classes sont indiquées dans la première colonne.</p>
+<p>La (ou les) colonne(s) suivante(s) présente(nt) une ou plusieurs des mesures de fréquences (effectifs, fréquences relatives, pourcentages, etc.) pour chaque modalité.<br />
+Il est important, comme dans toute présentation de données, de respecter la structure de données : si les modalités ou les classes sont ordonnées, il faut les présenter dans l'ordre.</p>
 <div class="bloc bloc-exemple" id="exemple-17">
   <div class="bloc-header">💡 Exemple 17 <span class="bloc-id">(exemple-17)</span></div>
   <div class="bloc-body"><p>Dans le jeu de données <code>mtcars</code> (Motor Trend, 1974), on peut présenter le nombre de véhicules en fonction de la consommation en miles par gallon (mpg) comme suit :</p>
@@ -738,13 +713,12 @@
 </tbody>
 </table></div>
 </div>
-
 <p>Notons que dans ce tableau, les classes de consommation sont ordonnées de la plus basse à la plus haute, respectant ainsi la nature ordonnée de la variable quantitative. Par ailleurs, la somme des fréquences est légèrement supérieure à 1 (1.01) en raison de l'arrondissement des valeurs.</p></div>
 </div>
 
-<p><strong>Tableau de fréquences à deux entrées</strong></p>
-<p>Un tableau de fréquences à deux entrées (ou tableau croisé) présente la distribution conjointe de deux variables. Chaque ligne du tableau correspond à une modalité (ou intervalle) de la première variable, et chaque colonne correspond à une modalité (ou intervalle) de la deuxième variable. Les cellules du tableau contiennent les effectifs ou les fréquences pour chaque combinaison de modalités des deux variables. On appelle également ce type de tableau un <em>tableau de contingence</em> lorsqu'on travaille avec des variables qualitatives.</p>
-<p>Typiquement, comme à la fois les lignes et les colonnes servent déjà à indiquer les modalités ou classes des deux variables, on ne peut indiquer qu'une seule mesure de fréquence par cellule (effectif, fréquence relative, pourcentage, etc.). Il est fréquent de présenter des totaux en marge (lignes et colonnes) pour résumer les distributions de fréquence de chaque variable indépendamment de l'autre. Ainsi, les cases "centrales" du tableau contiennent la <strong>distribution croisée</strong>, ou <strong>conjointe</strong>, tandis que les totaux en marge donnent les <strong>distributions marginales</strong>.</p>
+<p><strong>Tableau de fréquences à deux entrées</strong><br />
+Un tableau de fréquences à deux entrées (ou tableau croisé) présente la distribution conjointe de deux variables. Chaque ligne du tableau correspond à une modalité (ou intervalle) de la première variable, et chaque colonne correspond à une modalité (ou intervalle) de la deuxième variable. Les cellules du tableau contiennent les effectifs ou les fréquences pour chaque combinaison de modalités des deux variables. On appelle également ce type de tableau un <em>tableau de contingence</em> lorsqu'on travaille avec des variables qualitatives.<br />
+Typiquement, comme à la fois les lignes et les colonnes servent déjà à indiquer les modalités ou classes des deux variables, on ne peut indiquer qu'une seule mesure de fréquence par cellule (effectif, fréquence relative, pourcentage, etc.). Il est fréquent de présenter des totaux en marge (lignes et colonnes) pour résumer les distributions de fréquence de chaque variable indépendamment de l'autre. Ainsi, les cases "centrales" du tableau contiennent la <strong>distribution croisée</strong>, ou <strong>conjointe</strong>, tandis que les totaux en marge donnent les <strong>distributions marginales</strong>.</p>
 <div class="bloc bloc-exemple" id="exemple-18">
   <div class="bloc-header">💡 Exemple 18 <span class="bloc-id">(exemple-18)</span></div>
   <div class="bloc-body"><p>Voici un exemple réel basé sur le jeu de données <code>mtcars</code> (Motor Trend, 1974). On croise le nombre de cylindres et le type de boîte.</p>
@@ -752,16 +726,15 @@
   <div class="bloc-header">📊 Tableau 7 — Répartition des 32 véhicules du jeu `mtcars` par nombre de cylindres et type de boîte <span class="bloc-id">(tab-7)</span></div>
   <div class="bloc-body"><table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Cylindres</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Type de boîte</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Total</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Automatique</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Manuelle</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">4</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">3</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">8</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">11</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">6</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">4</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">3</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">7</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">8</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">12</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">2</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">14</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>19</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>13</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>32</strong></td></tr></tbody></table></div>
 </div>
-
 <p>On observe par exemple que, dans ce jeu, la majorité des voitures 4 cylindres sont à boîte manuelle (8 sur 11), tandis que la plupart des 8 cylindres sont automatiques (12 sur 14).</p></div>
 </div>
 
-<p><strong>Tableau de fréquences à plus de deux entrées</strong></p>
-<p>La création de tableaux de fréquences à plus de deux entrées est possible, mais leur présentation devient rapidement complexe et difficile à interpréter. Dans la pratique, on préfère souvent analyser les relations entre paires de variables à la fois, en utilisant des tableaux croisés à deux entrées, et en complétant l'analyse avec des techniques statistiques multivariées lorsque nécessaire. Cependant, à titre d'exemple, la table sur le nombre de cafés bus en fonction du genre et de l'activité (ci-dessus) illustre un tableau de fréquences à trois entrées.</p>
-<h3 id="données-traitées-distributions-de-fréquences-et-graphiques">Données traitées : distributions de fréquences et graphiques</h3>
+<p><strong>Tableau de fréquences à plus de deux entrées</strong><br />
+La création de tableaux de fréquences à plus de deux entrées est possible, mais leur présentation devient rapidement complexe et difficile à interpréter. Dans la pratique, on préfère souvent analyser les relations entre paires de variables à la fois, en utilisant des tableaux croisés à deux entrées, et en complétant l'analyse avec des techniques statistiques multivariées lorsque nécessaire. Cependant, à titre d'exemple, la table sur le nombre de cafés bus en fonction du genre et de l'activité (ci-dessus) illustre un tableau de fréquences à trois entrées.</p>
+<h3 id="données-traitées-distributions-de-fréquences-et-graphiques">III.3.3 Données traitées : distributions de fréquences et graphiques</h3>
 <p>Pour le moment, on se réfère au manuel (voir $\S$ 3 du manuel) concernant les graphiques.</p>
-<p>On y verra les différents types de graphiques qui suivent.</p>
-<p><strong>Diagramme en secteurs ou en anneau</strong> — Constitué d'un disque ou d'un anneau divisé en parts dont la taille est proportionnelle à la fréquence de chaque modalité.</p>
+<p>On y verra les différents types de graphiques qui suivent.<br />
+<strong>Diagramme en secteurs ou en anneau</strong> — Constitué d'un disque ou d'un anneau divisé en parts dont la taille est proportionnelle à la fréquence de chaque modalité.</p>
 <ul>
 <li>
 <p>Adapté pour indiquer les fréquences de variables qualitatives nominales,</p>
@@ -780,13 +753,11 @@
   <div class="bloc-header">🖼 Figure 1 — Répartition des langues maternelles au Québec (2021) <span class="bloc-id">(fig-1)</span></div>
   <div class="bloc-body"><img src="figures/langues_quebec_pie.png" alt="Figure"></div>
 </div>
-
 <p>Pour le même ensemble de données, on peut utiliser un diagramme en anneau :</p>
 <div class="bloc bloc-figure" id="fig-2">
   <div class="bloc-header">🖼 Figure 2 — Répartition des langues maternelles au Québec (2021) <span class="bloc-id">(fig-2)</span></div>
   <div class="bloc-body"><img src="figures/langues_quebec_donut.png" alt="Figure"></div>
 </div>
-
 <p>On observe que le français est largement dominant comme langue maternelle au Québec, représentant plus des trois quarts de la population parmi les répondants.</p></div>
 </div>
 
@@ -811,10 +782,8 @@
   <div class="bloc-header">🖼 Figure 3 — Population des principales régions administratives du Québec (2021, en milliers) <span class="bloc-id">(fig-3)</span></div>
   <div class="bloc-body"><img src="figures/regions_quebec_barres.png" alt="Figure"></div>
 </div>
-
 <p>On voit dans ce diagramme en barres que Montréal est de loin la région la plus peuplée, suivie par la Montérégie<sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup>.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-21">
   <div class="bloc-header">💡 Exemple 21 <span class="bloc-id">(exemple-21)</span></div>
@@ -822,10 +791,8 @@
   <div class="bloc-header">🖼 Figure 4 — Niveau de scolarité par sexe au Québec (population de plus de 15 ans, 2021, en milliers) <span class="bloc-id">(fig-4)</span></div>
   <div class="bloc-body"><img src="figures/scolarite_sexe_quebec.png" alt="Figure"></div>
 </div>
-
 <p>On observe dans ce diagramme en barres groupées que les femmes sont plus nombreuses que les hommes à avoir un diplôme universitaire, tandis que les hommes sont légèrement plus nombreux à s'arrêter au collégial.<sup id="fnref-4"><a href="#fn-4" class="footnote-ref">4</a></sup></p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-22">
   <div class="bloc-header">💡 Exemple 22 <span class="bloc-id">(exemple-22)</span></div>
@@ -833,7 +800,6 @@
   <div class="bloc-header">🖼 Figure 5 — Mode de transport pour se rendre au travail au Québec (2021) <span class="bloc-id">(fig-5)</span></div>
   <div class="bloc-body"><img src="figures/transport_travail_quebec.png" alt="Figure"></div>
 </div>
-
 <p>On observe dans ce diagramme en barres empilées que l'automobile domine largement comme mode de transport pour se rendre au travail au Québec, représentant environ 80% des déplacements.<sup id="fnref-5"><a href="#fn-5" class="footnote-ref">5</a></sup></p></div>
 </div>
 
@@ -852,10 +818,8 @@
   <div class="bloc-header">🖼 Figure 6 — Population de quelques provinces canadiennes (2021, en millions) <span class="bloc-id">(fig-6)</span></div>
   <div class="bloc-body"><img src="figures/provinces_population.png" alt="Figure"></div>
 </div>
-
 <p>On observe que l'Ontario est la province la plus peuplée, suivie du Québec.<sup id="fnref-6"><a href="#fn-6" class="footnote-ref">6</a></sup></p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-24">
   <div class="bloc-header">💡 Exemple 24 — Diagramme en colonnes groupées <span class="bloc-id">(exemple-24)</span></div>
@@ -863,10 +827,8 @@
   <div class="bloc-header">🖼 Figure 7 — Répartition des Québécois.es par groupe d&#x27;âge et par sexe (2021, en %) <span class="bloc-id">(fig-7)</span></div>
   <div class="bloc-body"><img src="figures/age_sexe_quebec.png" alt="Figure"></div>
 </div>
-
 <p>On observe que la répartition par groupe d'âge est similaire entre les sexes, avec une proportion légèrement plus élevée de femmes chez les 65 ans et plus.<sup id="fnref-7"><a href="#fn-7" class="footnote-ref">7</a></sup></p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-25">
   <div class="bloc-header">💡 Exemple 25 — Diagramme en colonnes empilées <span class="bloc-id">(exemple-25)</span></div>
@@ -875,7 +837,6 @@
   <div class="bloc-header">🖼 Figure 8 — Composition du parc de logement de quelques villes québécoises (2021) <span class="bloc-id">(fig-8)</span></div>
   <div class="bloc-body"><img src="figures/logement_villes_quebec.png" alt="Figure"></div>
 </div>
-
 <p>On observe que la composition du parc de logement à Longueuil est plus semblable à celle de Montréal, que celle de Laval à celle de Québec.</p></div>
 </div>
 
@@ -898,7 +859,6 @@
   <div class="bloc-header">🖼 Figure 9 — Distribution du nombre de personnes par ménage au Québec (2021) <span class="bloc-id">(fig-9)</span></div>
   <div class="bloc-body"><img src="figures/menages_personnes_quebec.png" alt="Figure"></div>
 </div>
-
 <p>On observe que les ménages d'une ou deux personnes sont les plus fréquents au Québec, représentant ensemble environ 69 % des ménages, tandis que les ménages de cinq personnes ou plus sont relativement rares (6,2 %).</p></div>
 </div>
 
@@ -926,11 +886,9 @@
   <div class="bloc-header">🖼 Figure 10 — Distribution de la population du Québec par groupe d&#x27;âge (2021, en pourcentage) <span class="bloc-id">(fig-10)</span></div>
   <div class="bloc-body"><img src="figures/histogramme_age_frequence.png" alt="Figure"></div>
 </div>
-
 <p>On voit dans ce cas que les groupes d'âge 25-44 ans et 45-64 ans sont les plus nombreux au Québec en 2021.</p>
 <p>Il y avait 1975 personnes de plus de 100 ans au Québec en 2021<sup id="fnref-11"><a href="#fn-11" class="footnote-ref">11</a></sup>, soit environ 0,0% de la population totale (à une décimale près) et on choisit de ne pas représenter la classe d'âge 100+ dans l'histogramme.</p></div>
 </div>
-
 
 <div class="bloc bloc-exemple" id="exemple-28">
   <div class="bloc-header">💡 Exemple 28 — Histogramme avec des classes de largeur inégale <span class="bloc-id">(exemple-28)</span></div>
@@ -939,7 +897,6 @@
   <div class="bloc-header">🖼 Figure 11 — Distribution de la population du Québec par groupe d&#x27;âge (2021, en densité de fréquence) <span class="bloc-id">(fig-11)</span></div>
   <div class="bloc-body"><img src="figures/histogramme_age_densite.png" alt="Figure"></div>
 </div>
-
 <p>Par exemple, dans ce cas, la concentration de la population dans les classes 0-65 est à peu près la même (autour de 1,1), tandis que la concentration dans la classe 65+ est plus faible (environ 0,59), reflétant la plus grande dispersion des données dans cette dernière classe que dans les autres. On retrouve que la classe 15-25 est la moins concentrée, ce qui correspond au creux observé dans l'histogramme précédent.</p></div>
 </div>
 
@@ -962,7 +919,6 @@
   <div class="bloc-header">🖼 Figure 12 — Distribution des Québécois.e.s (groupés par genre) par groupe d&#x27;âge (2021, tranches de 10 ans, en pourcentage) <span class="bloc-id">(fig-12)</span></div>
   <div class="bloc-body"><img src="figures/polygone_age_sexe.png" alt="Figure"></div>
 </div>
-
 <p>On observe que le polygone de fréquence permet de visualiser plus clairement la tendance générale de la distribution, avec un pic autour de 55 ans et une diminution progressive pour les groupes d'âge plus élevés. On voit aussi une inversion de la répartition entre les femmes et les hommes à partir de 65 ans.</p></div>
 </div>
 
@@ -988,14 +944,13 @@
   <div class="bloc-header">🖼 Figure 13 — Distribution cumulative de la population du Québec par groupe d&#x27;âge (2021, fréquences relatives cumulées) <span class="bloc-id">(fig-13)</span></div>
   <div class="bloc-body"><img src="figures/ogive_age.png" alt="Figure"></div>
 </div>
-
 <p>L'ogive permet de lire directement des informations importantes : par exemple, on peut voir qu'environ 50% de la population québécoise a moins de 42 ans (médiane), que 70% de la population a moins de 60 ans, et que 90% a moins de 80 ans. La courbe croissante caractéristique de l'ogive facilite l'identification des quantiles et la comparaison des distributions cumulées : on y reviendra.</p></div>
 </div>
 
-<h3 id="un-cas-particulier-les-séries-chronologiques">Un cas particulier : les séries chronologiques</h3>
+<h3 id="un-cas-particulier-les-séries-chronologiques">III.3.4 Un cas particulier : les séries chronologiques</h3>
 <p>On appelle <strong>série chronologique</strong> une série de données quantitatives collectées au fil du temps, le plus souvent à des intervalles de temps réguliers. Si l'intervalle de temps entre les collectes est constant, on l'appelle <strong>périodicité</strong> de la série. Les séries chronologiques sont utilisées pour analyser les tendances, les cycles et les variations saisonnières dans les données au fil du temps. Les différents types de tableaux et graphiques que l'on a discutés précédemment peuvent être appliqués aux séries chronologiques. Pour les plus adaptés d'entre eux, on utilise souvent un nom différent pour indiquer qu'on travaille avec des données temporelles. Plus généralement,</p>
-<p>un diagramme indiquant une variable quantitative en fonction du temps est souvent appelé un <strong>chronogramme</strong> ou un <strong>historiogramme</strong>.</p>
-<p><strong>Tableau de séries chronologiques</strong> : un tableau qui présente les valeurs de la variable mesurée à différents points dans le temps. Chaque ligne du tableau correspond à un point dans le temps (date, heure, etc.) et la (ou les) colonne suivante contient la valeur mesurée à ce moment-là.</p>
+<p>un diagramme indiquant une variable quantitative en fonction du temps est souvent appelé un <strong>chronogramme</strong> ou un <strong>historiogramme</strong>.<br />
+<strong>Tableau de séries chronologiques</strong> : un tableau qui présente les valeurs de la variable mesurée à différents points dans le temps. Chaque ligne du tableau correspond à un point dans le temps (date, heure, etc.) et la (ou les) colonne suivante contient la valeur mesurée à ce moment-là.</p>
 <div class="bloc bloc-exemple" id="exemple-31">
   <div class="bloc-header">💡 Exemple 31 <span class="bloc-id">(exemple-31)</span></div>
   <div class="bloc-body"><div class="bloc bloc-tableau" id="tab-8">
@@ -1127,7 +1082,6 @@
 </tbody>
 </table></div>
 </div>
-
 <p>Notons que dans cet exemple de tableau de séries chronologiques, le nombre d'années nécessite d'être présenté sur plusieurs colonnes pour éviter que le tableau ne devienne trop large. On peut aussi choisir de présenter les années sur une seule colonne et les populations correspondantes sur une autre colonne, mais cela rendrait le tableau plus long<sup id="fnref-14"><a href="#fn-14" class="footnote-ref">14</a></sup>.</p></div>
 </div>
 
@@ -1141,16 +1095,14 @@
 </div>
 
 <p><strong>Diagramme en colonnes</strong> : similaire à un diagramme en colonnes classique, mais utilisé pour représenter la distribution des valeurs de la variable mesurée sur des intervalles de temps spécifiques. On l'utilise plutôt quand le nombre de périodes est limité et qu'on veut insister sur la comparaison entre ces périodes.</p>
-<h3 id="pourquoi-et-comment-présenter-les-données">Pourquoi et comment présenter les données ?</h3>
+<h3 id="pourquoi-et-comment-présenter-les-données">III.3.5 Pourquoi et comment présenter les données ?</h3>
 <h4>L'intérêt de visualiser les données</h4>
-<p>On l'a vu, plus on récolte un grand nombre de données, plus les informations que l'on va en extraire seront riches et précises. Cependant, à partir d'une certaine quantité de données, il devient impossible d'obtenir une vue d'ensemble en examinant simplement les données brutes. Par exemple, si on a un échantillon de 10 000 individus avec plusieurs variables mesurées pour chacun, il est pratiquement impossible de comprendre la distribution des données ou les relations entre les variables en regardant simplement la matrice de données. C'est là qu'intervient la présentation des données sous forme de tableaux et de graphiques. Ces outils permettent de résumer et de visualiser les données de manière à en extraire des informations clés rapidement et efficacement.</p>
-<p>Souvent, d'un seul ensemble de données, on peut extraire plusieurs tableaux ou graphiques, chacun mettant en lumière un aspect différent des données : une variation au cours du temps ou entre groupes, la répartition des mesures en fonction des valeurs, la relation entre plusieurs variables, etc. Chaque tableau ou graphique, dans un certain sens, "élimine" une partie de l'information contenue dans les données brutes pour se concentrer sur un aspect particulier. C'est pourquoi il est important de choisir judicieusement les tableaux et graphiques à utiliser en fonction des questions de recherche que l'on souhaite explorer : un seul graphique peut être trompeur s'il est mal choisi ou mal interprété.</p>
+<p>On l'a vu, plus on récolte un grand nombre de données, plus les informations que l'on va en extraire seront riches et précises. Cependant, à partir d'une certaine quantité de données, il devient impossible d'obtenir une vue d'ensemble en examinant simplement les données brutes. Par exemple, si on a un échantillon de 10 000 individus avec plusieurs variables mesurées pour chacun, il est pratiquement impossible de comprendre la distribution des données ou les relations entre les variables en regardant simplement la matrice de données. C'est là qu'intervient la présentation des données sous forme de tableaux et de graphiques. Ces outils permettent de résumer et de visualiser les données de manière à en extraire des informations clés rapidement et efficacement.<br />
+Souvent, d'un seul ensemble de données, on peut extraire plusieurs tableaux ou graphiques, chacun mettant en lumière un aspect différent des données : une variation au cours du temps ou entre groupes, la répartition des mesures en fonction des valeurs, la relation entre plusieurs variables, etc. Chaque tableau ou graphique, dans un certain sens, "élimine" une partie de l'information contenue dans les données brutes pour se concentrer sur un aspect particulier. C'est pourquoi il est important de choisir judicieusement les tableaux et graphiques à utiliser en fonction des questions de recherche que l'on souhaite explorer : un seul graphique peut être trompeur s'il est mal choisi ou mal interprété.</p>
 <h4>Règles de présentation</h4>
-<p>Lors de la présentation des données, que ce soit sous forme de tableaux ou de graphiques, il est essentiel de suivre certaines règles pour assurer la clarté et la lisibilité des informations. Voici quelques règles générales à respecter :</p>
+<p>Lors de la présentation des données, que ce soit sous forme de tableaux ou de graphiques, il est essentiel de suivre certaines règles pour assurer la clarté et la lisibilité des informations. Voici quelques règles générales à respecter :<br />
+- <strong>Titres et légendes</strong> : Chaque tableau ou graphique doit avoir un titre clair et descriptif. Les axes des graphiques doivent être correctement étiquetés avec les unités de mesure le cas échéant. Les légendes doivent expliquer les symboles, couleurs ou styles utilisés.</p>
 <ul>
-<li>
-<p><strong>Titres et légendes</strong> : Chaque tableau ou graphique doit avoir un titre clair et descriptif. Les axes des graphiques doivent être correctement étiquetés avec les unités de mesure le cas échéant. Les légendes doivent expliquer les symboles, couleurs ou styles utilisés.</p>
-</li>
 <li>
 <p><strong>Numérotation</strong> : si votre document comporte plusieurs tableaux ou graphiques, il faut les numéroter (Tableau 1, Figure 1, etc.) pour permettre d'y faire référence sans ambiguïté dans le texte.</p>
 </li>
@@ -1170,26 +1122,24 @@
 <p><strong>Cohérence</strong> : Utiliser des styles, couleurs et formats cohérents à travers tous les tableaux et graphiques pour faciliter la comparaison. Cela permet au lecteur de ne pas avoir à réapprendre la signification des éléments visuels à chaque nouvelle figure.</p>
 </li>
 <li>
-<p><strong>Sources et notes</strong> : Inclure des sources de données et des notes explicatives si nécessaires pour clarifier le contexte ou les méthodes utilisées.</p>
+<p><strong>Sources et notes</strong> : Inclure des sources de données et des notes explicatives si nécessaires pour clarifier le contexte ou les méthodes utilisées.<br />
+D'une façon générale, le but est de réduire au maximum la charge cognitive du lecteur (et en particulier effacer toute ambiguïté qui pourrait être mal interprétée) et de lui permettre de se concentrer sur le contenu du graphique ou tableau plutôt que de passer du temps à décrypter sa forme. En suivant ces règles, on s'assure que les données sont présentées de manière professionnelle et accessible.</p>
 </li>
 </ul>
-<p>D'une façon générale, le but est de réduire au maximum la charge cognitive du lecteur (et en particulier effacer toute ambiguïté qui pourrait être mal interprétée) et de lui permettre de se concentrer sur le contenu du graphique ou tableau plutôt que de passer du temps à décrypter sa forme. En suivant ces règles, on s'assure que les données sont présentées de manière professionnelle et accessible.</p>
 <div class="bloc bloc-methode" id="methode-1">
   <div class="bloc-header">🔧 Méthode 1 — Donner un titre approprié <span class="bloc-id">(methode-1)</span></div>
-  <div class="bloc-body"><p><strong>À un tableau ou graphique</strong></p>
-<p>On pourra suivre la règle générale suivante :</p>
+  <div class="bloc-body"><p><strong>À un tableau ou graphique</strong><br />
+On pourra suivre la règle générale suivante :</p>
 <div style="text-align:center;"><strong>[Ce que montre le graphique ou tableau]</strong> sur/des/de/du <strong>[sur quoi ou qui]</strong> en fonction/selon/par <strong>[variable(s)]</strong> + (année, unités, etc. si nécessaire)</div>
-
 <p>Dans un tableau ou diagramme de fréquences, cela donne plus spécifiquement :</p>
 <div style="text-align:center;">Répartition/Distribution/Composition/Nombre...<br>
 des <strong>[unités statistiques]</strong> (<strong>[groupées par X]</strong> si nécessaire)<br>
 en fonction de <strong>[variable(s)]</strong><br>
 + (année, en pourcentage, en milliers, etc. si nécessaire)</div>
-
-<p><strong>À une colonne de tableau à une entrée</strong></p>
-<p>Le titre de la première colonne est le nom de la variable considérée, le nom des colonnes suivantes indique le type d'information contenue dans <em>une</em> case de la colonne. Dans un tableau de fréquences, cela pourrait être "Nombre/pourcentage/fréquence d'<strong>[unités statistiques]</strong>". Plus généralement, ce pourrait être "Moyenne/Valeur/Maximum/Étendue de <strong>[variable mesurée]</strong>", etc.</p>
-<p><strong>À une colonne dans un tableau à 2 entrées</strong></p>
-<p>Dans ce cas, toutes les lignes et colonnes servent à indiquer une valeur/classe/modalité d'une variable, et le type de données contenu dans les cases est indiqué dans le titre du graphique : par exemple, "Répartition de … en fonction de … et de … (pourcentages)", "Budget moyen de … en fonction de … et de … (en dollars)", etc.</p>
+<p><strong>À une colonne de tableau à une entrée</strong><br />
+Le titre de la première colonne est le nom de la variable considérée, le nom des colonnes suivantes indique le type d'information contenue dans <em>une</em> case de la colonne. Dans un tableau de fréquences, cela pourrait être "Nombre/pourcentage/fréquence d'<strong>[unités statistiques]</strong>". Plus généralement, ce pourrait être "Moyenne/Valeur/Maximum/Étendue de <strong>[variable mesurée]</strong>", etc.<br />
+<strong>À une colonne dans un tableau à 2 entrées</strong><br />
+Dans ce cas, toutes les lignes et colonnes servent à indiquer une valeur/classe/modalité d'une variable, et le type de données contenu dans les cases est indiqué dans le titre du graphique : par exemple, "Répartition de … en fonction de … et de … (pourcentages)", "Budget moyen de … en fonction de … et de … (en dollars)", etc.</p>
 <div class="bloc bloc-tableau" id="tab-9">
   <div class="bloc-header">📊 Tableau 9 — Structure d&#x27;un tableau à deux entrées <span class="bloc-id">(tab-9)</span></div>
   <div class="bloc-body"><table style="border-collapse:collapse;width:100%;margin:1rem 0;">
@@ -1267,10 +1217,10 @@ en fonction de <strong>[variable(s)]</strong><br>
 </div>
 
 <h4>Nombre de classes ou modalités</h4>
-<p>Un point important à considérer lors de la construction d'un tableau ou d'un graphique est le nombre de modalités (pour les variables qualitatives) ou de classes (pour les variables quantitatives) à utiliser. Si on a un faible nombre de modalités ou classes, on peut se permettre de toutes les inclure dans la représentation. Cependant, si elles sont en nombre trop important elles peuvent rendre la présentation confuse et difficile à interpréter. Dans le cas de variables qualitatives avec de nombreuses modalités, on peut regrouper les modalités moins fréquentes en une catégorie "Autres" pour simplifier la présentation ou choisir une représentation plus adaptée. Par exemple, on considère souvent que les diagrammes en secteurs sont à éviter lorsque le nombre de modalités dépasse 7 et on préfère dans ce cas les diagrammes en barres ou en colonnes.</p>
-<p>Pour les variables quantitatives, il est souvent nécessaire de regrouper les valeurs en <strong>classes</strong> (intervalles) pour créer des tableaux ou graphiques lisibles. Soit les données sont déjà regroupées en classes (par exemple, des tranches d'âge), et on peut fusionner certaines classes pour réduire leur nombre si nécessaire. Si, comme c'est plus souvent le cas, il faut créer les classes à partir de données brutes, il faut choisir un nombre de classes approprié. Plusieurs considérations entrent en jeu, mais on choisit le plus souvent des classes de longueur égale, commençant à la valeur minimale observée et finissant à la valeur maximale observée. Le nombre de classes dépend (entre autres) de la taille de l'ensemble de données : plus on a de données, plus on veut de classes, mais on ne veut pas 10 fois plus de classes pour 10 fois plus de données. Une convention répandue est de suivre la <strong>règle de Sturges</strong> : si le nombre total d'observations est $n$, on choisit le nombre de classes $k$ comme :</p>
-<p>$$ k = \lceil 1 + 3.22 \log_{10}(n) \rceil $$</p>
-<p>où $\lceil x \rceil$ est la fonction plafond qui arrondit $x$ à l'entier supérieur le plus proche. Cela donne le nombre suggéré de classes en fonction du nombre de données suivant :</p>
+<p>Un point important à considérer lors de la construction d'un tableau ou d'un graphique est le nombre de modalités (pour les variables qualitatives) ou de classes (pour les variables quantitatives) à utiliser. Si on a un faible nombre de modalités ou classes, on peut se permettre de toutes les inclure dans la représentation. Cependant, si elles sont en nombre trop important elles peuvent rendre la présentation confuse et difficile à interpréter. Dans le cas de variables qualitatives avec de nombreuses modalités, on peut regrouper les modalités moins fréquentes en une catégorie "Autres" pour simplifier la présentation ou choisir une représentation plus adaptée. Par exemple, on considère souvent que les diagrammes en secteurs sont à éviter lorsque le nombre de modalités dépasse 7 et on préfère dans ce cas les diagrammes en barres ou en colonnes.<br />
+Pour les variables quantitatives, il est souvent nécessaire de regrouper les valeurs en <strong>classes</strong> (intervalles) pour créer des tableaux ou graphiques lisibles. Soit les données sont déjà regroupées en classes (par exemple, des tranches d'âge), et on peut fusionner certaines classes pour réduire leur nombre si nécessaire. Si, comme c'est plus souvent le cas, il faut créer les classes à partir de données brutes, il faut choisir un nombre de classes approprié. Plusieurs considérations entrent en jeu, mais on choisit le plus souvent des classes de longueur égale, commençant à la valeur minimale observée et finissant à la valeur maximale observée. Le nombre de classes dépend (entre autres) de la taille de l'ensemble de données : plus on a de données, plus on veut de classes, mais on ne veut pas 10 fois plus de classes pour 10 fois plus de données. Une convention répandue est de suivre la <strong>règle de Sturges</strong> : si le nombre total d'observations est $n$, on choisit le nombre de classes $k$ comme :<br />
+$$ k = \lceil 1 + 3.22 \log_{10}(n) \rceil $$<br />
+où $\lceil x \rceil$ est la fonction plafond qui arrondit $x$ à l'entier supérieur le plus proche. Cela donne le nombre suggéré de classes en fonction du nombre de données suivant :</p>
 <div class="bloc bloc-tableau" id="tab-10">
   <div class="bloc-header">📊 Tableau 10 — Nombre de classes suggéré selon la règle de Sturges en fonction du nombre d&#x27;observations <span class="bloc-id">(tab-10)</span></div>
   <div class="bloc-body"><table>
@@ -1324,14 +1274,13 @@ en fonction de <strong>[variable(s)]</strong><br>
 <p>Une fois le nombre de classes choisi, on choisit un minimum et un maximum (typiquement la plus petite et la plus grande valeur observée, arrondies respectivement par défaut et par excès à des valeurs "rondes" pour faciliter la lecture) et on divise l'intervalle entre ces deux valeurs en classes de largeur égale.</p>
 <div class="bloc bloc-exemple" id="exemple-33">
   <div class="bloc-header">💡 Exemple 33 <span class="bloc-id">(exemple-33)</span></div>
-  <div class="bloc-body"><p>Si les données vont de 12 à 98 et que l'on a 500 observations, la règle de Sturges recommande de choisir 10 classes. On choisit alors des classes de largeur égale de 10 unités, commençant à 10 (arrondi par défaut de 12) et finissant à 100 (arrondi par excès de 98). On calcule une étendue de classe de $90/10 = 9$. Les classes sont alors $[10,19[, [19,28[, [28,37[, [37,46[, [46,55[, [55,64[, [64,73[, [73,82[, [82,91[, [91,100[$.</p>
-<p>Notons qu'on a eu de la chance, car le nombre de classes suggéré divisait proprement l'étendue "arrondie" des données. Considérons des données discrètes allant de 0 à 100 avec 6 classes. L'étendue calculée est alors de $100/6 \approx 16,7$. On peut alors choisir soit d'arrondir l'étendue à 17 et avoir les 6 classes $[0,17[, [17,34[, [34,51[, [51,68[, [68,85[, [85,102[$.</p></div>
+  <div class="bloc-body"><p>Si les données vont de 12 à 98 et que l'on a 500 observations, la règle de Sturges recommande de choisir 10 classes. On choisit alors des classes de largeur égale de 10 unités, commençant à 10 (arrondi par défaut de 12) et finissant à 100 (arrondi par excès de 98). On calcule une étendue de classe de $90/10 = 9$. Les classes sont alors $[10,19[, [19,28[, [28,37[, [37,46[, [46,55[, [55,64[, [64,73[, [73,82[, [82,91[, [91,100[$.<br />
+Notons qu'on a eu de la chance, car le nombre de classes suggéré divisait proprement l'étendue "arrondie" des données. Considérons des données discrètes allant de 0 à 100 avec 6 classes. L'étendue calculée est alors de $100/6 \approx 16,7$. On peut alors choisir soit d'arrondir l'étendue à 17 et avoir les 6 classes $[0,17[, [17,34[, [34,51[, [51,68[, [68,85[, [85,102[$.</p></div>
 </div>
 
-<p>Pour rappel, la notation $[a,b[$ signifie que l'intervalle de classe inclut toutes les valeurs de $a$ à $b$, incluant $a$, mais excluant $b$.</p>
-<hr />
-<h2 id="interlude-comparer-des-grandeurs">Interlude : comparer des grandeurs</h2>
-<h3 id="comparer-avec-des-quotients">Comparer avec des quotients</h3>
+<h2>Pour rappel, la notation $[a,b[$ signifie que l'intervalle de classe inclut toutes les valeurs de $a$ à $b$, incluant $a$, mais excluant $b$.</h2>
+<h2 id="interlude-comparer-des-grandeurs">III.4 Interlude : comparer des grandeurs</h2>
+<h3 id="comparer-avec-des-quotients">III.4.1 Comparer avec des quotients</h3>
 <div class="bloc bloc-definition" id="definition-17">
   <div class="bloc-header">📘 Définition 17 — Proportion <span class="bloc-id">(definition-17)</span></div>
   <div class="bloc-body"><p>La <strong>proportion</strong> d'une partie $P$ d'un ensemble $E$ est le rapport $\frac{\text{taille de } P}{\text{taille de }E}$. La proportion est un nombre compris entre 0 et 1, sans unité.</p></div>
@@ -1385,7 +1334,7 @@ $$</p>
   <div class="bloc-body"><p>Un <strong>indice à base 100</strong> est un ratio de la forme $\frac{V}{V_0} \times 100$, où $V$ est la valeur de la grandeur que l'on veut comparer, et $V_0$ est une valeur de référence. L'indice à base 100 est un nombre sans unité. On dit que l'indice est « élémentaire » si $V$ et $V_0$ sont des valeurs d'une même grandeur à deux points différents (par exemple, le prix d'un panier de biens en 2025 et en 2020), et que l'indice est « synthétique » si $V$ et $V_0$ sont des valeurs d'une grandeur synthétisant plusieurs grandeurs élémentaires (par exemple, l'indice des prix à la consommation, qui synthétise les prix de plusieurs biens).</p></div>
 </div>
 
-<h3 id="comparer-avec-des-différences">Comparer avec des différences</h3>
+<h3 id="comparer-avec-des-différences">III.4.2 Comparer avec des différences</h3>
 <div class="bloc bloc-definition" id="definition-21">
   <div class="bloc-header">📘 Définition 21 — Variation <span class="bloc-id">(definition-21)</span></div>
   <div class="bloc-body"><p>La <strong>variation</strong> d'une grandeur $V$ entre deux points $A$ et $B$ est la différence $V(B) - V(A)$. On la note $\Delta V$.</p></div>
@@ -1429,7 +1378,7 @@ La même augmentation de salaire sur 1 an au lieu de 5 ans correspond à une var
 <h4>Parler d'une variation d'un pourcentage</h4>
 <p>Imaginons que le taux de chômage est passé de 5 % à 10 %. Comme la grandeur dont on parle est déjà un pourcentage, il pourrait être confus de dire que le taux de chômage a augmenté de 5 % : est-ce que cela signifie que le taux de chômage est passé de 5 % à 10 % (augmentation de 5 points de pourcentage), ou que le taux de chômage a augmenté de 5 % par rapport à son niveau initial de 5 % pour atteindre 5,25 % (augmentation de 0,25 point de pourcentage) ?</p>
 <p>Par convention, quand on parle du pourcentage en tant que nombre sans unité, on parle de points de pourcentage. Par conséquent, dans notre exemple, on dira que le taux de chômage a augmenté de 5 points de pourcentage, et non pas de 5 %. Inversement, si on ne précise pas « points de pourcentage », on suppose que l'on parle d'une variation relative, c'est-à-dire d'une augmentation de 5 % par rapport à 5 %, ce qui correspond à une augmentation de 0,25 point de pourcentage.</p>
-<h3 id="indicateurs-démographiques">Indicateurs démographiques</h3>
+<h3 id="indicateurs-démographiques">III.4.3 Indicateurs démographiques</h3>
 <p>La <em>variation de population</em> est la variation absolue de la population entre deux points dans le temps.</p>
 <p>$$
 \Delta P = P(t+1) - P(t),
@@ -1495,17 +1444,16 @@ $$</p>
 </div>
 
 <p>Si on imagine que dans une population il y a exactement autant de femmes que d'hommes, et que chaque femme a exactement 1 enfant, chaque personne a 1/2 descendant à la génération suivante : la taille des générations est divisée par deux à chaque fois, et au fur et à mesure que les générations les plus anciennes disparaissent, la population diminue. Inversement, si chaque femme a 4 enfants, chaque personne a 2 descendants à la génération suivante : la taille des générations est multipliée par deux à chaque fois, et au fur et à mesure que les générations les plus anciennes disparaissent, la population augmente.</p>
-<p>Mathématiquement, le point d'équilibre où chaque génération est aussi grande que la précédente correspond à 2 enfants par femme. Dans la réalité, pour tenir compte du fait que tout le monde n'est pas fertile, que certaines personnes meurent avant d'avoir des enfants, etc., on considère que le <em>taux de remplacement des générations</em> dans un pays développé comme le Canada est d'environ 2,1 enfants par femme. Par conséquent, si l'ISF est inférieur à 2,1, la population tend à diminuer, et si l'ISF est supérieur à 2,1, la population tend à augmenter.</p>
+<h2>Mathématiquement, le point d'équilibre où chaque génération est aussi grande que la précédente correspond à 2 enfants par femme. Dans la réalité, pour tenir compte du fait que tout le monde n'est pas fertile, que certaines personnes meurent avant d'avoir des enfants, etc., on considère que le <em>taux de remplacement des générations</em> dans un pays développé comme le Canada est d'environ 2,1 enfants par femme. Par conséquent, si l'ISF est inférieur à 2,1, la population tend à diminuer, et si l'ISF est supérieur à 2,1, la population tend à augmenter.</h2>
 <hr />
-<h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
 <div class="bloc bloc-resume" id="resume-1">
-  <div class="bloc-header">📋 Résumé du chapitre 1 <span class="bloc-id">(resume-1)</span></div>
-  <div class="bloc-body"><h3>Distinction population--échantillon</h3>
+  <div class="bloc-header">📋 Résumé du chapitre III <span class="bloc-id">(resume-1)</span></div>
+  <div class="bloc-body"><h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<h3>Distinction population--échantillon</h3>
 <div class="bloc bloc-figure" id="fig-15">
   <div class="bloc-header">🖼 Figure 15 — Relation entre population et échantillon <span class="bloc-id">(fig-15)</span></div>
   <div class="bloc-body"><img src="figures/population_echantillon.png" alt="Figure"></div>
 </div>
-
 <h3>Vocabulaire essentiel</h3>
 <div class="bloc bloc-tableau" id="tab-11">
   <div class="bloc-header">📊 Tableau 11 — Vocabulaire essentiel <span class="bloc-id">(tab-11)</span></div>
@@ -1540,7 +1488,6 @@ $$</p>
 </tbody>
 </table></div>
 </div>
-
 <h3>Échelles de mesure et opérations permises</h3>
 <div class="bloc bloc-tableau" id="tab-12">
   <div class="bloc-header">📊 Tableau 12 — Échelles de mesure <span class="bloc-id">(tab-12)</span></div>
@@ -1576,7 +1523,6 @@ $$</p>
 </tbody>
 </table></div>
 </div>
-
 <h3>Variables discrètes vs continues</h3>
 <div class="bloc bloc-tableau" id="tab-13">
   <div class="bloc-header">📊 Tableau 13 — Variables discrètes vs continues <span class="bloc-id">(tab-13)</span></div>
@@ -1603,7 +1549,6 @@ $$</p>
 </tbody>
 </table></div>
 </div>
-
 <h3>Arbre de décision : Types de variables</h3>
 <div class="bloc bloc-figure" id="fig-16">
   <div class="bloc-header">🖼 Figure 16 — Classification des types de variables <span class="bloc-id">(fig-16)</span></div>
@@ -1636,6 +1581,6 @@ $$</p>
   </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=1779802943"></script>
 </body>
 </html>

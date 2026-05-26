@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark">
   <title>Chapitre IV — Statistiques descriptives</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
-  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
-  <link rel="stylesheet" href="style.css">
+  <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="style.css?v=1779804476">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -31,8 +31,6 @@
   <div id="sidebar-header">
     <div id="sidebar-top">
       <a href="index.html">⬅ Table des matières</a>
-      <button id="theme-toggle" aria-label="Basculer le thème" title="Mode sombre / clair">🌙</button>
-    </div>
     <a href="chapitre_01.html">Chap. 01</a>
 <a href="chapitre_02.html">Chap. 02</a>
 <a href="chapitre_03.html">Chap. 03</a>
@@ -40,30 +38,31 @@
 <a href="chapitre_05.html">Chap. 05</a>
 <a href="chapitre_06.html">Chap. 06</a>
     <div id="sidebar-title">Dans ce chapitre</div>
+    </div>
   </div>
-  <a class="nav-item level-h2" href="#mesures-de-tendance-centrale" data-id="mesures-de-tendance-centrale">Mesures de tendance centrale</a>
-<a class="nav-item level-h3" href="#mode" data-id="mode">Mode</a>
-<a class="nav-item level-h3" href="#médiane" data-id="médiane">Médiane</a>
-<a class="nav-item level-h3" href="#moyenne" data-id="moyenne">Moyenne</a>
-<a class="nav-item level-h3" href="#comparaison-et-choix-de-la-mesure-appropriée" data-id="comparaison-et-choix-de-la-mesure-appropriée">Comparaison et choix de la mesure appropriée</a>
-<a class="nav-item level-h2" href="#mesures-de-dispersion" data-id="mesures-de-dispersion">Mesures de dispersion</a>
-<a class="nav-item level-h3" href="#minimum-maximum-étendue" data-id="minimum-maximum-étendue">Minimum, maximum, étendue</a>
-<a class="nav-item level-h3" href="#écart-moyen" data-id="écart-moyen">Écart moyen</a>
-<a class="nav-item level-h3" href="#variance-et-écart-type" data-id="variance-et-écart-type">Variance et écart-type</a>
-<a class="nav-item level-h3" href="#coefficient-de-dispersion" data-id="coefficient-de-dispersion">Coefficient de dispersion</a>
-<a class="nav-item level-h3" href="#côte-z" data-id="côte-z">Côte $z$</a>
-<a class="nav-item level-h2" href="#mesures-de-position" data-id="mesures-de-position">Mesures de position</a>
-<a class="nav-item level-h3" href="#quantiles" data-id="quantiles">Quantiles</a>
-<a class="nav-item level-h3" href="#rang-quantile" data-id="rang-quantile">Rang quantile</a>
-<a class="nav-item level-h3" href="#lire-des-quantiles" data-id="lire-des-quantiles">Lire des quantiles</a>
+  <a class="nav-item level-h2" href="#mesures-de-tendance-centrale" data-id="mesures-de-tendance-centrale">IV.1 Mesures de tendance centrale</a>
+<a class="nav-item level-h3" href="#mode" data-id="mode">IV.1.1 Mode</a>
+<a class="nav-item level-h3" href="#médiane" data-id="médiane">IV.1.2 Médiane</a>
+<a class="nav-item level-h3" href="#moyenne" data-id="moyenne">IV.1.3 Moyenne</a>
+<a class="nav-item level-h3" href="#comparaison-et-choix-de-la-mesure-appropriée" data-id="comparaison-et-choix-de-la-mesure-appropriée">IV.1.4 Comparaison et choix de la mesure appropriée</a>
+<a class="nav-item level-h2" href="#mesures-de-dispersion" data-id="mesures-de-dispersion">IV.2 Mesures de dispersion</a>
+<a class="nav-item level-h3" href="#minimum-maximum-étendue" data-id="minimum-maximum-étendue">IV.2.1 Minimum, maximum, étendue</a>
+<a class="nav-item level-h3" href="#écart-moyen" data-id="écart-moyen">IV.2.2 Écart moyen</a>
+<a class="nav-item level-h3" href="#variance-et-écart-type" data-id="variance-et-écart-type">IV.2.3 Variance et écart-type</a>
+<a class="nav-item level-h3" href="#coefficient-de-dispersion" data-id="coefficient-de-dispersion">IV.2.4 Coefficient de dispersion</a>
+<a class="nav-item level-h3" href="#côte-z" data-id="côte-z">IV.2.5 Côte $z$</a>
+<a class="nav-item level-h2" href="#mesures-de-position" data-id="mesures-de-position">IV.3 Mesures de position</a>
+<a class="nav-item level-h3" href="#quantiles" data-id="quantiles">IV.3.1 Quantiles</a>
+<a class="nav-item level-h3" href="#rang-quantile" data-id="rang-quantile">IV.3.2 Rang quantile</a>
+<a class="nav-item level-h3" href="#lire-des-quantiles" data-id="lire-des-quantiles">IV.3.3 Lire des quantiles</a>
 <a class="nav-item level-h2" href="#résumé-du-chapitre" data-id="résumé-du-chapitre">Résumé du chapitre</a>
 </nav>
 
 <main id="main">
   <h1 id="chapitre-iv-statistiques-descriptives">Chapitre IV — Statistiques descriptives</h1>
-<h2 id="mesures-de-tendance-centrale">Mesures de tendance centrale</h2>
+<h2 id="mesures-de-tendance-centrale">IV.1 Mesures de tendance centrale</h2>
 <p>Les mesures de tendance centrale permettent de résumer un ensemble de données par une valeur représentative. Il y a plusieurs manières, mathématiquement, de définir le "centre" d'une distribution de données, qui ont toutes leur utilité dans différents contextes. Les trois mesures les plus courantes, que nous allons étudier, sont le mode, la médiane et la moyenne.</p>
-<h3 id="mode">Mode</h3>
+<h3 id="mode">IV.1.1 Mode</h3>
 <div class="bloc bloc-definition" id="definition-1">
   <div class="bloc-header">📘 Définition 1 — Mode <span class="bloc-id">(definition-1)</span></div>
   <div class="bloc-body"><p>Le mode est la valeur (ou la modalité, ou la classe) qui apparaît le plus fréquemment dans une distribution.</p></div>
@@ -174,7 +173,7 @@
 <div style="text-align:center;">"La valeur $M_o$ est la plus fréquente dans les données $x_i$"</div>
 
 <p>Ceci est l'interprétation la plus basique possible. Ensuite, en fonction de valeurs de mode et du contexte des données, on peut en tirer des informations supplémentaires, comme on l'a fait pour l'âge des spectateurs dans la figure <a href="#fig-2">ci-dessus</a>.</p>
-<h3 id="médiane">Médiane</h3>
+<h3 id="médiane">IV.1.2 Médiane</h3>
 <p>Pour les variables utilisant une échelle ordinale ou quantitative, on peut définir une autre manière de mesurer la tendance centrale : la médiane. L'idée est qu'on est au milieu s'il y a autant de valeurs en dessous qu'au-dessus, ce qui explique qu'on ne puisse pas l'appliquer à des variables nominales : on ne peut pas définir ce que veut dire "au-dessus" et "en dessous" pour des catégories sans ordre.</p>
 <div class="bloc bloc-definition" id="definition-2">
   <div class="bloc-header">📘 Définition 2 — Médiane <span class="bloc-id">(definition-2)</span></div>
@@ -262,7 +261,7 @@
   <div class="bloc-body"><p>La médiane de revenus individuels après impôts au Québec en 2022 est de 39 000 \$<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>. Cela signifie qu'en 2022, au moins 50 % des individus au Québec avaient un revenu après impôts inférieur ou égal à 39 000 \$. En d'autres termes, en 2022, 1 personne sur 2 au Québec gagnait moins de 39 000 \$ par an après impôts. Par contraste, la même source indique que le revenu moyen individuel par personne en 2022 était de 44 500 \$ : la majorité des gens gagnent moins que la moyenne.</p></div>
 </div>
 
-<h3 id="moyenne">Moyenne</h3>
+<h3 id="moyenne">IV.1.3 Moyenne</h3>
 <p>Si les données sont quantitatives, et donc sont mesurées sur une échelle d'intervalle ou de ratio, on peut définir une autre mesure de tendance centrale : la moyenne.</p>
 <div class="bloc bloc-definition" id="definition-3">
   <div class="bloc-header">📘 Définition 3 — Moyenne <span class="bloc-id">(definition-3)</span></div>
@@ -432,7 +431,7 @@
 <p>La moyenne répond à la question : "Si la totalité de la quantité mesurée était répartie également entre toutes les unités statistiques, quelle serait la valeur pour chaque unité ?" Par exemple, si on a un total de 1000 \$ réparti entre 10 personnes, la moyenne est de 100 \$. Cela signifie que si on redistribuait l'argent de manière égale, chaque personne recevrait 100 \$. La moyenne est donc une mesure de tendance centrale qui reflète la répartition globale des valeurs dans un ensemble de données. À cause de cela, la sensibilité aux valeurs extrêmes est une caractéristique de la moyenne à garder en tête : veut-on une image fidèle de la répartition globale, ou veut-on une image plus "typique" de la majorité des valeurs ?</p>
 <p>On a déjà discuté ce que signifie la sensibilité aux valeurs extrêmes : si Jeff Bezos rentre dans une salle de classe, la moyenne des patrimoines des gens dans la classe augmente immédiatement pour atteindre plusieurs milliards de dollars. Pourtant, la richesse de tous les gens qui étaient déjà là n'a pas changé. Inversement, si l'on calcule le nombre moyen de jambes par personne, on va trouver un nombre légèrement inférieur à 2, car la plupart des gens ont 2 jambes, mais certaines personnes en ont moins (amputations, malformations, etc.). Cependant, il est difficile de donner une interprétation claire à cette moyenne, car la notion de fraction de jambe n'existe pas vraiment. Il est encore moins naturel de se poser la question "si on récoltait toutes les jambes pour les répartir de façon égale, combien de jambes aurait chaque personne ?". Pour parler du nombre "typique" de jambes par personne, il vaut mieux utiliser la médiane (2 jambes) que la moyenne.</p>
 <p>Cependant, même dans des cas où l'idée de partager une quantité n'a pas de sens évident, la moyenne peut avoir une grande utilité : par exemple, imaginons que l'on veuille créer un service de cardiologie dans une ville de 50 000 habitants qui en était dépourvue jusqu'à présent. On sait qu'en moyenne, chaque habitant a besoin de 0,08 visite cardiologique par an (soit 8 visites pour 100 habitants). En utilisant la moyenne, on peut estimer que la population totale de la ville aura besoin de $50\,000 \times 0{,}08 = 4000$ visites cardiologiques par an et dimensionner le service de façon appropriée. Même si aucun individu ne fait exactement 0,08 visite par an (c'est impossible : certains n'en auront pas du tout, d'autres en auront plusieurs), cette moyenne permet de planifier les ressources nécessaires pour répondre aux besoins de la population. À l'inverse, la médiane et le mode de cette distribution (nombre de visites par habitant par an) sont 0, car la majorité des gens n'ont pas besoin de visite cardiologique chaque année. Si on se basait sur la médiane, on pourrait conclure qu'il n'y a pas besoin de service de cardiologie du tout, ce qui serait manifestement une erreur.</p>
-<h3 id="comparaison-et-choix-de-la-mesure-appropriée">Comparaison et choix de la mesure appropriée</h3>
+<h3 id="comparaison-et-choix-de-la-mesure-appropriée">IV.1.4 Comparaison et choix de la mesure appropriée</h3>
 <p>En fonction de la distribution, la moyenne peut être supérieure ou inférieure à la médiane, ce qui traduit une asymétrie dans la distribution des données. En général, la moyenne est plus affectée par les valeurs extrêmes que la médiane, ce qui peut entraîner une distorsion de l'image de la tendance centrale si la distribution est fortement asymétrique ou contient des outliers. Le mode, quant à lui, peut être très différent de la moyenne et de la médiane, surtout dans les distributions multimodales ou amodales.</p>
 <div class="bloc bloc-definition" id="definition-4">
   <div class="bloc-header">📘 Définition 4 — Asymétrie <span class="bloc-id">(definition-4)</span></div>
@@ -507,9 +506,9 @@
 </table></div>
 </div>
 
-<h2 id="mesures-de-dispersion">Mesures de dispersion</h2>
+<h2 id="mesures-de-dispersion">IV.2 Mesures de dispersion</h2>
 <p>Les mesures de tendance centrale décrivent où se situe le "centre" des données, mais elles ne donnent pas d'information sur la façon dont les données sont réparties autour de ce centre. Pour cela, on utilise des mesures de dispersion qui quantifient l'étalement des données. On ne peut appliquer des mesures de dispersion qu'aux variables quantitatives, car les variables nominales et ordinales n'ont pas de sens en termes de distance entre les valeurs.</p>
-<h3 id="minimum-maximum-étendue">Minimum, maximum, étendue</h3>
+<h3 id="minimum-maximum-étendue">IV.2.1 Minimum, maximum, étendue</h3>
 <div class="bloc bloc-definition" id="definition-5">
   <div class="bloc-header">📘 Définition 5 — Minimum et maximum <span class="bloc-id">(definition-5)</span></div>
   <div class="bloc-body"><p>Le minimum d'une série de données est la plus petite valeur de la série, tandis que le maximum est la plus grande valeur. On les note respectivement $\min\{x_i\mid i=1,\ldots,n\}$ et $\max\{x_i\mid i=1,\ldots,n\}$.</p>
@@ -529,7 +528,7 @@
 <h4>Interprétation de l'étendue</h4>
 <p>L'étendue peut être interprétée comme la "largeur" de la distribution des données. Elle indique la taille de l'intervalle dans lequel se trouvent toutes les observations, du minimum au maximum. Cependant, elle ne donne pas d'information ni sur la position de l'intervalle, ni sur la répartition des données à l'intérieur de cet intervalle. Si on connait une donnée $x$ et qu'on sait que l'étendue est $E$, on sait que les données se trouvent dans l'intervalle $[x - E, x + E]$. L'étendue est importante dans les situations où on accorde une importance particulière aux valeurs extrêmes, comme dans les applications où la vie ou la sécurité sont en jeu. Par exemple, si vous construisez un ascenseur, vous devez vous assurer que la charge maximale supportée par l'ascenseur est suffisante pour supporter le poids de tous les passagers, et pas seulement du passager moyen.</p>
 <p>Elle est d'autant plus utile que les données sont proches d'avoir une distribution uniforme, c'est-à-dire que les données sont réparties de manière relativement égale entre la valeur minimale et la valeur maximale. Dans ce cas, l'étendue peut donner une bonne indication de la dispersion des données.</p>
-<h3 id="écart-moyen">Écart moyen</h3>
+<h3 id="écart-moyen">IV.2.2 Écart moyen</h3>
 <div class="bloc bloc-definition" id="definition-7">
   <div class="bloc-header">📘 Définition 7 — Écart moyen <span class="bloc-id">(definition-7)</span></div>
   <div class="bloc-body"><p>L'écart moyen d'une série de données est la moyenne des distances absolues entre chaque valeur et la moyenne de la série :</p>
@@ -547,7 +546,7 @@ $$</p>
 <p>a un écart moyen de 1.8, de même que la série</p>
 <p>$$4,0,4,0,4,0,4,0,3,1$$</p>
 <p>mais intuitivement la seconde est plus "resserrée" autour de sa moyenne que la première.</p>
-<h3 id="variance-et-écart-type">Variance et écart-type</h3>
+<h3 id="variance-et-écart-type">IV.2.3 Variance et écart-type</h3>
 <div class="bloc bloc-definition" id="definition-8">
   <div class="bloc-header">📘 Définition 8 — Variance <span class="bloc-id">(definition-8)</span></div>
   <div class="bloc-body"><p>Si on a affaire à une population de taille $N$ et de moyenne $\mu$, la variance de la population est définie par :</p>
@@ -671,7 +670,7 @@ $$</p>
 </div>
 
 <p>Notez une importante différence entre les formules de la moyenne et de l'écart-type à partir des données du tableau : dans le cas d'un échantillon, on divise par $n-1$ pour obtenir la variance. Or, la fréquence relative $f_i$ est déjà divisée par $n$, donc pour obtenir la variance, on doit remplacer ce $n$ par un $n-1$ : on multiplie donc par $n/(n-1)$. Dans le cas d'un recensement, on divise par $N$ pour obtenir la variance, et la fréquence relative est déjà divisée par $N$, donc on n'a pas besoin de faire de correction de Bessel : on peut simplement utiliser les fréquences relatives dans la formule de la variance.</p>
-<h3 id="coefficient-de-dispersion">Coefficient de dispersion</h3>
+<h3 id="coefficient-de-dispersion">IV.2.4 Coefficient de dispersion</h3>
 <p>Si on ne connait pas la moyenne d'une distribution, il est difficile d'apprécier si un écart-type de 10 est grand ou petit par rapport à ce que l'on mesure. Par exemple, si en pesant 1000 éléphants, je trouve une moyenne de 5000 kg et un écart-type de 10 kg, alors je peux conclure que les éléphants sont très similaires en poids. En revanche, si je pèse des souris et que je trouve une moyenne de 15g et un écart-type de 10 g, même si l'écart-type est plus petit en termes absolus, il est en réalité très grand par rapport à la moyenne, ce qui signifie que les souris sont très différentes en poids. C'est pour cela qu'on utilise le coefficient de dispersion, qui est le rapport entre l'écart-type et la moyenne :</p>
 <div class="bloc bloc-definition" id="definition-10">
   <div class="bloc-header">📘 Définition 10 — Coefficient de dispersion <span class="bloc-id">(definition-10)</span></div>
@@ -690,7 +689,7 @@ $$</p>
 <h4>Interprétation du coefficient de dispersion</h4>
 <p>On se place dans le cas où la moyenne $\mu$ de la population est non nulle. La valeur intéressante à interpréter est en fait la valeur absolue<sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup> du coefficient de dispersion, car le signe du coefficient de dispersion n'a pas de signification particulière : il peut être négatif si la moyenne est négative, et positif si la moyenne est positive, mais cela ne dit rien sur la dispersion des données. En revanche, plus la valeur absolue du coefficient de dispersion est élevée, plus les données sont dispersées par rapport à la moyenne. Par exemple, un coefficient de dispersion de 50 % indique que l'écart-type est égal à la moitié de la moyenne, ce qui suggère une variabilité modérée des données. Un coefficient de dispersion de 200 % indique que l'écart-type est deux fois plus grand que la moyenne, ce qui suggère une grande variabilité des données.</p>
 <p>Le coefficient de dispersion a une application utile pour mesurer la fidélité d'une mesure. Imaginons que l'on veut mesurer un paramètre $\rho$ d'une population et qu'on a deux méthodes d'estimation A et B que l'on applique plusieurs fois chacune pour obtenir des estimations $r^A_1, r^A_2, \ldots, r^A_n$ et $r^B_1, r^B_2, \ldots, r^B_n$. On peut alors calculer le coefficient de dispersion pour chaque méthode et comparer leur fidélité : celle des deux qui a le plus petit coefficient de dispersion est la plus fidèle, car elle donne des estimations plus proches les unes des autres.</p>
-<h3 id="côte-z">Côte $z$</h3>
+<h3 id="côte-z">IV.2.5 Côte $z$</h3>
 <p>Là où le coefficient de dispersion permet de comparer la dispersion de différentes distributions, la côte $z$ permet de comparer la position d'une donnée par rapport à la moyenne dans différentes distributions et de répondre par exemple à la question "si on considère les premiers de classes des classes A et B, lequel est le plus au dessus de son groupe ?". Ce n'est pas aussi évident que de calculer sa note moins la moyenne de sa classe : par exemple, si dans les classes A et B la moyenne est de 75 % et que les premiers ont 100 %, mais que dans la classe A, 80 % des notes sont entre 70 % et 80 %, alors que dans la classe B, 80 % des notes sont entre 50 % et 100 %, alors intuitivement, le premier de la classe A est plus au dessus de sa classe que le premier de la classe B, même si les deux ont la même note.</p>
 <div class="bloc bloc-definition" id="definition-11">
   <div class="bloc-header">📘 Définition 11 — Côte $z$ <span class="bloc-id">(definition-11)</span></div>
@@ -722,11 +721,11 @@ $$</p>
 <p>$$R = (Z \cdot IDGZ + IFGZ + 5) \times 5$$</p></div>
 </div>
 
-<h2 id="mesures-de-position">Mesures de position</h2>
+<h2 id="mesures-de-position">IV.3 Mesures de position</h2>
 <p>On connait déjà une mesure de position : la médiane. C'est une mesure de position au sens où si on connait la médiane, on peut dire si une unité statistique se situe dans la moitié haute ou basse de la distribution.</p>
 <p>On en a également évoqué deux autres : le minimum et le maximum, qui encadrent la distribution.</p>
 <p>Cependant, il existe d'autres mesures de position qui permettent de diviser la distribution en plus de deux parties égales, ou qui permettent de classer les données selon leur rang.</p>
-<h3 id="quantiles">Quantiles</h3>
+<h3 id="quantiles">IV.3.1 Quantiles</h3>
 <div class="bloc bloc-definition" id="definition-12">
   <div class="bloc-header">📘 Définition 12 — Quantiles <span class="bloc-id">(definition-12)</span></div>
   <div class="bloc-body"><p>Les <em>quantiles</em> sont des valeurs qui divisent une distribution ordonnée en parties égales. Le $p$-ième quantile est la valeur en dessous de laquelle se trouve une proportion $p$ des données. Les quantiles les plus couramment utilisés sont :</p>
@@ -806,7 +805,7 @@ $$</p>
 
 <p>Contrairement à l'écart-type, qui mesure la dispersion autour de la moyenne, l'écart interquartile mesure la dispersion autour de la médiane. Il est particulièrement utile pour les distributions asymétriques ou contenant des valeurs extrêmes (outliers), car il n'est pas influencé par ces valeurs extrêmes contrairement à l'écart-type.</p>
 <p>Il peut être intéressant de comparer l'écart interquartile à l'étendue. L'EIQ est nécessairement plus petit, mais le rapport entre les deux (EIQ/E) est proche de 1, cela veut dire que la distribution est concentrée près de ses valeurs extrêmes, s'il est proche de 1/2 (et que la médiane est au centre), cela veut dire que la distribution est à peu près homogène et s'il est proche de 0, cela veut dire que la distribution est très concentrée autour de sa médiane.</p>
-<h3 id="rang-quantile">Rang quantile</h3>
+<h3 id="rang-quantile">IV.3.2 Rang quantile</h3>
 <p>Le rang quantile est, d'une certaine façon, l'opposé du quantile : au lieu de connaitre la proportion de données et de chercher la valeur qui les majore, on connait la valeur et on cherche la proportion de données qu'elle majore. Par exemple, si on sait que $Q_3 = 20$, alors le rang quantile de 20 est 0,75, car 75 % des données sont inférieures ou égales à 20.</p>
 <div class="bloc bloc-definition" id="definition-14">
   <div class="bloc-header">📘 Définition 14 — Rang quantile <span class="bloc-id">(definition-14)</span></div>
@@ -833,7 +832,7 @@ $$</p>
 </ol></div>
 </div>
 
-<h3 id="lire-des-quantiles">Lire des quantiles</h3>
+<h3 id="lire-des-quantiles">IV.3.3 Lire des quantiles</h3>
 <p>Dans la majorité des cas, on a besoin de calculer les quantiles (y compris la médiane) ou des rangs quantiles à partir de données déjà traitées, dans des tableaux de fréquences ou des graphes.</p>
 <p><strong>Lire des quantiles et des rangs dans un tableau de fréquence.</strong> On rappelle que les quantiles ne peuvent être définis que pour une variable au moins ordinale. Ceci étant dit, si on a une modalité, valeur ou classe $v$ d'une variable ordinale, on peut calculer la fréquence cumulée relative<sup id="fnref-5"><a href="#fn-5" class="footnote-ref">5</a></sup> des données inférieures ou égales à $v$ :</p>
 <p>$$F_{\leq v} = \sum_{x_i \leq v} f_i$$</p>
@@ -999,10 +998,11 @@ $$</p>
 <p>On voit (en rouge), que le $0{,}8^e$ quantile (c'est-à-dire, de façon équivalente : le $4^e$ quintile, le $8^e$ décile ou le $80^e$ centile) de la distribution correspond à une valeur d'environ 65 ans, ce qui signifie que 80 % de la population du Québec a 65 ans ou moins. De même, on voit (en vert), que le rang quantile de 35 ans est d'environ 42%, ce qui signifie que 42% de la population du Québec a moins de 35 ans.</p></div>
 </div>
 
-<h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<hr />
 <div class="bloc bloc-resume" id="resume-1">
-  <div class="bloc-header">📋 Résumé du chapitre 1 <span class="bloc-id">(resume-1)</span></div>
-  <div class="bloc-body"><h3>Trois mesures de tendance centrale</h3>
+  <div class="bloc-header">📋 Résumé du chapitre IV <span class="bloc-id">(resume-1)</span></div>
+  <div class="bloc-body"><h2 id="résumé-du-chapitre">Résumé du chapitre</h2>
+<h3>Trois mesures de tendance centrale</h3>
 <div class="bloc bloc-tableau" id="tab-8">
   <div class="bloc-header">📊 Tableau 8 — Comparaison des mesures de tendance centrale <span class="bloc-id">(tab-8)</span></div>
   <div class="bloc-body"><table>
@@ -1112,6 +1112,6 @@ $$</p>
   </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=1779802943"></script>
 </body>
 </html>
