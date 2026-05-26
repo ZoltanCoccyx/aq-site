@@ -2,7 +2,7 @@
 
 
 
-## IV.1 Mesures de tendance centrale
+## Mesures de tendance centrale
 
 
 
@@ -10,7 +10,7 @@ Les mesures de tendance centrale permettent de résumer un ensemble de données 
 
 
 
-### IV.1.1 Mode
+### Mode
 
 
 
@@ -26,7 +26,7 @@ Le mode est la valeur (ou la modalité, ou la classe) qui apparaît le plus fré
 
 
 
-<!-- BLOC:exemple id="exemple-1" -->
+<!-- BLOC:exemple id="exemple-1" titre="Tailles de vêtements" -->
 
 **Exemple**
 
@@ -44,7 +44,7 @@ Ce qui donne les comptes suivants :
 
 
 
-<!-- BLOC:tableau id="tab-1" -->
+<!-- BLOC:tableau id="tab-1" titre="Ventes de tailles de vêtements" -->
 
 | Taille | S | M | L | XL |
 |--------|---|---|---|----|
@@ -184,7 +184,7 @@ Ceci est l'interprétation la plus basique possible. Ensuite, en fonction de val
 
 
 
-### IV.1.2 Médiane
+### Médiane
 
 
 
@@ -232,7 +232,7 @@ En d'autres termes, si on a un nombre impair de données, la médiane est la val
 
 
 
-<!-- BLOC:exemple id="exemple-6" -->
+<!-- BLOC:exemple id="exemple-6" titre="Notes d'examen" -->
 
 **Exemple**
 
@@ -286,7 +286,7 @@ La médiane peut être interprétée comme le "point milieu" d'une distribution 
 
 
 
-<!-- BLOC:exemple id="exemple-7" -->
+<!-- BLOC:exemple id="exemple-7" titre="Bourses universitaires" -->
 
 **Exemple**
 
@@ -322,7 +322,7 @@ Comme avant, en fonction de la valeur de la médiane et du contexte des données
 
 
 
-<!-- BLOC:exemple id="exemple-8" -->
+<!-- BLOC:exemple id="exemple-8" titre="Revenu médian au Québec" -->
 
 **Exemple**
 
@@ -336,7 +336,7 @@ La médiane de revenus individuels après impôts au Québec en 2022 est de 39 0
 
 
 
-### IV.1.3 Moyenne
+### Moyenne
 
 
 
@@ -344,7 +344,7 @@ Si les données sont quantitatives, et donc sont mesurées sur une échelle d'in
 
 
 
-<!-- BLOC:definition id="definition-3" -->
+<!-- BLOC:definition id="definition-3" titre="Moyenne" -->
 
 **Définition**
 
@@ -382,7 +382,7 @@ Il existe d'autres quantités que l'on appelle aussi "moyenne" comme la moyenne 
 
 
 
-<!-- BLOC:exemple id="exemple-9" -->
+<!-- BLOC:exemple id="exemple-9" titre="Calcul de la moyenne" -->
 
 **Exemple**
 
@@ -446,13 +446,13 @@ Imaginons que vous posez un bâton en équilibre sur votre doigt. Si vous mettez
 
 Il se peut que les données soient regroupées en classes en fonction de la valeur de la variable dont on veut calculer la moyenne, chaque classe ayant une certaine taille. Dans ce cas, la moyenne se calcule en pondérant chaque valeur par sa fréquence.
 
-<!-- BLOC:exemple id="exemple-10" -->
+<!-- BLOC:exemple id="exemple-10" titre="Voitures par foyer" -->
 
 **Exemple**
 
 **(Données inventées)** On a interrogé un millier de personnes sur le nombre de voitures dans leur foyer. Les résultats sont les suivants :
 
-<!-- BLOC:tableau id="tab-2" -->
+<!-- BLOC:tableau id="tab-2" titre="Nombre de voitures par foyer" -->
 
 | Nombre de voitures | Nombre de foyers | Fréquence | Pourcentage |
 |--------------------|------------------|-----------|-------------|
@@ -506,7 +506,7 @@ Cet exemple est en fait général. Non seulement on peut calculer la moyenne à 
 
 
 
-<!-- BLOC:theoreme id="theoreme-4" -->
+<!-- BLOC:theoreme id="theoreme-4" titre="Moyenne pondérée" -->
 
 **Propriété**
 
@@ -554,7 +554,7 @@ Cependant, même dans des cas où l'idée de partager une quantité n'a pas de s
 
 
 
-### IV.1.4 Comparaison et choix de la mesure appropriée
+### Comparaison et choix de la mesure appropriée
 
 
 
@@ -562,7 +562,7 @@ En fonction de la distribution, la moyenne peut être supérieure ou inférieure
 
 
 
-<!-- BLOC:definition id="definition-4" -->
+<!-- BLOC:definition id="definition-4" titre="Asymétrie" -->
 
 **Définition**
 
@@ -606,7 +606,7 @@ Selon la forme de la distribution et la question d'intérêt, l'un ou l'autre de
 
 
 
-<!-- BLOC:tableau id="tab-3" -->
+<!-- BLOC:tableau id="tab-3" titre="Choix de la mesure de tendance centrale" -->
 
 | Situation | Mesure recommandée |
 |-----------|-------------------|
@@ -621,7 +621,7 @@ Selon la forme de la distribution et la question d'intérêt, l'un ou l'autre de
 
 
 
-## IV.2 Mesures de dispersion
+## Mesures de dispersion
 
 
 
@@ -629,7 +629,7 @@ Les mesures de tendance centrale décrivent où se situe le "centre" des donnée
 
 
 
-### IV.2.1 Minimum, maximum, étendue
+### Minimum, maximum, étendue
 
 
 
@@ -679,7 +679,7 @@ Elle est d'autant plus utile que les données sont proches d'avoir une distribut
 
 
 
-### IV.2.2 Écart moyen
+### Écart moyen
 
 
 
@@ -715,7 +715,7 @@ mais intuitivement la seconde est plus "resserrée" autour de sa moyenne que la 
 
 
 
-### IV.2.3 Variance et écart-type
+### Variance et écart-type
 
 
 
@@ -797,13 +797,13 @@ Si on sait plus de choses sur la distribution des données, on peut renforcer ce
 
 
 
-<!-- BLOC:exemple id="exemple-11" -->
+<!-- BLOC:exemple id="exemple-11" titre="Écart-type des voitures par foyer" -->
 
 **Exemple**
 
 On reprend les données de l'[exemple 10](#exemple-10) sur le nombre de voitures par foyer. On a calculé que la moyenne du nombre de voitures par foyer est de 1,51. On peut calculer l'écart-type de cette distribution à partir des données du tableau :
 
-<!-- BLOC:tableau id="tab-4" -->
+<!-- BLOC:tableau id="tab-4" titre="Données sur les voitures par foyer" -->
 
 | Nombre de voitures | Nombre de foyers | Fréquence | Pourcentage |
 |--------------------|------------------|-----------|-------------|
@@ -849,7 +849,7 @@ Comme pour la moyenne, si on a accès à un tableau de fréquences plutôt qu'au
 
 
 
-<!-- BLOC:theoreme id="theoreme-6" -->
+<!-- BLOC:theoreme id="theoreme-6" titre="Variance pondérée" -->
 
 **Propriété**
 
@@ -869,7 +869,7 @@ Notez une importante différence entre les formules de la moyenne et de l'écart
 
 
 
-### IV.2.4 Coefficient de dispersion
+### Coefficient de dispersion
 
 
 
@@ -899,7 +899,7 @@ Il est possible que le coefficient de dispersion soit supérieur à 100 %, ce qu
 
 
 
-<!-- BLOC:exemple id="exemple-12" -->
+<!-- BLOC:exemple id="exemple-12" titre="Coefficient de dispersion" -->
 
 **Exemple**
 
@@ -925,7 +925,7 @@ Le coefficient de dispersion a une application utile pour mesurer la fidélité 
 
 
 
-### IV.2.5 Côte $z$
+### Côte $z$
 
 
 
@@ -951,7 +951,7 @@ $$z_i = \frac{x_i - \mu}{\sigma}$$
 
 
 
-<!-- BLOC:exemple id="exemple-13" -->
+<!-- BLOC:exemple id="exemple-13" titre="Côte z du nombre de voitures" -->
 
 **Exemple**
 
@@ -1001,7 +1001,7 @@ $$R = (Z \cdot IDGZ + IFGZ + 5) \times 5$$
 
 <!-- /BLOC:exemple -->
 
-## IV.3 Mesures de position
+## Mesures de position
 
 
 
@@ -1013,7 +1013,7 @@ Cependant, il existe d'autres mesures de position qui permettent de diviser la d
 
 
 
-### IV.3.1 Quantiles
+### Quantiles
 
 
 
@@ -1063,7 +1063,7 @@ La méthode générale pour déterminer les quantiles d'une série de données e
 
 
 
-<!-- BLOC:exemple id="exemple-15" -->
+<!-- BLOC:exemple id="exemple-15" titre="Déciles de notes" -->
 
 **Exemple**
 
@@ -1095,7 +1095,7 @@ Ainsi, $D_3 = 65$ signifie qu'au moins 30 % des étudiants ont obtenu une note i
 
 
 
-<!-- BLOC:exemple id="exemple-16" -->
+<!-- BLOC:exemple id="exemple-16" titre="Boîte à moustaches" -->
 
 **Exemple**
 
@@ -1141,7 +1141,7 @@ Il peut être intéressant de comparer l'écart interquartile à l'étendue. L'E
 
 
 
-### IV.3.2 Rang quantile
+### Rang quantile
 
 
 
@@ -1161,7 +1161,7 @@ Le rang quantile d'une valeur $x$ dans une série de données est la proportion 
 
 
 
-<!-- BLOC:methode id="methode-3" -->
+<!-- BLOC:methode id="methode-3" titre="Calcul du rang quantile" -->
 
 **Méthode**
 
@@ -1179,7 +1179,7 @@ La définition elle-même donne la méthode :
 
 <!-- /BLOC:methode -->
 
-### IV.3.3 Lire des quantiles
+### Lire des quantiles
 
 
 
@@ -1203,7 +1203,7 @@ Dans le cas d'une variable continue, ou même d'une variable discrète avec un g
 
 
 
-<!-- BLOC:exemple id="exemple-17" -->
+<!-- BLOC:exemple id="exemple-17" titre="Médiane des tailles de t-shirts" -->
 
 **Exemple**
 
@@ -1213,7 +1213,7 @@ Reprenons l'exemple du nombre de t-shirts vendus par taille :
 
 
 
-<!-- BLOC:tableau id="tab-5" -->
+<!-- BLOC:tableau id="tab-5" titre="Ventes de t-shirts par taille" -->
 
 | Taille | S | M | L | XL |
 |--------|---|---|---|----|
@@ -1227,7 +1227,7 @@ Il faut d'abord calculer les fréquences relatives et les fréquences relatives 
 
 
 
-<!-- BLOC:tableau id="tab-6" -->
+<!-- BLOC:tableau id="tab-6" titre="Fréquences des ventes de t-shirts" -->
 
 | Taille | Effectif | Fréquence relative | Fréquence relative cumulée (%) |
 |--------|----------|-------------------|--------------------------------|
@@ -1254,7 +1254,7 @@ Inversement, si on a une valeur $v$ et que l'on veut trouver son rang quantile �
 
 
 
-<!-- BLOC:exemple id="exemple-18" -->
+<!-- BLOC:exemple id="exemple-18" titre="Rang quantile de la consommation" -->
 
 **Exemple**
 
@@ -1264,7 +1264,7 @@ Reprenons l'exemple des véhicules du jeu de données `mtcars` et de leur consom
 
 
 
-<!-- BLOC:tableau id="tab-7" -->
+<!-- BLOC:tableau id="tab-7" titre="Consommation de carburant des véhicules" -->
 
 | Consommation (mpg) | Nombre de véhicules | Fréquence cumulée des véhicules (%) |
 |--------------------|---------------------|------------------------------------|
@@ -1295,7 +1295,7 @@ Puisque la lecture des quantiles et des rangs se fait sur la proportion cumulée
 
 
 
-<!-- BLOC:methode id="methode-4" -->
+<!-- BLOC:methode id="methode-4" titre="Lecture des quantiles et rangs sur une ogive" -->
 
 **Méthode**
 
@@ -1309,7 +1309,7 @@ Puisque la lecture des quantiles et des rangs se fait sur la proportion cumulée
 
 
 
-<!-- BLOC:exemple id="exemple-19" -->
+<!-- BLOC:exemple id="exemple-19" titre="Lecture d'une ogive" -->
 
 **Exemple**
 
@@ -1327,13 +1327,10 @@ On voit (en rouge), que le $0{,}8^e$ quantile (c'est-à-dire, de façon équival
 
 <!-- /BLOC:exemple -->
 
-<!-- BLOC:resume id="resume-1" -->
-
----
-
-
-
 ## Résumé du chapitre
+
+
+<!-- BLOC:resume id="resume-1" -->
 
 
 
@@ -1341,7 +1338,7 @@ On voit (en rouge), que le $0{,}8^e$ quantile (c'est-à-dire, de façon équival
 
 
 
-<!-- BLOC:tableau id="tab-8" -->
+<!-- BLOC:tableau id="tab-8" titre="Comparaison des mesures de tendance centrale" -->
 
 | **Mode** | **Médiane** | **Moyenne** |
 |----------|------------|-----------|
@@ -1358,7 +1355,7 @@ On voit (en rouge), que le $0{,}8^e$ quantile (c'est-à-dire, de façon équival
 
 
 
-<!-- BLOC:tableau id="tab-9" -->
+<!-- BLOC:tableau id="tab-9" titre="Types d'asymétrie" -->
 
 | **Asymétrie négative** | **Symétrique** | **Asymétrie positive** |
 |------------------------|----------------|----------------------|
@@ -1384,7 +1381,7 @@ On voit (en rouge), que le $0{,}8^e$ quantile (c'est-à-dire, de façon équival
 
 
 
-<!-- BLOC:tableau id="tab-10" -->
+<!-- BLOC:tableau id="tab-10" titre="Mesures de dispersion" -->
 
 | Mesure | Interprétation |
 |--------|---------------|

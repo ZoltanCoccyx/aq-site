@@ -1,6 +1,6 @@
 # Chapitre I — Utilité et limites de l'analyse quantitative
 
-## I.1 Les sciences humaines sont des sciences
+## Les sciences humaines sont des sciences
 
 Bien que les sciences humaines étudient des phénomènes complexes liés aux comportements, aux sociétés et aux cultures, elles partagent avec les sciences naturelles une approche rigoureuse et systématique de la connaissance. Ce qui confère aux sciences humaines leur caractère scientifique, c'est que la pratique des sciences humaines suit la méthode scientifique, présentée dans la figure 1.
 
@@ -12,7 +12,7 @@ L'utilisation de méthodes quantitatives en sciences humaines suit de près l'in
 Au Québec, le premier recensement officiel a eu lieu en 1666 sous l'administration de Jean Talon, intendant de la Nouvelle-France. Ce recensement visait à collecter des données démographiques et économiques pour mieux administrer la colonie. Il a permis de recenser environ 3 215 habitants, fournissant des informations précieuses sur la population, les familles, les métiers et les ressources disponibles. Ce recensement est un exemple précoce de l'utilisation de méthodes quantitatives pour comprendre et gérer une société.
 <!-- /BLOC:exemple -->
 <!-- BLOC:figure id="fig-1" image="figures/methode_scientifique.png" -->
-**Figure 1 — Structure de la méthode scientifique.**
+**Figure 1 — Structure de la méthode scientifique**
 <!-- /BLOC:figure -->
 
 Cette tendance à la quantification ne s'est pas démentie depuis, entre recensements, sondages, nécessités logistiques, etc. De nos jours, impulsée par le succès des sciences dans l'amélioration de la qualité de vie et dopée par l'avènement des outils informatiques, l'analyse quantitative est devenue un outil incontournable dans tous les domaines. En plus de permettre aux chercheurs de mener des études rigoureuses et reproductibles, les méthodes quantitatives appliquées spécifiquement aux réalités humaines sont un support majeur de la prise de décision politique, économique et sociale.
@@ -33,7 +33,7 @@ Bien que les sciences humaines en elles-mêmes ne soient pas **normatives** (ell
 
 Dans ce cadre de décision, l'analyse quantitative en sciences naturelles et humaines fournit des données que l'on veut **objectives** pour justifier des choix ayant souvent comme visée une efficacité de l'allocation des ressources (dans une entreprise par exemple, mais aussi dans le secteur public : étant donné un budget fixé, comment l'utiliser au mieux pour maximiser le bien-être de la population ?). Cependant, il est crucial de reconnaître que les données quantitatives, bien qu'objectives dans leur collecte et analyse, sont interprétées par des humains qui apportent leurs propres perspectives, valeurs et biais. Ainsi, l'objectivité des données ne garantit pas une objectivité dans la prise de décision.
 
-## I.2 Qu'est-ce que l'analyse quantitative ?
+## Qu'est-ce que l'analyse quantitative ?
 
 L'analyse quantitative est une approche méthodologique qui utilise des données numériques et des techniques statistiques pour comprendre des phénomènes sociaux, psychologiques et humains et qui vise à les mesurer et les chiffrer. Elle est une des manifestations de la méthode scientifique. Ce n'est pas la seule : les méthodes qualitatives ont également une place centrale en sciences humaines.
 Il faut noter que l'analyse quantitative est une méthodologie, et peut donc être appliquée à toutes sortes de questions de recherche et de données, y compris des données qualitatives.
@@ -61,11 +61,11 @@ Cette approche repose sur plusieurs principes fondamentaux :
 D'une façon générale, tous les praticiens des sciences humaines vont, d'une façon ou d'une autre, être confrontés à l'analyse quantitative, parfois comme auteurs qui utilisent les outils fournis par les méthodes quantitatives pour mener leur recherche, souvent comme lecteurs qui doivent comprendre et interpréter des résultats quantitatifs présentés dans des articles scientifiques, rapports, etc.
 Plus largement que pour la recherche scientifique, les résultats d'analyses quantitatives sont une des sources majeures d'exposition du public aux sciences mathématiques, après la finance. En effet, on trouve très régulièrement dans les médias des sondages d'opinion, des statistiques sur des phénomènes sociaux, économiques ou sanitaires, etc. Comprendre les bases de l'analyse quantitative est donc un atout important pour être un citoyen informé et critique, y compris pour les gens dont l'activité principale est aussi éloignée que possible des mathématiques.
 
-## I.3 Quand choisir l'analyse quantitative ?
+## Quand choisir l'analyse quantitative ?
 
 Les analyses quantitatives et qualitatives ne sont en aucun cas exclusives l'une de l'autre et un même projet de recherche peut combiner les deux. Cependant, certaines situations ou objectifs de recherche se prêtent plus naturellement que d'autres à une approche quantitative.
 
-<!-- BLOC:tableau id="tab-1" -->
+<!-- BLOC:tableau id="tab-1" titre="Comparaison entre analyses quantitative et qualitative" -->
 | | **Analyse quantitative** | **Analyse qualitative** |
 |---|---|---|
 | **État de la recherche sur le sujet** | Sujet documenté, pour lequel on a une vue d'ensemble. <br>**Exemple :** Mesurer l'impact d'une politique de santé : on dispose déjà de nombreuses manières de le mesurer. | Tout type de sujet, y compris peu exploré, nécessitant une compréhension approfondie. <br>**Exemple :** La polarisation politique entre les genres chez les jeunes adultes augmente : on veut en comprendre les raisons. |
@@ -85,7 +85,7 @@ par une approche quantitative, on peut montrer que certaines variations dans la 
 La chercheuse montréalaise en géographie urbaine, la Pr. Damaris Rose, propose en 1984 dans son article *Rethinking gentrification: beyond the uneven development of marxist urban theory* une analyse qualitative des processus qui mènent à la gentrification d'un quartier (dans le cadre des villes nord-américaines). Son analyse suggère en particulier qu'on peut s'attendre à des compositions sociales différentes au cours du processus. Dans des travaux ultérieurs, la Pr. Rose et d'autres chercheurs ont mesuré quantitativement ces compositions, par exemple dans l'article *Economic restructuring and the diversification of gentrification in the 1980s: a view from a marginal metropolis* de 1996, dans lequel les mesures quantitatives des changements démographiques dans plusieurs quartiers de Montréal sont analysées pour tester les hypothèses formulées dans l'article de 1984.
 <!-- /BLOC:exemple -->
 
-## I.4 Importance en sciences humaines
+## Importance en sciences humaines
 
 L'analyse quantitative en sciences humaines est utile pour les mêmes raisons qu'elle l'est en sciences naturelles : elle permet de structurer la collecte et l'analyse des données et de produire des résultats reproductibles. Bien qu'il soit difficile[^2] d'atteindre une objectivité totale en sciences humaines, les méthodes quantitatives permettent de créer des instruments de mesure des réalités humaines standardisés et réutilisables.
 
@@ -106,7 +106,7 @@ En chiffrant différents aspects des réalités humaines, l'analyse quantitative
 
 Donnons des exemples concrets d'application dans différents domaines des sciences humaines. Cette liste n'est pas exhaustive, mais illustre la diversité des applications de l'analyse quantitative en sciences humaines.
 
-<!-- BLOC:tableau id="tab-2" -->
+<!-- BLOC:tableau id="tab-2" titre="Applications de l'analyse quantitative dans différents domaines" -->
 | **Domaine** | **Applications de l'analyse quantitative** |
 |---|---|
 | **Administration** | Création de modèles budgétaires basés sur des données historiques pour optimiser l'allocation des ressources. Projection de l'impact économique d'une nouvelle infrastructure ou de l'accueil d'un événement international. |
@@ -120,9 +120,9 @@ Donnons des exemples concrets d'application dans différents domaines des scienc
 | **Sociologie** | Études quantitatives des comportements sociaux, des structures familiales, des inégalités sociales, etc. Utilisation de grandes bases de données pour analyser les tendances sociales à long terme. |
 <!-- /BLOC:tableau -->
 
-## I.5 Limites
+## Limites
 
-### I.5.1 Une approche descriptive, pas normative.
+### Une approche descriptive, pas normative
 
 Fondamentalement, la science est descriptive : elle cherche à comprendre, expliquer, modéliser le monde tel qu'il est, pas tel qu'il devrait être. C'est le cas également en sciences humaines. L'analyse quantitative permet de mesurer des phénomènes humains, mais ne prescrit pas d'action à prendre. Par exemple, une étude peut montrer un lien entre certaines politiques sociales et une réduction de la pauvreté, une autre peut mesurer le niveau de pauvreté dans la population, mais aucune ne dit qu'il faut adopter ces politiques sociales.
 
@@ -131,13 +131,13 @@ Comme le dit David Hume dans son *Traité de la nature humaine* (1739) : "On ne 
 
 Notons cependant que dans vos vies professionnelles, si vous travaillez dans l'administration, la santé publique, le marketing..., il sera fréquent que les objectifs soient imposés à l'avance et que votre rôle soit de fournir et analyser des données pour éclairer la prise de décision.
 
-### I.5.2 Des réalités parfois trop complexes
+### Des réalités parfois trop complexes
 
 Malgré ses nombreux avantages, l'analyse quantitative a des limites inhérentes, en particulier en sciences humaines. Les phénomènes humains sont souvent complexes, multifactoriels et contextuels, ce qui peut rendre difficile leur quantification précise. Par exemple, des concepts comme le bonheur, la justice ou la culture sont difficiles à définir, et donc à mesurer de manière objective et standardisée. Dans certains cas, une approche qualitative est incontournable pour comprendre pleinement ces phénomènes. Par essence, les méthodes quantitatives simplifient la réalité pour la rendre mesurable, ce qui peut entraîner une perte d'informations importantes. Il faut donc, lorsque l'on revient des chiffres vers la réalité lors de l'interprétation des résultats, garder à l'esprit cette simplification : il est possible que des aspects cruciaux du phénomène étudié aient été négligés ou mal représentés.
 
 Si malgré tout on essaie de réduire ces phénomènes à des chiffres (ce qui peut se justifier), on prend le risque que la définition personnelle du chercheur ou des biais culturels influencent la manière dont les phénomènes sont mesurés et interprétés. Par exemple, une enquête sur la satisfaction au travail peut être influencée par des facteurs culturels qui affectent la manière dont les individus expriment leur satisfaction ou insatisfaction ou sur la perception de ce qu'est le niveau d'implication "normal".
 
-### I.5.3 Considérations éthiques.
+### Considérations éthiques
 
 #### Éthique de la recherche
 
@@ -174,7 +174,7 @@ Les chercheurs doivent être transparents sur les incertitudes et les biais pote
 <!-- BLOC:exemple id="exemple-10" -->
 **Exemple**
 
-À l'époque du "racisme scientifique" au XIX^e siècle, des mesures anthropométriques étaient utilisées pour justifier des hiérarchies raciales. En particulier, des mesures de volumes crâniens étaient interprétées comme des indicateurs de supériorité intellectuelle, et de nombreux chiffres de l'époque, remesurés sur des spécimens conservés dans les musées, montrent que les données avaient été manipulées pour correspondre aux préjugés raciaux des chercheurs.
+À l'époque du "racisme scientifique" au $XIX^e$ siècle, des mesures anthropométriques étaient utilisées pour justifier des hiérarchies raciales. En particulier, des mesures de volumes crâniens étaient interprétées comme des indicateurs de supériorité intellectuelle, et de nombreux chiffres de l'époque, remesurés sur des spécimens conservés dans les musées, montrent que les données avaient été manipulées pour correspondre aux préjugés raciaux des chercheurs.
 <!-- /BLOC:exemple -->
 Il est de la responsabilité du chercheur de se tenir à l'affût de mauvaises données ou d'interprétations dépassées et/ou biaisées, et de les éviter ou de les corriger selon le cas.
 De la même façon, il faut garder à l'esprit que les données quantitatives ont un grand pouvoir de persuasion, et que les chiffres peuvent être utilisés pour manipuler l'opinion publique ou justifier des politiques controversées. Tout "objectifs" que soient les chiffres, il est possible de les faire mentir : nous en verrons des exemples lorsque nous parlerons de la présentation et de l'interprétation des résultats.
@@ -190,14 +190,15 @@ En résumé, voici une liste non exhaustive de problèmes éthiques qui peuvent 
 
 Évidemment, un problème en amont peut entraîner des problèmes en aval : par exemple, la collecte de données sans consentement éclairé peut conduire à des données biaisées, ce qui peut à son tour conduire à des conclusions erronées ou biaisées. De même, l'interprétation biaisée des résultats peut conduire à des politiques publiques inappropriées ou injustes. Il est donc crucial de maintenir des normes éthiques élevées à chaque étape du processus de recherche pour garantir la qualité et l'intégrité de la recherche en sciences humaines.
 
-<!-- BLOC:resume id="resume-1" -->
+## Résumé du chapitre
+
 ---
 
-## Résumé du chapitre
+<!-- BLOC:resume id="resume-1" -->
 
 ### Concepts clés
 
-<!-- BLOC:tableau id="tab-3" -->
+<!-- BLOC:tableau id="tab-3" titre="Concepts clés de l'analyse quantitative" -->
 | **Concept** | **Définition** |
 |---|---|
 | **Analyse quantitative** | Méthode d'étude utilisant des données numériques et techniques statistiques pour comprendre et mesurer des phénomènes |

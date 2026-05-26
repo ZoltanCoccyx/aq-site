@@ -24,11 +24,11 @@ Ce passage du particulier au général est rendu possible grâce à des outils m
 
 
 
-## V.1 Loi normale
+## Loi normale
 
 
 
-### V.1.1 Courbe de Gauss
+### Courbe de Gauss
 
 
 
@@ -142,7 +142,7 @@ On peut estimer graphiquement l'écart-type $\sigma$ en observant la distance en
 
 
 
-### V.1.2 Loi normale
+### Loi normale
 
 
 
@@ -162,7 +162,7 @@ En d'autres termes, si $p$ est la proportion d'observations de $x$ dans l'interv
 
 $$
 
-p = \int_a^b \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} \, dx =
+p = \int_a^b \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} \, dx
 
 $$
 
@@ -204,7 +204,7 @@ Elle s'appelle la *fonction de répartition* de la loi normale standard et on la
 
 $$
 
-\Phi(z) = \int_{-\infty}^z \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \,dx =
+\Phi(z) = \int_{-\infty}^z \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \,dx
 
 $$
 
@@ -256,7 +256,7 @@ Dans ces conditions, comment calculer à la main la proportion d'observations de
 
 
 
-<!-- BLOC:theoreme id="theoreme-1" -->
+<!-- BLOC:theoreme id="theoreme-1" titre="Standardisation de la loi normale" -->
 
 **Propriété**
 
@@ -349,7 +349,7 @@ Il ne vous faut évidemment pas connaître par cœur les valeurs de la table de 
 
 
 
-### V.1.3 Des phénomènes « normaux »
+### Des phénomènes « normaux »
 
 
 
@@ -357,7 +357,7 @@ Il est très fréquent que des grandeurs de la vraie vie suivent d'elles-mêmes 
 
 
 
-## V.2 Estimation d'un paramètre
+## Estimation d'un paramètre
 
 
 
@@ -371,7 +371,7 @@ Ces deux raisons sont en fait liées : leur cause commune est un phénomène mat
 
 
 
-### V.2.1 Théorème central limite
+### Théorème central limite
 
 
 
@@ -453,7 +453,7 @@ Si on avait fait 400 observations, la probabilité que $\bar{x}$ soit entre 9 et
 
 <!-- /BLOC:exemple -->
 
-### V.2.2 TCL appliqué à l'échantillonnage
+### TCL appliqué à l'échantillonnage
 
 
 
@@ -461,7 +461,7 @@ Ce théorème est *central* pour la science des statistiques (d'où son nom…).
 
 
 
-<!-- BLOC:theoreme id="theoreme-3" -->
+<!-- BLOC:theoreme id="theoreme-3" titre="TCL appliqué à l'échantillonnage" -->
 
 **Propriété**
 
@@ -503,7 +503,7 @@ Par ailleurs, et c'est un point beaucoup moins intuitif mais très important, le
 
 
 
-### V.2.3 Intervalle de confiance
+### Intervalle de confiance
 
 
 
@@ -561,7 +561,7 @@ $$
 
 
 
-<!-- BLOC:remarque id="remarque-1" -->
+<!-- BLOC:remarque id="remarque-1" titre="Valeur de 1,96" -->
 
 **Remarque**
 
@@ -581,7 +581,7 @@ $$P(-a \leq z \leq a) = p\%.$$
 
 
 
-<!-- BLOC:definition id="definition-5" -->
+<!-- BLOC:definition id="definition-5" titre="Marge d'erreur" -->
 
 **Définition**
 
@@ -595,7 +595,7 @@ Comme la fonction de répartition de la loi normale est croissante, il est clair
 
 
 
-### V.2.4 Estimation d'une proportion
+### Estimation d'une proportion
 
 
 
@@ -661,7 +661,7 @@ Et donc, en appliquant le théorème central limite, on trouve la propriété su
 
 
 
-<!-- BLOC:theoreme id="theoreme-5" -->
+<!-- BLOC:theoreme id="theoreme-5" titre="Distribution de la proportion expérimentale" -->
 
 **Propriété**
 
@@ -729,7 +729,7 @@ $$P(-a \leq z \leq a) = p\%.$$
 
 
 
-## V.3 Digression 1 : la table du livre
+## Digression 1 : la table du livre
 
 Vous verrez parfois[^1] une table de la loi normale standard qui donne la proportion d'observations entre 0 et une valeur positive de $z$ :
 
@@ -783,7 +783,7 @@ Bien entendu, si on a affaire à une loi normale non standard, on se ramène à 
 
 
 
-## V.4 Digression 2 : estimateur sans biais
+## Digression 2 : estimateur sans biais
 
 
 
@@ -827,7 +827,7 @@ Un estimateur est dit sans biais si son biais est égal à zéro, c'est-à-dire 
 
 
 
-<!-- BLOC:theoreme id="theoreme-7" -->
+<!-- BLOC:theoreme id="theoreme-7" titre="Moyenne comme estimateur sans biais" -->
 
 **Propriété**
 
@@ -935,7 +935,7 @@ Une propriété similaire est vraie pour la variance.
 
 
 
-<!-- BLOC:theoreme id="theoreme-8" -->
+<!-- BLOC:theoreme id="theoreme-8" titre="Variance expérimentale comme estimateur sans biais" -->
 
 **Propriété**
 
@@ -949,13 +949,11 @@ La démonstration est considérablement plus technique si on ne dispose pas d'ou
 
 
 
+## Résumé du chapitre
+
 <!-- BLOC:resume id="resume-1" -->
 
 ---
-
-
-
-## Résumé du chapitre
 
 
 
@@ -1040,7 +1038,7 @@ $$
 
 <!-- /BLOC:resume -->
 
-## V.5 Appendice : les valeurs de loi normale (à partir de 0)
+## Appendice : les valeurs de loi normale (à partir de 0)
 
 
 

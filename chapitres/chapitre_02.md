@@ -33,9 +33,9 @@ Nous verrons plus tard dans ce cours comment tester formellement des hypothèses
 
 En fait, quand on teste une hypothèse, on compare deux hypothèses alternatives : l'hypothèse nulle (notée $H_0$) et l'hypothèse alternative (souvent notée $H_a$). L'hypothèse nulle est généralement une affirmation de "non-effet" ou "non-relation", tandis que l'hypothèse alternative est ce que le chercheur cherche à montrer. Par exemple, si l'on veut tester si un nouveau médicament est efficace, l'hypothèse nulle pourrait être "le médicament n'a pas d'effet sur la maladie", tandis que l'hypothèse alternative serait "le médicament améliore la condition des patients". Dans certains cas, quand des connaissances existent déjà sur le sujet, l'hypothèse nulle peut être plus spécifique que "pas de relation" et l'hypothèse alternative en constitue une version qu'on espère plus précise. Par exemple, on peut déjà savoir qu'il existe une relation entre deux variables, mais on veut tester si cette relation est positive ou négative.
 
-## II.2 Opérationnalisation et outils de collecte des données
+## Opérationnalisation et outils de collecte des données
 
-### II.2.1 Opérationnalisation
+### Opérationnalisation
 
 L'opérationnalisation consiste à transformer des concepts abstraits en variables concrètes et mesurables. C'est le processus qui permet de passer de l'idée théorique à la mesure empirique.
 
@@ -65,7 +65,7 @@ Le plus souvent, on cherche en science humaine à discuter des réalités humain
 La chose que l'on veut mesurer dans ces cas n'est pas directement accessible : on mesure à la place des quantités que l'on juge indicatives de la quantité d'intérêt.
 Même si la validité de la mesure est rarement parfaite, car les concepts étudiés sont souvent complexes, il est important de savoir justifier l'effet des choix d'opérationnalisation sur la validité de la mesure.
 
-<!-- BLOC:exemple id="exemple-2" -->
+<!-- BLOC:exemple id="exemple-2" titre="Validité de la mesure" -->
 **Exemple**
 
 Je suis votre professeur, et je veux évaluer votre compréhension du cours. Je ne peux pas mesurer directement votre "compréhension", mais je peux mesurer vos résultats aux examens, que je considère comme un indicateur de votre compréhension. Cependant, si je choisis de mettre des exercices de calcul différentiel dans l'examen d'analyse quantitative, la validité de ma mesure sera faible, car la capacité à faire du calcul différentiel n'est pas un bon indicateur de votre compréhension de l'analyse quantitative.
@@ -76,7 +76,7 @@ Dans le cas d'un cours, on considère souvent par défaut que l'enseignant sait 
 
 Il est naturel de vouloir qu'un instrument de mesure, appliqué deux fois dans les mêmes conditions, donne le même résultat. La fidélité d'un instrument de mesure est une mesure de sa cohérence et permet de s'assurer que les différentes mesures sont comparables entre elles. Pour cela, il est souvent nécessaire d'être précis et explicite dans la définition des procédures de mesure.
 
-<!-- BLOC:exemple id="exemple-3" -->
+<!-- BLOC:exemple id="exemple-3" titre="Fidélité du questionnaire" -->
 **Exemple**
 
 **(Exemple fictif)** On veut mesurer l'optimisme concernant l'économie mondiale chez les jeunes adultes. On crée un questionnaire permettant de mesurer ce concept. On communique ensuite ce questionnaire le 21 décembre à 1000 jeunes adultes canadiens et 1000 jeunes adultes australiens. On répète l'expérience le 21 juin de l'année suivante, en utilisant le même questionnaire et la même procédure.
@@ -85,7 +85,7 @@ Le fait que les deux groupes aient des évolutions opposées alors qu'ils sont e
 <!-- /BLOC:exemple -->
 Il faut faire attention à concevoir un protocole de mesure qui, autant que possible, ne dépend que du concept que l'on veut mesurer et de la population (ou échantillon) étudiée, et pas d'autres facteurs externes. Cela mène par exemple à vérifier que les mesures effectuées par différents observateurs donnent des résultats similaires (fidélité inter-juges), ou que les mesures répétées dans le temps sont cohérentes (fidélité test-retest).
 
-<!-- BLOC:exemple id="exemple-4" -->
+<!-- BLOC:exemple id="exemple-4" titre="Fidélité inter-juges" -->
 **Exemple**
 
 Dans l'examen du ministère, si les notes mises par un correcteur sont systématiquement plus élevées que celles d'un autre, la fidélité inter-juges est faible. Pour améliorer cette fidélité, on peut donner des consignes de correction précises aux correcteurs et appliquer une *modération* aux notes d'un groupe de copies.
@@ -94,18 +94,18 @@ Dans l'examen du ministère, si les notes mises par un correcteur sont systémat
 
 La validité d'un test est souvent plus difficile à établir que sa fidélité, pour laquelle on peut appliquer "réflexivement" les méthodes de l'analyse quantitative : nous y reviendrons.
 
-### II.2.2 Comment opérationnaliser un concept ?
+### Comment opérationnaliser un concept ?
 
 La réponse dépend fortement de la question de recherche, du concept à mesurer, mais aussi des moyens de l'étude et des restrictions qui l'encadrent. Cependant, en général, on peut partir du principe qu'*opérationnaliser, c'est décomposer*. Si la question de recherche s'intéresse à un domaine très restreint, on peut souvent transformer directement la question en une variable mesurable.
 
-<!-- BLOC:exemple id="exemple-5" -->
+<!-- BLOC:exemple id="exemple-5" titre="Incidence du diabète" -->
 **Exemple**
 
 On s'intéresse à l'incidence du diabète dans la population québécoise. Une manière raisonnable de l'opérationnaliser est de calculer le taux de personnes diagnostiquées diabétiques dans un échantillon représentatif de la population. Ici, le concept "incidence du diabète" est suffisamment précis pour être directement mesuré.
 <!-- /BLOC:exemple -->
 Dans de nombreux cas pratiques, le concept étudié est plus complexe (au sens de composé de plusieurs aspects). Dans ce cas, il faut décomposer le concept en plusieurs aspects plus concrets, puis définir comment mesurer chacun de ces aspects.
 
-<!-- BLOC:exemple id="exemple-6" -->
+<!-- BLOC:exemple id="exemple-6" titre="Réussite scolaire" -->
 **Exemple**
 
 On s'intéresse à la "réussite scolaire" des étudiants universitaires. Ce concept est complexe et peut inclure plusieurs dimensions, telles que les notes académiques, la ponctualité, l'engagement dans les activités parascolaires et l'opinion des professeurs. Pour opérationnaliser ce concept, on peut définir les aspects suivants :
@@ -160,13 +160,13 @@ En résumé, pour opérationnaliser un concept, on suit généralement les étap
 <!-- /BLOC:methode -->
 À la fin du processus d'opérationnalisation, on doit disposer d'une liste claire des informations que l'on veut mesurer pour chacune des unités statistiques étudiées, ainsi que leurs unités de mesure. Chaque indicateur mesuré sur un des sujets de l'étude forme ce que l'on appelle une *variable*[^2]. On a également un plan clair de la façon dont on va combiner (ou pas) ces variables. Il reste à les récolter.
 
-### II.2.3 Sélection des outils de collecte
+### Sélection des outils de collecte
 
 Une fois les variables opérationnalisées, il faut concevoir les instruments qui permettront de collecter les données.
 Dans certains cas, on est chanceux, et tout ou partie des données voulues existe déjà. On parle de **données secondaires**, par opposition aux **données primaires**, qui sont collectées spécifiquement pour l'étude en cours. Dans ce cas, "l'outil de collecte" est le protocole d'extraction de ces données des bases où elles sont conservées.
 Bien que simple[^3] d'un point de vue logistique, l'utilisation de données existantes impose souvent des contraintes sur les variables disponibles et leur qualité. Si deux (ou plus) jeux de données sont combinés, il faut aussi s'assurer de la compatibilité des formats et définitions, des populations étudiées, etc. Il est fréquent qu'à la fois des données primaires et secondaires soient utilisées dans une même étude, par exemple pour compléter des données existantes ou pour les valider, ou, a minima, pour les comparer.
 
-<!-- BLOC:exemple id="exemple-8" -->
+<!-- BLOC:exemple id="exemple-8" titre="Estimation à un concert" -->
 **Exemple**
 
 Imaginons que l'on veuille estimer le nombre de personnes de plus de 30 ans assistant à un concert. On peut utiliser les données de billetterie, qui contiennent le nombre de billets vendus. Cependant, ces données ne contiennent pas l'âge des acheteurs. On décide de créer un outil de collecte : à l'entrée du concert, un enquêteur interroge aléatoirement 100 personnes sur leur âge (une seule question, variable quantitative). On calcule ensuite la proportion de personnes de plus de 30 ans dans cet échantillon, et on l'applique au nombre total de billets vendus pour estimer le nombre total de personnes de plus de 30 ans assistant au concert.
@@ -197,11 +197,11 @@ On distingue deux types de questions dans les questionnaires :
 
 **Entretiens structurés** — On définit un protocole d'entretien : on a des questions prédéfinies posées de manière uniforme à tous les participants, et éventuellement un arbre de décision pour guider les questions en fonction des réponses.
 
-## II.3 Collecte des données
+## Collecte des données
 
 Une fois les outils de collecte définis, il reste à procéder à la collecte des données : appliquer les outils de mesure à chaque unité statistique de l'étude. Dans le cas idéal, on mesure toutes les unités de la population d'intérêt : on parle de **recensement**. Cependant, cela est souvent impossible en pratique, pour des raisons de coût, de temps ou de faisabilité. On utilise alors des techniques d'**échantillonnage** pour sélectionner un sous-ensemble dont la composition, pour les mesures qui nous intéressent au moins, reflètent celle de la population. On dit dans ce cas que l'échantillon est **représentatif**.
 
-### II.3.1 Recensement
+### Recensement
 
 Dans son sens habituel, un recensement d'une population signifie la collecte des données démographiques et socio-économiques de tous les individus d'une population donnée. Par exemple, le recensement de la population canadienne, effectué tous les 5 ans par Statistique Canada, vise à collecter des informations détaillées sur chaque résident du pays. Les données recueillies comprennent des informations sur l'âge, le sexe, la langue parlée, le niveau d'éducation, l'emploi, le revenu, etc. Ces données sont cruciales pour la planification des politiques publiques, la répartition des ressources et la compréhension des tendances démographiques.
 
@@ -213,11 +213,11 @@ Le recensement est la méthode de collecte de données la plus complète, car el
 - **Accessibilité** : Certaines unités de la population peuvent être difficiles à atteindre ou à mesurer. Par exemple, certaines populations marginalisées ou isolées peuvent être difficiles à inclure dans un recensement.
 - **Perturbation** : Le processus de recensement peut perturber la population étudiée, surtout si la collecte de données est intrusive ou exigeante. Par exemple, un recensement médical peut nécessiter des examens physiques ou des tests invasifs. Dans le cas d'un recensement archéologique, le processus de fouille peut endommager les artefacts ou les contextes stratigraphiques : on pourrait vouloir par exemple broyer des dents trouvées dans un site néolithique pour détecter la présence de la peste : on évite en général de broyer *toutes* celles qu'on trouve.
 
-### II.3.2 Échantillonnage
+### Échantillonnage
 
 L'échantillonnage est le processus de sélection d'un sous-ensemble représentatif de la population. Il existe plusieurs méthodes, chacune avec ses avantages et limites. La qualité de l'échantillonnage influence directement la validité des conclusions tirées de l'analyse quantitative. Toutes choses étant égales par ailleurs, plus un échantillon est grand, plus la précision des estimations sera bonne. Dans le cas idéal, on prend comme échantillon la population entière et les conclusions sont parfaites. Ce n'est pas souvent possible en pratique, pour des raisons de coût, de temps ou de faisabilité et il appartient au chercheur de trouver un équilibre entre les ressources disponibles de son étude et la précision désirée, en fonction de la variabilité de la population étudiée.
 
-<!-- BLOC:exemple id="exemple-9" -->
+<!-- BLOC:exemple id="exemple-9" titre="Biais d'échantillonnage" -->
 **Exemple**
 
 **(Exemple fictif)** Dans un contexte de difficulté du financement des universités en France, deux instituts de sondage A et B veulent estimer la proportion de la population française favorable à une augmentation des frais d'inscription universitaires.
@@ -238,7 +238,7 @@ Après analyse, l'institut A rapporte 27 % de réponses favorables, tandis que l
 
 L'**échantillonnage** est l'ensemble des techniques utilisées pour sélectionner un échantillon à partir d'une population, de manière que les caractéristiques de l'échantillon reflètent celles de la population.
 <!-- /BLOC:definition -->
-### II.3.3 Méthodes d'échantillonnage probabilistes
+### Méthodes d'échantillonnage probabilistes
 
 Le principe fondamental des méthodes d'échantillonnage probabilistes est que chaque unité de la population a une probabilité connue et non nulle d'être incluse dans l'échantillon. Cela permet de minimiser les biais de sélection et de garantir une forte probabilité que l'échantillon soit représentatif de la population. De plus, les méthodes probabilistes permettent d'estimer la marge d'erreur et la précision des résultats obtenus à partir de l'échantillon.
 
@@ -249,7 +249,7 @@ En contrepartie de cette précision, la majorité des méthodes d'échantillonna
 - *Avantage :* Simple, non biaisé, bonnes propriétés théoriques si l'échantillon est assez grand.
 - *Inconvénient :* Nécessite une liste complète de la population, et de pouvoir effectivement joindre n'importe quelle unité.
 
-<!-- BLOC:exemple id="exemple-10" -->
+<!-- BLOC:exemple id="exemple-10" titre="Échantillonnage aléatoire simple" -->
 **Exemple**
 
 Je veux tester que les boîtes de nourriture pour bébés dans mon stock de 838 boîtes sont de bonne qualité. Je sélectionne aléatoirement 10 boîtes parmi celles-ci que je vais examiner (pour simplifier, on suppose qu'elles portent des numéros de série consécutifs qui commencent à partir de 1). Je génère 10 nombres aléatoires entre 1 et 838 (sans répétition) :
@@ -262,7 +262,7 @@ $$i, i + k, i + 2k, i + 3k, ..., i+(n-1)k.$$
 - *Avantage :* Plus facile à mettre en œuvre que l'aléatoire simple. De plus, si la liste des unités est ordonnée de manière pertinente (par exemple, par région géographique), cette méthode peut améliorer la représentativité de l'échantillon. Enfin, si on ne connaît pas à l'avance la taille de la population, et qu'on décide à l'avance de la proportion d'unités à inclure dans l'échantillon, cette méthode permet de s'adapter dynamiquement à la taille réelle de la population.
 - *Inconvénient :* Risque de biais si la liste a une structure périodique, par exemple si on a affaire à des données temporelles qui représentent les jours de la semaine et qu'on choisit un intervalle multiple de 7.
 
-<!-- BLOC:exemple id="exemple-11" -->
+<!-- BLOC:exemple id="exemple-11" titre="Échantillonnage systématique" -->
 **Exemple**
 
 Le jardin botanique de Montréal veut connaître le niveau de satisfaction des visiteurs des jardins dans la semaine qui suit l'installation d'une nouvelle exposition florale. On veut un échantillon qui représente au moins 1/100 des visiteurs de la semaine, mais on ne sait pas à l'avance combien de visiteurs il y aura. On décide donc d'utiliser un échantillonnage systématique : on choisit un pas $k=100$ et un point de départ aléatoire entre 1 et 100, disons 37. On interroge donc le $37^e$, $137^e$, $237^e$, ... visiteurs qui entrent dans le jardin pendant la semaine. Si au total 12 438 visiteurs entrent dans le jardin cette semaine-là, on aura interrogé exactement 125 personnes (le $37^e$ jusqu'au $12\,437^e$).
@@ -272,7 +272,7 @@ Le jardin botanique de Montréal veut connaître le niveau de satisfaction des v
 - *Avantage :* Assure une représentation adéquate des sous-groupes importants, améliore la précision des estimations.
 - *Inconvénient :* Nécessite une connaissance préalable de la population pour définir les strates.
 
-<!-- BLOC:exemple id="exemple-12" -->
+<!-- BLOC:exemple id="exemple-12" titre="Échantillonnage stratifié" -->
 **Exemple**
 
 Je veux obtenir la moyenne de la taille des étudiants de deuxième session à André-Laurendeau. Je sais que la population totale est de 2000 étudiants, dont 1200 femmes et 800 hommes (nombres *complètement* inventés). Je sais que les femmes sont en moyenne plus petites que les hommes. Par commodité, je décide de prendre mon échantillon dans la classe d'analyse quantitative : en effet, les étudiants ne sont pas groupés par taille dans les classes et ma classe a toutes les chances d'être représentative de l'ensemble des étudiants. Malheureusement pour moi, j'ai autant d'hommes que de femmes dans ma classe : mon échantillon n'est pas représentatif de la population totale et une estimation de la taille moyenne basée sur cet échantillon sera biaisée (trop grande). Pour régler ce problème, je décide de faire un échantillonnage stratifié : je sélectionne aléatoirement 24 femmes et 16 hommes dans ma classe, ce qui correspond à la proportion de femmes et d'hommes dans la population totale. Mon échantillon est maintenant plus représentatif et mon estimation de la taille moyenne sera plus précise.
@@ -285,7 +285,7 @@ Cet exemple est une combinaison de deux modes d'échantillonnage : j'ai d'abord 
 - *Avantage :* Plus économique et pratique pour les populations dispersées géographiquement.
 - *Inconvénient :* Possiblement moins précis que les autres méthodes, car les unités à l'intérieur des grappes peuvent être plus similaires entre elles qu'avec le reste de la population.
 
-<!-- BLOC:exemple id="exemple-13" -->
+<!-- BLOC:exemple id="exemple-13" titre="Échantillonnage par grappes" -->
 **Exemple**
 
 Je veux estimer l'intérêt pour les mathématiques de l'ensemble des élèves d'André-Laurendeau. Plutôt que d'envoyer des questionnaires à des élèves choisis aléatoirement dans l'annuaire du cégep. Je veux un échantillon d'au moins une centaine de personnes, ce qui correspond à environ 4 classes. Je sélectionne donc aléatoirement 4 classes parmi toutes les classes du cégep, puis j'envoie le questionnaire à tous les élèves de ces classes. C'est un échantillonnage par grappes.
@@ -307,7 +307,7 @@ Comme vous le voyez, les méthodes d'échantillonnage peuvent être combinées e
 - **Stratifié :** Diviser par programme, puis échantillonner proportionnellement (si un programme représente 10 % des étudiants, il représentera 10 % de l'échantillon)
 - **Par grappes :** Sélectionner aléatoirement 10 programmes, enquêter tous les étudiants de ces programmes
 <!-- /BLOC:exemple -->
-### II.3.4 Méthodes d'échantillonnage non probabilistes
+### Méthodes d'échantillonnage non probabilistes
 
 Contrairement aux méthodes probabilistes, les méthodes d'échantillonnage non probabilistes ne reposent pas sur le hasard pour sélectionner les unités de l'échantillon. Elles sont souvent utilisées lorsque la constitution d'une liste exhaustive de la population est impossible ou lorsque des contraintes pratiques l'imposent. Cependant, elles présentent un risque plus élevé de biais et ne permettent généralement pas de généraliser les résultats à l'ensemble de la population.
 
@@ -316,7 +316,7 @@ Contrairement aux méthodes probabilistes, les méthodes d'échantillonnage non 
 - *Avantage :* Simple, rapide, peu coûteux.
 - *Inconvénient :* Risque élevé de biais, faible représentativité. Par exemple, si on veut mesurer la qualité nutritionnelle des repas à emporter, décider d'enregistrer les ventes d'une sandwicherie végan dans un quartier très fréquenté par des sportifs va probablement biaiser les résultats.
 
-<!-- BLOC:exemple id="exemple-15" -->
+<!-- BLOC:exemple id="exemple-15" titre="Échantillonnage par convenance" -->
 **Exemple**
 
 En psychologie expérimentale, il est courant d'utiliser des échantillons par convenance, souvent composés d'étudiants universitaires volontaires. Par exemple, un chercheur souhaitant étudier les effets de la privation de sommeil sur la mémoire peut recruter des étudiants de son université qui sont disponibles et intéressés à participer à l'étude. Bien que cette méthode soit pratique et économique, elle peut introduire des biais, car les étudiants universitaires peuvent ne pas être représentatifs de la population générale en termes d'âge, de mode de vie ou de santé.
@@ -326,7 +326,7 @@ En psychologie expérimentale, il est courant d'utiliser des échantillons par c
 - *Avantage :* Permet de cibler des cas spécifiques ou typiques.
 - *Inconvénient :* La subjectivité du chercheur a un fort impact, faible généralisabilité.
 
-<!-- BLOC:exemple id="exemple-16" -->
+<!-- BLOC:exemple id="exemple-16" titre="Échantillonnage par choix raisonné" -->
 **Exemple**
 
 On cherche à établir un classement des destinations de vacances les plus accueillantes pour les Canadiens en hiver. On se poste dans un aéroport international canadien pendant la saison hivernale et on interroge des voyageurs. On leur demande d'abord s'ils ont visité plus de deux destinations différentes pour faire du tourisme au cours des cinq dernières années. Si oui, on leur demande de classer ces destinations en fonction de leur expérience d'accueil (hospitalité, services, etc.). On recueille ainsi des avis de voyageurs expérimentés, mais l'échantillon est biaisé vers les personnes qui voyagent fréquemment et qui ont les moyens de le faire.
@@ -336,7 +336,7 @@ On cherche à établir un classement des destinations de vacances les plus accue
 - *Avantage :* Utile pour accéder à des groupes cachés ou rares (ex. : minorités, réseaux sociaux).
 - *Inconvénient :* Risque de biais d'homogénéité, car les personnes recrutées se ressemblent souvent.
 
-<!-- BLOC:exemple id="exemple-17" -->
+<!-- BLOC:exemple id="exemple-17" titre="Échantillonnage boule de neige" -->
 **Exemple**
 
 Un journaliste souhaite évaluer la crédibilité d'une affirmation scientifique sur un sujet tellement spécifique qu'il lui est difficile de juger par lui-même si une personne est compétente pour la discuter. Il commence par interroger un chercheur dans le domaine général de la question et lui demande de lui recommander des spécialistes à contacter, auxquels il demande ensuite la même chose. En suivant ce processus, le journaliste construit progressivement un réseau de contacts d'experts dont il peut recueillir l'opinion générale.
@@ -351,15 +351,17 @@ Un journaliste souhaite évaluer la crédibilité d'une affirmation scientifique
 
 Les méthodes non probabilistes sont parfois inévitables, mais il faut être conscient de leurs limites et éviter de généraliser les résultats à l'ensemble de la population sans précautions.
 <!-- /BLOC:remarque -->
-## II.4 Analyse des données
+## Analyse des données
 
 L'analyse elle-même est le sujet principal de ce cours, que l'on explorera en détails dans les chapitres suivants. Cependant, avant de plonger dans les méthodes statistiques, il est important de comprendre les étapes préliminaires cruciales qui garantissent la qualité et la fiabilité des résultats obtenus. Cette section présente un aperçu des principales étapes de l'analyse des données, depuis le nettoyage initial jusqu'à l'interprétation des résultats.
 
-### II.4.1 Nettoyage et préparation des données
+### Nettoyage et préparation des données
 
 Avant d'analyser les données, il est essentiel de les nettoyer et de les préparer. Cette étape, souvent sous-estimée, peut représenter jusqu'à 80 % du temps de la phase d'analyse. Heureusement pour nous, on supposera dans ce cours que les données sont déjà collectées et disponibles sous une forme exploitable (tableur, base de données, etc.). Cependant, il est rare que les données brutes soient prêtes à l'analyse sans un certain travail de préparation. Le nettoyage des données vise à identifier et corriger les erreurs, gérer les valeurs manquantes, et transformer les données pour les rendre cohérentes et adaptées aux analyses statistiques prévues.
 
 <!-- BLOC:exemple id="exemple-18" titre="Nettoyage de données" -->
+<!-- /BLOC:exemple -->
+
 <!-- BLOC:tableau id="tab-1" titre="Exemple — Nettoyage de données" -->
 | ID | Âge | Sexe | Note |
 |---|---|---|---|
@@ -389,7 +391,7 @@ Avant d'analyser les données, il est essentiel de les nettoyer et de les prépa
 - ID 3, 5 : Codage incohérent du sexe (m vs M, H vs M)
 
 On a *choisi*[^8] de remplacer les âges et notes manquantes par "ND" (Non Disponible) et de corriger le codage du sexe pour le rendre uniforme. On aurait pu choisir d'imputer les valeurs manquantes par la moyenne des âges et des notes, mais dans ce cas précis, vu le petit nombre de données, on préfère garder l'information de manque.
-<!-- /BLOC:exemple -->
+
 
 <!-- BLOC:methode id="methode-2" titre="Nettoyage des données" -->
 **Méthode — Nettoyage des données**
@@ -422,15 +424,15 @@ On a *choisi*[^8] de remplacer les âges et notes manquantes par "ND" (Non Dispo
 
 Toute décision de nettoyage doit être documentée et justifiée. La suppression ou modification de données doit être faite avec précaution et transparence pour maintenir l'intégrité de la recherche.
 <!-- /BLOC:methode -->
-### II.4.2 Traitement statistique des données
+### Traitement statistique des données
 
 On abordera en détail les différentes méthodes statistiques dans les chapitres suivants. De nombreuses techniques existent pour décrire, résumer, et analyser les données et le choix de la méthode dépend des objectifs de l'étude, du type de données et des hypothèses sous-jacentes.
 
-### II.4.3 Interprétation des mesures
+### Interprétation des mesures
 
 Bien que certaines constructions statistiques soient intuitives (comme la moyenne ou la médiane), d'autres le sont moins (comme l'écart-type, les intervalles de confiance, les tests d'hypothèses, etc.). Il est crucial de comprendre non seulement comment calculer ces mesures, mais aussi comment les interpréter correctement dans le contexte de l'étude. Au cours des prochains chapitres, nous verrons en détail à quelles questions chaque mesure répond, comment les interpréter et quelles précautions prendre pour éviter les erreurs d'interprétation courantes.
 
-## II.5 Communication des résultats
+## Communication des résultats
 
 Tout le travail effectué pour collecter, nettoyer, analyser et interpréter les données n'a de valeur que si les résultats sont communiqués de manière claire et efficace. La communication des résultats peut prendre plusieurs formes, en fonction du public-cible et des objectifs de la communication. Les chercheurs tendent à publier leurs résultats dans des articles scientifiques, tandis que les décideurs peuvent préférer des rapports exécutifs ou des présentations visuelles. Les instituts de sondage communiquent souvent leurs résultats via des infographies ou des communiqués de presse.
 
@@ -438,10 +440,11 @@ D'une façon générale, une bonne communication en analyse quantitative donne t
 
 La communication efficace des résultats statistiques eux-mêmes appelle souvent à utiliser des tableaux et graphiques de toutes sortes. Le choix des représentations utilisées dépend du type de données, des résultats à mettre en avant et du type de public visé. Par exemple, si les données sont naturellement ordonnées (comme des dates ou des revenus), on préférera les présenter dans le bon ordre dans une table ou choisir une représentation graphique qui reflète cet ordre. On consacrera un chapitre à l'organisation et à la présentation des données.
 
-<!-- BLOC:exemple id="exemple-19" -->
+<!-- BLOC:exemple id="exemple-19" titre="Extrait du rapport RAQP" -->
 **Exemple**
 
 Voici un extrait du *Rapport de sondage sur la satisfaction de la clientèle du régime québécois d'assurance parentale (RAQP)*, publié par le Ministère du Travail, de l'Emploi et de la Solidarité sociale en 2018.[^7]
+<!-- /BLOC:exemple -->
 
 <!-- BLOC:figure id="fig-1" image="figures/ex_communication.png" -->
 **Figure 1 — Extrait du rapport RAQP**
@@ -454,10 +457,10 @@ On y trouve :
 - Une légende expliquant les couleurs utilisées et précisant la taille de l'échantillon à chaque année.
 
 La méthodologie de collecte et d'analyse étant essentiellement commune à toutes les questions, ces informations sont présentées en début de rapport, qu'on ne reproduit pas ici.
-<!-- /BLOC:exemple -->
+
 La communication des interprétations des résultats est tout aussi importante. Il faut adapter le langage et le niveau de détail au public cible, en évitant le jargon technique lorsque cela est possible.
 
-<!-- BLOC:exemple id="exemple-20" -->
+<!-- BLOC:exemple id="exemple-20" titre="Interprétation du rapport" -->
 **Exemple**
 
 Voici l'interprétation accompagnant le graphique précédent dans le rapport du RAQP :
@@ -472,7 +475,7 @@ La principale conclusion est clairement énoncée, suivie d'une explication des 
 <!-- /BLOC:exemple -->
 Il faut faire attention à ne pas exagérer les conclusions tirées des données. Il est important de distinguer clairement entre corrélation et causalité, et de reconnaître les limites des analyses effectuées. Une communication honnête et transparente renforce la crédibilité des résultats et permet aux lecteurs de les interpréter correctement. Inversement, il ne faut pas non plus "sous-vendre" les résultats : avancés trop prudemment, ils peuvent être ignorés, alors que s'ils sont solides et bien interprétés, ils peuvent fournir des informations précieuses pour la prise de décision.
 
-<!-- BLOC:exemple id="exemple-21" -->
+<!-- BLOC:exemple id="exemple-21" titre="Vaccins et autisme" -->
 **Exemple**
 
 Le secrétaire à la Santé des États-Unis, Robert Kennedy Junior, a récemment fait retirer du site du centre pour le contrôle des maladies (CDC) les affirmations selon lesquelles les vaccins ne causent pas l'autisme au prétexte qu'aucune étude n'a prouvé que les vaccins ne peuvent pas causer l'autisme. Or, il est extrêmement rare qu'une étude puisse prouver une absence d'effet : tout au plus, une étude peut montrer que l'existence d'un effet est soit très improbable, soit que l'effet est très faible, mais cela ne prouve techniquement pas que l'effet n'existe pas. Cela est dû au fait que la méthode scientifique ne fonctionne par nature que sur ce qui peut être observé : on ne peut pas prouver l'inexistence de quelque chose, seulement l'absence d'observation de cette chose dans les conditions étudiées.
@@ -480,20 +483,20 @@ Le secrétaire à la Santé des États-Unis, Robert Kennedy Junior, a récemment
 Dans ces conditions, "l'acceptabilité" des directives du secrétaire Kennedy repose sur l'ignorance du public sur le langage de la méthode scientifique. En dehors du contexte spécifique de la littérature scientifique, il est donc important de communiquer clairement que l'affirmation "les vaccins ne causent pas l'autisme" est aussi certaine qu'il est possible de l'être.
 <!-- /BLOC:exemple -->
 
-<!-- BLOC:exemple id="exemple-22" -->
+<!-- BLOC:exemple id="exemple-22" titre="Mauvaise communication" -->
 **Exemple**
 
 Pour le plaisir, voici un exemple extrême de mauvaise communication statistique.
+<!-- /BLOC:exemple -->
 
 <!-- BLOC:figure id="fig-2" image="figures/costco.jpeg" -->
 **Figure 2 — Exemple de mauvaise communication statistique**
 <!-- /BLOC:figure -->
-<!-- /BLOC:exemple -->
-<!-- BLOC:resume id="resume-1" -->
 ---
 
 ## Résumé du chapitre
 
+<!-- BLOC:resume id="resume-1" -->
 ### Les étapes de la recherche quantitative
 
 <!-- BLOC:figure id="fig-3" image="figures/processus_recherche.png" -->
@@ -529,6 +532,7 @@ Pour le plaisir, voici un exemple extrême de mauvaise communication statistique
 | **Observations** | Comportements réels ; biais de l'observateur |
 | **Analyse de documents** | Documents historiques, textes ; codification requise |
 <!-- /BLOC:tableau -->
+<!-- /BLOC:resume -->
 
 ---
 
@@ -538,6 +542,5 @@ Pour le plaisir, voici un exemple extrême de mauvaise communication statistique
 [^4]: Un archéologue ne va pas créer un questionnaire à poser à des pointes de flèches en silex.
 [^5]: Où se situe la Sorbonne, une université parisienne très connue.
 [^6]: $i$ pour initial
-[^7]: Disponible ici : [www.rqap.gouv.qc.ca/sites/default/files/documents/publications/RQAP_Rapport_sondage_clientele.pdf](www.rqap.gouv.qc.ca/sites/default/files/documents/publications/RQAP_Rapport_sondage_clientele.pdf)
+[^7]: Disponible ici : [https://www.rqap.gouv.qc.ca/sites/default/files/documents/publications/RQAP_Rapport_sondage_clientele.pdf](https://www.rqap.gouv.qc.ca/sites/default/files/documents/publications/RQAP_Rapport_sondage_clientele.pdf)
 [^8]: Encore une fois, c'est un choix, et pas la seule possibilité.
-<!-- /BLOC:resume -->

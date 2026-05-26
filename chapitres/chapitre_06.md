@@ -6,7 +6,7 @@ Dans ce chapitre, nous allons décrire comment *deux* variables changent ensembl
 - Comment détecter et mesurer ce lien ?
 - Comment utiliser ce lien pour faire des prédictions ?
 
-## VI.1 Types de lien entre deux variables
+## Types de lien entre deux variables
 
 Rappelons les notions de variable indépendante et variable dépendante, vues dans le chapitre 2.
 
@@ -17,7 +17,7 @@ Dans une expérience, la variable **indépendante** est celle que le chercheur m
 <!-- /BLOC:definition -->
 On rappelle que contrairement au langage courant, la variable dépendante ne dépend pas nécessairement de la variable indépendante : cette terminologie reflète le rôle joué par les variables dans une expérience, et non pas la nature de leur relation. Notons aussi que la "manipulation" de la variable indépendante peut être plus ou moins artificielle : dans une expérience, le chercheur peut faire varier la variable indépendante en assignant les participants à différents groupes, ou en leur faisant suivre différentes procédures. Mais dans une étude observationnelle, le chercheur peut simplement mesurer la variable indépendante telle qu'elle existe naturellement, sans intervenir et utiliser ses variations naturelles pour expliquer les variations de la variable dépendante.
 
-### VI.1.1 Causalité
+### Causalité
 
 <!-- BLOC:definition id="definition-2" titre="Relation de causalité" -->
 **Définition — Relation de causalité**
@@ -31,7 +31,7 @@ Dans une expérience étudiant une relation de causalité, la variable indépend
 
 Le tabagisme est une cause du cancer du poumon : fumer des cigarettes augmente le risque de développer un cancer du poumon, mais développer un cancer du poumon ne fait pas augmenter le risque de devenir fumeur.
 <!-- /BLOC:exemple -->
-### VI.1.2 Influence (mutuelle)
+### Influence (mutuelle)
 
 Dans la réalité, il est relativement rare que les liens de cause et d'effet entre deux variables soient clairs et surtout "totaux" au sens où une variable explique complètement l'autre. Souvent, pour un effet donné, les causes sont multifactorielles et il n'est pas rare que des rétroactions fassent que la variable "d'effet" entraine des variations dans la variable de "cause". Dans ces cas où il existe une influence mais où la causalité n'est pas aussi nette que pour un lien de causalité à proprement parler, on parle, sans surprise de *lien d'influence*.
 
@@ -46,7 +46,7 @@ Deux variables $X$ et $Y$ sont dites en relation d'influence si elles varient en
 
 L'inflation est, grossièrement, causée par le fait que "trop" d'argent se dispute "trop peu" de biens. Une manière de faire baisser l'inflation est d'encourager les gens à garder leur argent dans leur épargne, en augmentant les taux d'intérêts. Ainsi, il y a un lien entre les taux d'intérêts et l'inflation, et ce lien est bidirectionnel. En effet, trop d'inflation est mauvaise pour l'économie et une inflation élevée pousse les banques centrales à augmenter leur taux directeur qui, à son tour, pousse l'inflation vers le bas.
 <!-- /BLOC:exemple -->
-### VI.1.3 Concomitance
+### Concomitance
 
 On l'a déjà vu dans la première partie du cours, des grandeurs peuvent varier ensemble sans que l'une soit la cause de l'autre, ni même que les deux s'influencent mutuellement : par exemple, les parapluies et les bottes de pluie sont concomitants, car ils sont tous les deux liés à la pluie, mais ils ne causent pas l'un l'autre et ne s'influencent pas mutuellement.
 
@@ -62,11 +62,11 @@ Le cas le plus simple expliquant la concomitance entre deux variables est celui 
 
 Le nombre de visites à l'opéra, en concert, etc, et la valeur de la voiture possédée sont positivement liés, mais aucun des deux ne cause l'autre : les deux sont influencés positivement par le revenu disponible.
 <!-- /BLOC:exemple -->
-### VI.1.4 Indépendance
+### Indépendance
 
 À l'opposé de la causalité, il peut y avoir indépendance entre deux variables : les variations de l'une n'ont aucune influence sur les variations de l'autre.
 
-<!-- BLOC:definition id="definition-5" -->
+<!-- BLOC:definition id="definition-5" titre="Indépendance" -->
 **Définition :**
 
 Deux variables $X$ et $Y$ sont dites indépendantes si les variations de $X$ n'ont aucune influence sur les variations de $Y$, et inversement. En d'autres termes, la distribution de $Y$ est la même pour toutes les valeurs de $X$, et la distribution de $X$ est la même pour toutes les valeurs de $Y$.
@@ -79,9 +79,9 @@ Le résultat d'un lancer de dé à six faces est indépendant du résultat d'un 
 
 Inversement, le fait d'être allé au cinéma et le fait d'avoir mangé du pop-corn ne sont pas indépendants, car parmi les personnes allant au cinéma, la proportion de celles ayant mangé du pop-corn est plus élevée que dans la population générale.
 <!-- /BLOC:exemple -->
-## VI.2 Test d'hypothèse : le $\chi^2$
+## Test d'hypothèse : le $\chi^2$
 
-### VI.2.1 Généralités sur les tests statistiques
+### Généralités sur les tests statistiques
 
 L'idée générale d'un test statistique pour différencier entre deux hypothèses $H_0$ et $H_1$ est de construire un nombre à partir d'un échantillon de données, appelé *statistique de test*, qui va prendre des valeurs "extrêmes" si l'hypothèse nulle $H_0$ est fausse et des valeurs "modérées" si l'hypothèse nulle $H_0$ est vraie. On calcule cette statistique sur notre échantillon, puis on se pose la question de savoir à quel point l'observation d'une valeur au moins aussi extrême que celle que l'on a observée est probable si $H_0$ est vraie. Si l'observation est très improbable (à un niveau fixé à l'avance que l'on appelle le *seuil de signification*) sous $H_0$, alors on rejette $H_0$ au profit de $H_1$. Inversement, si l'observation donne quelque chose "d'attendu" sous $H_0$, on continue de croire que $H_0$ est vraie (au moins provisoirement) et on ne rejette pas $H_0$ au profit de $H_1$.
 
@@ -92,14 +92,14 @@ Un professeur soupçonne un groupe d'étudiants d'avoir triché lors d'un examen
 <!-- /BLOC:exemple -->
 Il existe une grande variété de tests statistiques, chacun ayant des caractéristiques différentes et étant adapté à des situations différentes.
 
-<!-- BLOC:definition id="definition-6" -->
+<!-- BLOC:definition id="definition-6" titre="Confiance et puissance d'un test" -->
 **Définition :**
 
 La *confiance* d'un test statistique est la probabilité de ne pas rejeter l'hypothèse nulle $H_0$ lorsqu'elle est vraie. Elle est égale à $1-\alpha$, où $\alpha$ est le *niveau de signification* du test, c'est-à-dire la probabilité de rejeter $H_0$ lorsqu'elle est vraie (erreur de type I).
 
 La *puissance* d'un test statistique est la probabilité de rejeter l'hypothèse nulle $H_0$ lorsqu'elle est fausse. Elle est égale à $1-\beta$, où $\beta$ est la probabilité de ne pas rejeter $H_0$ lorsqu'elle est fausse (erreur de type II).
 <!-- /BLOC:definition -->
-<!-- BLOC:tableau id="tab-1" titre="Tableau 1 : Issues possibles d'un test statistique." -->
+<!-- BLOC:tableau id="tab-1" titre="Issues possibles d'un test statistique." -->
 <table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Décision du test</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Réalité</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">$H_0$ est vraie</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">$H_0$ est fausse</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$H_0$ n'est pas rejetée</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Vrai négatif ($1-\alpha$ confiance du test)</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Faux négatif (erreur de type II)</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$H_0$ est rejetée</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Faux positif (erreur de type I)</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Vrai positif ($1-\beta$ puissance du test)</td></tr></tbody></table>
 <!-- /BLOC:tableau -->
 
@@ -115,22 +115,22 @@ Imaginons que l'on veuille tester la présence d'une maladie chez un patient. La
 Imaginons de plus que l'on connaisse la répartition du niveau d'anticorps chez les patients sains et chez les patients infectés.
 
 <!-- BLOC:figure id="fig-1" image="figures/type_erreurs_seuil_eleve.png" -->
-**Figure 48 — Seuil de détection élevé**
+**Figure — Seuil de détection élevé**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-2" image="figures/type_erreurs_seuil_bas.png" -->
-**Figure 1 — Seuil de détection bas**
+**Figure — Seuil de détection bas**
 <!-- /BLOC:figure -->
 
 Dans le cas d'un test médical, il est souvent préférable d'avoir un seuil de détection bas, afin de minimiser les faux négatifs (erreur de type II), même si cela signifie avoir un taux de faux positifs plus élevé (erreur de type I), pour être sûr de détecter les patients ayant besoin de traitement. On préférera donc le test de droite, dans lequel il est peu probable de ne pas détecter un patient infecté (grande puissance), même si cela signifie que certains patients sains seront détectés à tort comme infectés (faible confiance).
 
 Si on ajoute à cela l'information que seule une personne sur 10 000 est infectée, si une personne fait un test qui revient positif, le risque que cette personne soit malade est en fait assez faible, car il y a beaucoup plus de chance (a priori) que cette personne soit sur la courbe bleue, où elle a de grande chance d'être détectée par erreur. C'est pour cela que dans le cas de maladies graves avec des traitements lourds, on préfère souvent faire un test de dépistage avec un seuil de détection bas, pour être sûr de détecter les patients ayant besoin de traitement, puis faire un test de confirmation avec un seuil de détection plus élevé, pour être sûr de ne pas traiter des patients sains.
 <!-- /BLOC:exemple -->
-### VI.2.2 Test du $\chi^2$
+### Test du $\chi^2$
 
 Imaginons que l'on choisisse 100 personnes au hasard au Québec, et qu'on leur fasse chacun tirer une pièce, puis qu'on enregistre le genre de la personne et le résultat du tirage. Comme il y a autant d'hommes que de femmes au Québec (à très peu de choses près), on s'attend à ce qu'on ait 50% d'hommes et, si la pièce n'est pas truquée, que 50% d'entre eux tirent pile, pour un total de 25% d'hommes qui tirent pile. De même, on s'attend à ce que 25% d'hommes tirent face, 25% de femmes tirent pile et 25% de femmes tirent face. Imaginons que l'on observe la répartition suivante :
 
-<!-- BLOC:tableau id="tab-2" -->
+<!-- BLOC:tableau id="tab-2" titre="Tableau croisé genre et résultat du tirage" -->
 <table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Genre</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Résultat du tirage</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Total</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Pile</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Face</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Homme</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">31</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">19</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">50</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Femme</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">18</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">32</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">50</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>49</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>51</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>100</strong></td></tr></tbody></table>
 <!-- /BLOC:tableau -->
 
@@ -138,13 +138,13 @@ Il est à peu près clair que les hommes ont tiré plus de piles que les femmes,
 
 Par le théorème central limite, les valeurs observées se comportent comme des variables normales. L'idée, pour mesurer si la différence observée est grande au point d'être "surprenante", est de considérer la distance entre les valeurs observées et les valeurs attendues, en la normalisant par l'écart-type de la distribution des valeurs observées (ainsi, si une fréquence relative attendue de 0,0001 donne 0,01, on compte cela comme plus surprenant qu'une fréquence relative attendue de 0,1 donnant 0,2). Par le TCL, c'est une somme de carrés de lois normales.
 
-<!-- BLOC:definition id="definition-7" -->
+<!-- BLOC:definition id="definition-7" titre="Loi du $\chi^2$" -->
 **Définition :**
 
 La loi du $\chi^2$ à $k$ degrés de liberté décrit la distribution des sommes des carrés de $k$ variables aléatoires indépendantes suivant une loi normale centrée réduite. En d'autres termes, si $Z_1, Z_2, \ldots, Z_k$ sont $k$ variables aléatoires indépendantes suivant une loi normale centrée réduite, alors la variable aléatoire $X = Z_1^2 + Z_2^2 + \ldots + Z_k^2$ suit une loi du $\chi^2$ à $k$ degrés de liberté.
 <!-- /BLOC:definition -->
 <!-- BLOC:figure id="fig-3" image="figures/chi2_densite.png" -->
-**Figure 2 — Fonctions de densité du $\chi^2$ pour différents degrés de liberté.**
+**Figure — Fonctions de densité du $\chi^2$ pour différents degrés de liberté.**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:definition id="definition-8" titre="Statistique du $\chi^2$" -->
@@ -202,7 +202,7 @@ Dans notre exemple de pièce et de genre, c'est bien le cas, car toutes les fré
 <!-- /BLOC:exemple -->
 Enfin, on se pose la question de savoir si la valeur observée est "surprenante". Pour cela, il faut d'abord choisir ce que veut dire "être surpris".
 
-<!-- BLOC:definition id="definition-9" -->
+<!-- BLOC:definition id="definition-9" titre="Seuil de signification" -->
 **Définition :**
 
 Le seuil de signification $\alpha$ d'un test statistique est la probabilité de rejeter l'hypothèse nulle $H_0$ lorsqu'elle est vraie (erreur de type I). En d'autres termes, c'est le niveau de risque que l'on est prêt à accepter pour rejeter $H_0$ à tort. Un seuil de signification de 5% signifie que l'on accepte un risque de 5% de rejeter $H_0$ alors qu'elle est en réalité vraie.
@@ -224,11 +224,11 @@ Dans notre exemple de pièce et de genre, avec $\chi^2_{obs} = 6,56$ et $(r-1) (
 Comme on le voit sur l'exemple suivant, la $p$-valeur dépend à la fois de la valeur de $\chi^2_{obs}$ et du nombre de degrés de liberté. Par exemple, si on avait observé $\chi^2_{obs} = 6,56$ avec 9 degrés de liberté, la $p$-valeur aurait été beaucoup plus grande, soit $P(T \geq 6,56) \approx 0,68$.
 
 <!-- BLOC:figure id="fig-4" image="figures/chi2_pvaleur_3ddl.png" -->
-**Figure 51 — $\chi^2$ à 3 degrés de liberté**
+**Figure — $\chi^2$ à 3 degrés de liberté**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-5" image="figures/chi2_pvaleur_9ddl.png" -->
-**Figure 3 — $\chi^2$ à 9 degrés de liberté**
+**Figure — $\chi^2$ à 9 degrés de liberté**
 <!-- /BLOC:figure -->
 <!-- /BLOC:exemple -->
 Si notre $p$-valeur est inférieure à notre seuil de signification $\alpha$, on considère le résultat "trop surprenant" sous l'hypothèse $H_0$ et on rejette $H_0$ au profit de $H_1$. Inversement, si notre $p$-valeur est supérieure à notre seuil de signification $\alpha$, on considère le résultat "pas si surprenant" sous l'hypothèse $H_0$ et on ne rejette pas $H_0$ au profit de $H_1$.
@@ -249,7 +249,7 @@ Dans notre exemple, comme $\chi^2_{obs} = 6,56$ est supérieur à la valeur crit
 <!-- /BLOC:exemple -->
 Tout cela se résume par la méthodologie suivante pour réaliser un test du $\chi^2$ d'indépendance entre deux variables qualitatives (ou quantitatives regroupées en classes) $X$ et $Y$ :
 
-<!-- BLOC:methode id="methode-1" -->
+<!-- BLOC:methode id="methode-1" titre="Méthode du test du $\chi^2$" -->
 **Méthode :**
 
 **Préparation du test.**
@@ -285,13 +285,13 @@ Tout cela se résume par la méthodologie suivante pour réaliser un test du $\c
 
 L'interprétation standard du résultat du test du $\chi^2$ est selon le cas :
 
-<div style="text-align:center;">"On accepte (ou on rejette) l'hypothèse $H_1$ au seuil de signification $\alpha$.</div>
+<div style="text-align:center;">"On accepte (ou on rejette) l'hypothèse $H_1$ au seuil de signification $\alpha$."</div>
 ou, de façon équivalente :
 
-<div style="text-align:center;">"On rejette (ou on n'a pas suffisamment de preuves pour rejeter) l'hypothèse $H_0$ au seuil de signification $\alpha$.</div>
+<div style="text-align:center;">"On rejette (ou on n'a pas suffisamment de preuves pour rejeter) l'hypothèse $H_0$ au seuil de signification $\alpha$."</div>
 Typiquement, pour être plus clair, on préfèrera remplacer $H_0$ et $H_1$ par leur signification concrète. Par exemple, dans notre exemple de pièce et de genre, on dira plutôt :
 
-<div style="text-align:center;">"On rejette l'hypothèse d'indépendance entre le genre et le résultat du tirage au seuil de signification de 5%.</div>
+<div style="text-align:center;">"On rejette l'hypothèse d'indépendance entre le genre et le résultat du tirage au seuil de signification de 5%."</div>
 #### Coefficient de Cramér
 
 Comme les valeurs attendues du $\chi^2$ dépendent du nombre de degrés de liberté, il est difficile de comparer les résultats de différents tests du $\chi^2$ entre eux.
@@ -318,7 +318,7 @@ On peut l'interpréter de la manière suivante :
 
 Ces niveaux d'interprétations sont conventionnels et peuvent varier en fonction du contexte de l'étude. Il est important de noter que le coefficient de Cramér ne mesure que la force de l'association entre les variables, et non la direction de cette association.
 
-## VI.3 Corrélation et régression linéaire
+## Corrélation et régression linéaire
 
 Dans le cas de deux variables quantitatives, on a à notre disposition davantage d'outils mathématiques. En premier lieu, comme chaque donnée peut être placée sur une droite numérique, on peut représenter les données par un nuage de points dans le plan, pour visualiser la relation entre les deux variables.
 
@@ -334,7 +334,7 @@ Le nuage de points d'une série statistique à deux variables quantitatives $X$ 
 Considérons un ensemble de données contenant le PIB par habitant (en USD) et l'Indice de Développement Humain (IDH) de 2023 pour plusieurs pays (Source : Banque mondiale, Programme des Nations Unies pour le développement). Nous voulons visualiser la relation entre ces deux variables quantitatives en créant un nuage de points.
 
 <!-- BLOC:figure id="fig-6" image="figures/pib_idh.png" -->
-**Figure 53 — Répartition de 141 pays selon leur PIB par habitant et leur IDH.**
+**Figure — Répartition de 141 pays selon leur PIB par habitant et leur IDH.**
 <!-- /BLOC:figure -->
 
 Il apparait clairement qu'il existe une relation entre PIB par habitant et IDH : quand le PIB/hab augmente, l'IDH tend à augmenter également. Ce n'est pas très surprenant, étant donné que le PIB par habitant est l'un des indicateurs utilisés pour calculer l'IDH.
@@ -346,36 +346,36 @@ Par exemple, dans la figure ci-dessous, $X$ et $Y$ ne sont liés que dans le nua
 Au contraire, dans les nuages (a) et (c), $X$ et $Y$ ne sont pas liés. Dans le nuage (a), varier $X$ n'a aucune influence sur les valeurs de $Y$, qui sont réparties de manière homogène quelle que soit la valeur de $X$ et inversement dans le nuage (c).
 
 <!-- BLOC:figure id="fig-7" image="figures/nuage_y_indep_x.png" -->
-**Figure 4 — $Y$ ne dépend pas de $X$.**
+**Figure — $Y$ ne dépend pas de $X$.**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-8" image="figures/nuage_xy_lies.png" -->
-**Figure 5 — $X$ et $Y$ sont liés.**
+**Figure — $X$ et $Y$ sont liés.**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-9" image="figures/nuage_x_indep_y.png" -->
-**Figure 6 — $X$ ne dépend pas de $Y$.**
+**Figure — $X$ ne dépend pas de $Y$.**
 <!-- /BLOC:figure -->
 
 Plusieurs types de relations peuvent exister entre $X$ et $Y$.
 
 <!-- BLOC:figure id="fig-10" image="figures/nuage_lineaire.png" -->
-**Figure 7 — Relation linéaire.**
+**Figure — Relation linéaire.**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-11" image="figures/nuage_nonlineaire.png" -->
-**Figure 8 — Relation non linéaire.**
+**Figure — Relation non linéaire.**
 <!-- /BLOC:figure -->
 
 <!-- BLOC:figure id="fig-12" image="figures/nuage_sans_relation.png" -->
-**Figure 9 — Pas de relation**
+**Figure — Pas de relation**
 <!-- /BLOC:figure -->
 
-### VI.3.1 Corrélation
+### Corrélation
 
 L'*existence* de toutes sortes de relations peut être établie via le test du $\chi^2$, mais on peut également tenter de décrire certaines relations en plus grands détail en utilisant les opérations arithmétiques offertes par les variables quantitatives. En particulier, en ce qui concerne le type de relation le plus simple qui soit, une relation "linéaire", où le nuage de points se répartit autour d'une droite, on peut mesurer à quel point le nuage de points est bien approximé par une droite à l'aide du *coefficient de corrélation linéaire*.
 
-<!-- BLOC:definition id="definition-13" -->
+<!-- BLOC:definition id="definition-13" titre="Coefficient de corrélation linéaire" -->
 **Définition :**
 
 Le coefficient de corrélation linéaire entre deux variables quantitatives $X$ et $Y$ est défini par la formule suivante :
@@ -399,7 +399,7 @@ Plus $r$ est proche de 1, plus les points du nuage de points sont alignés selon
 
 [^2]: Ou, si c'est le cas, que la droite est parallèle à un des axes et qu'on ne peut donc rien déduire sur une variable à partir de l'autre.
 
-<!-- BLOC:tableau id="tab-3" -->
+<!-- BLOC:tableau id="tab-3" titre="Interprétation de la force de la corrélation" -->
 | Valeur de $\lvert r\rvert$ | Interprétation |
 |---|---|
 | $0 \leq \lvert r\rvert < 0{,}1$ | Nulle |
@@ -410,11 +410,11 @@ Plus $r$ est proche de 1, plus les points du nuage de points sont alignés selon
 | $0{,}90 \leq \lvert r\rvert \leq 1$ | Très forte à parfaite |
 <!-- /BLOC:tableau -->
 
-### VI.3.2 Régression
+### Régression
 
 Une fois déterminé que $X$ et $Y$ sont liés par une relation linéaire, on peut tenter de trouver la droite qui "s'ajuste" le mieux au nuage de points, c'est-à-dire la droite qui minimise la distance entre les points du nuage de points et la droite.
 
-<!-- BLOC:definition id="definition-14" -->
+<!-- BLOC:definition id="definition-14" titre="Droite de régression linéaire" -->
 **Définition :**
 
 La droite de régression linéaire de $Y$ sur $X$ est la droite d'équation $y = a + b x$ qui approxime le mieux le nuage de points (au sens de minimiser la somme des carrés des distances verticales entre les points du nuage de points et la droite).
@@ -430,7 +430,7 @@ $$
 <!-- /BLOC:theoreme -->
 Bien sûr, si on considère une population au lieu d'un échantillon, on peut remplacer les moyennes et les écarts-types par leurs versions théoriques dans la formule ci-dessus.
 
-<!-- BLOC:definition id="definition-15" -->
+<!-- BLOC:definition id="definition-15" titre="Droite de tendance" -->
 **Définition :**
 
 Dans le cas d'une série temporelle, la droite de régression linéaire de $Y$ sur $X$ est appelée *droite de tendance* de la série temporelle.
@@ -440,14 +440,14 @@ Dans le cas d'une série temporelle, la droite de régression linéaire de $Y$ s
 **Exemple**
 
 <!-- BLOC:figure id="fig-13" image="figures/regression_forte.png" -->
-**Figure 60 — Exemple de droite de régression linéaire : $y = 0,45x + 1,73$.**
+**Figure — Exemple de droite de régression linéaire : $y = 0,45x + 1,73$.**
 <!-- /BLOC:figure -->
 
 Ici, le coefficient de corrélation est $r = 0{,}97$, la moyenne de $X$ est $\bar{x} = 4{,}88$, l'écart-type de $X$ est $s_X = 2{,}92$, la moyenne de $Y$ est $\bar{y} = 3{,}95$ et l'écart-type de $Y$ est $s_Y = 1{,}37$, ce qui donne bien $b = 0,97 \times 1{,}37 / 2{,}92 = 0{,}45$ et $a = 3{,}95 - 0{,}45 \times 4{,}88 = 1{,}73$.
 <!-- /BLOC:exemple -->
 Enfin, on peut se demander à quel point la variable indépendante $X$ explique la variable dépendante $Y$. En d'autres termes, on peut se demander quelle proportion de la variance de $Y$ est expliquée par la relation linéaire entre $X$ et $Y$.
 
-<!-- BLOC:definition id="definition-16" -->
+<!-- BLOC:definition id="definition-16" titre="Coefficient de détermination" -->
 **Définition :**
 
 Le *coefficient de détermination* est défini comme $r^2$, le carré du coefficient de corrélation linéaire.
@@ -462,7 +462,7 @@ Dans l'exemple précédent, le coefficient de détermination est $r^2 = 0{,}93$,
 Si on reprend le même nuage de points mais qu'on l'étire verticalement, on augmente la variance de $Y$ sans changer la relation linéaire entre $X$ et $Y$, ce qui fait que le coefficient de corrélation linéaire diminue, et donc que le coefficient de détermination diminue également. Ainsi, dans le diagramme suivant, qui a la même droite de régression, le coefficient de détermination est de $r^2 = 0{,}60$.
 
 <!-- BLOC:figure id="fig-14" image="figures/regression_faible.png" -->
-**Figure 61 — Exemple avec un coefficient de détermination de $r^2 = 0{,}60$.**
+**Figure — Exemple avec un coefficient de détermination de $r^2 = 0{,}60$.**
 <!-- /BLOC:figure -->
 
 Dans ce nouvel exemple, le coefficient de corrélation linéaire est $r = 0{,}78$, ce qui signifie que la relation linéaire entre $X$ et $Y$ est plus faible que dans l'exemple précédent. Le coefficient de détermination est alors $r^2 = 0{,}60$, ce qui indique que seulement 60% de la variance de $Y$ est expliquée par la relation linéaire avec $X$.
@@ -471,11 +471,11 @@ On peut également se demander si la relation linéaire entre $X$ et $Y$ est sta
 Au contraire, si un nuage de 1000 points est très bien ajusté par une droite, ce n'est probablement pas dû au hasard de la mesure.
 Ainsi, plus la taille de l'échantillon est faible, plus il faut que la relation soit forte pour être considérée comme significative.
 
-<!-- BLOC:tableau id="tab-4" -->
+<!-- BLOC:tableau id="tab-4" titre="Valeurs critiques du coefficient de corrélation" -->
 <table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Seuil de signification</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="6">Taille de l'échantillon</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">5</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">10</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">20</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">50</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">100</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">1000</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$5\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}878$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}632$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}279$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}197$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}062$</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$2\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}934$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}715$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}328$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}232$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}074$</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$1\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}959$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}765$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}561$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}361$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}256$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}081$</td></tr></tbody></table>
 <!-- /BLOC:tableau -->
 
-### VI.3.3 Prédictions ?
+### Prédictions ?
 
 Si on a réussi à extraire une droite de régression ou de tendance des données, on peut l'utiliser pour inférer des valeurs de $Y$ à partir de valeurs de $X$ : si on a une droite de régression linéaire de $Y$ sur $X$ donnée par l'équation $y = a + b x$, alors pour une valeur donnée de $X$, disons $x_0$, on peut prédire la valeur correspondante de $Y$ en calculant $y_0 = a + b x_0$.
 
@@ -494,7 +494,7 @@ Il n'est pas raisonnable d'utiliser une estimation linéaire trop loin des donn�
 Un exemple célèbre d'une mauvaise utilisation d'une droite de tendance est donné dans la correspondance *Will women soon outrun men?* par Brian J. Whipp \& Susana Ward, publiée dans le journal *Nature* en 1992. Dans cette note, les auteurs font une régression linéaire sur les temps de marathon des hommes et de femmes et prédisent que les femmes pourraient battre les temps masculins en 1998. En 2026, le record féminin est de 2h09:56, environ 10 minutes de plus que le record masculin, et 9 minutes de plus que le temps prédit par l'étude pour 1998.
 
 <!-- BLOC:figure id="fig-15" image="figures/marathon.png" -->
-**Figure 62 — Évolution des temps de marathon hommes/femmes**
+**Figure — Évolution des temps de marathon hommes/femmes**
 <!-- /BLOC:figure -->
 
 Les auteurs n'ont pas pris en compte que les gains rapides des femmes dans les années 1980 étaient principalement dus à l'augmentation du nombre de femmes participant à des marathons, et que ce gain ne pouvait pas se poursuivre indéfiniment.
