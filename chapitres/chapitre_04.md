@@ -1,5 +1,7 @@
 # Chapitre IV — Statistiques descriptives
 
+Les ensembles de données peuvent comprendre jusqu'à des milliards de données individuelles et si la représentation graphique de celles-ci permet d'en gagner une appréciation qualitative, il est vite nécessaire de trouver un moyen de résumer l'information qu'elles contiennent. C'est le rôle de *statistiques descriptives* : des grandeurs que l'on calcule sur un en ensemble de donnée pour formaliser certaines caractéristiques intuitives : où se trouvent nos observations ? Comment se répartissent-elles ?
+
 ## Mesures de tendance centrale
 
 Les mesures de tendance centrale permettent de résumer un ensemble de données par une valeur représentative. Il y a plusieurs manières, mathématiquement, de définir le "centre" d'une distribution de données, qui ont toutes leur utilité dans différents contextes. Les trois mesures les plus courantes, que nous allons étudier, sont le mode, la médiane et la moyenne.

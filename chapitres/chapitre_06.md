@@ -100,7 +100,30 @@ La *confiance* d'un test statistique est la probabilité de ne pas rejeter l'hyp
 La *puissance* d'un test statistique est la probabilité de rejeter l'hypothèse nulle $H_0$ lorsqu'elle est fausse. Elle est égale à $1-\beta$, où $\beta$ est la probabilité de ne pas rejeter $H_0$ lorsqu'elle est fausse (erreur de type II).
 <!-- /BLOC:definition -->
 <!-- BLOC:tableau id="tab-1" titre="Issues possibles d'un test statistique." -->
-<table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Décision du test</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Réalité</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">$H_0$ est vraie</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">$H_0$ est fausse</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$H_0$ n'est pas rejetée</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Vrai négatif ($1-\alpha$ confiance du test)</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Faux négatif (erreur de type II)</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$H_0$ est rejetée</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Faux positif (erreur de type I)</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Vrai positif ($1-\beta$ puissance du test)</td></tr></tbody></table>
+<table>
+<thead>
+<tr>
+  <th rowspan="2">Décision du test</th>
+  <th colspan="2">Réalité</th>
+</tr>
+<tr>
+  <th>$H_0$ est vraie</th>
+  <th>$H_0$ est fausse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$H_0$ n'est pas rejetée</td>
+  <td>Vrai négatif ($1-\alpha$ confiance du test)</td>
+  <td>Faux négatif (erreur de type II)</td>
+</tr>
+<tr>
+  <td>$H_0$ est rejetée</td>
+  <td>Faux positif (erreur de type I)</td>
+  <td>Vrai positif ($1-\beta$ puissance du test)</td>
+</tr>
+</tbody>
+</table>
 <!-- /BLOC:tableau -->
 
 Attention : la confiance et la puissance ne permettent pas, en elles-mêmes, de calculer la probabilité de prendre une bonne décision à partir d'un test statistique. La confiance et la puissance sont des propriétés du test lui-même, tandis que la probabilité de prendre une bonne décision dépend aussi de la réalité des échantillons/populations/unités statistiques étudiées.
@@ -131,7 +154,39 @@ Si on ajoute à cela l'information que seule une personne sur 10 000 est infect�
 Imaginons que l'on choisisse 100 personnes au hasard au Québec, et qu'on leur fasse chacun tirer une pièce, puis qu'on enregistre le genre de la personne et le résultat du tirage. Comme il y a autant d'hommes que de femmes au Québec (à très peu de choses près), on s'attend à ce qu'on ait 50% d'hommes et, si la pièce n'est pas truquée, que 50% d'entre eux tirent pile, pour un total de 25% d'hommes qui tirent pile. De même, on s'attend à ce que 25% d'hommes tirent face, 25% de femmes tirent pile et 25% de femmes tirent face. Imaginons que l'on observe la répartition suivante :
 
 <!-- BLOC:tableau id="tab-2" titre="Tableau croisé genre et résultat du tirage" -->
-<table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Genre</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Résultat du tirage</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Total</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Pile</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Face</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Homme</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">31</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">19</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">50</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">Femme</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">18</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">32</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">50</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>49</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>51</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>100</strong></td></tr></tbody></table>
+<table>
+<thead>
+<tr>
+  <th rowspan="2">Genre</th>
+  <th colspan="2">Résultat du tirage</th>
+  <th rowspan="2">Total</th>
+</tr>
+<tr>
+  <th>Pile</th>
+  <th>Face</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Homme</td>
+  <td>31</td>
+  <td>19</td>
+  <td>50</td>
+</tr>
+<tr>
+  <td>Femme</td>
+  <td>18</td>
+  <td>32</td>
+  <td>50</td>
+</tr>
+<tr>
+  <td><strong>Total</strong></td>
+  <td><strong>49</strong></td>
+  <td><strong>51</strong></td>
+  <td><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
 <!-- /BLOC:tableau -->
 
 Il est à peu près clair que les hommes ont tiré plus de piles que les femmes, mais d'un autre côté, c'est un processus aléatoire, il serait étonnant que les valeurs observées soient exactement égales aux valeurs attendues. Est-ce que cette différence est suffisamment grande pour conclure que le genre et le résultat du tirage ne sont pas indépendants ?
@@ -191,7 +246,57 @@ Dans notre exemple de pièce et de genre, il y a $r=2$ modalités pour la variab
 
 Dans l'exemple suivant, on a une variable nominale (tendance politique) avec 3 modalités (droite, centre, gauche) et une variable de rapport avec 4 classes ($[15-25[$, $[25-45[$, $[45-65[$, $>65$), ce qui fait que la statistique du $\chi^2$ suit une loi du $\chi^2$ à $(4-1) (3-1) = 6$ degrés de liberté.
 
-<table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Classe d'âge</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="3">Tendance politique</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Total</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Droite</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Centre</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Gauche</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$[15, 25[$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">14</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">13</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">29</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">56</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$[25, 45[$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">15</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">20</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">19</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">54</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$[45, 65[$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">22</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">19</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">10</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">51</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$>65$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">9</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">11</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">3</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">23</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>60</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>63</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>61</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>184</strong></td></tr></tbody></table>
+<table>
+<thead>
+<tr>
+  <th rowspan="2">Classe d'âge</th>
+  <th colspan="3">Tendance politique</th>
+  <th rowspan="2">Total</th>
+</tr>
+<tr>
+  <th>Droite</th>
+  <th>Centre</th>
+  <th>Gauche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$[15, 25[$</td>
+  <td>14</td>
+  <td>13</td>
+  <td>29</td>
+  <td>56</td>
+</tr>
+<tr>
+  <td>$[25, 45[$</td>
+  <td>15</td>
+  <td>20</td>
+  <td>19</td>
+  <td>54</td>
+</tr>
+<tr>
+  <td>$[45, 65[$</td>
+  <td>22</td>
+  <td>19</td>
+  <td>10</td>
+  <td>51</td>
+</tr>
+<tr>
+  <td>$>65$</td>
+  <td>9</td>
+  <td>11</td>
+  <td>3</td>
+  <td>23</td>
+</tr>
+<tr>
+  <td><strong>Total</strong></td>
+  <td><strong>60</strong></td>
+  <td><strong>63</strong></td>
+  <td><strong>61</strong></td>
+  <td><strong>184</strong></td>
+</tr>
+</tbody>
+</table>
 <!-- /BLOC:exemple -->
 Il est important de vérifier que les conditions d'application du test du $\chi^2$ sont respectées : généralement, il faut que tous les effectifs attendus $E_{ij}$ soient supérieurs à 5 et que $n \geq 30$ pour que le test soit valide. Cette condition vient essentiellement du fait que l'on approxime le contenu de chaque case du tableau croisé par une loi normale, et que cette approximation est plus fiable lorsque les effectifs attendus sont suffisamment grands.
 
@@ -472,8 +577,72 @@ Au contraire, si un nuage de 1000 points est très bien ajusté par une droite, 
 Ainsi, plus la taille de l'échantillon est faible, plus il faut que la relation soit forte pour être considérée comme significative.
 
 <!-- BLOC:tableau id="tab-4" titre="Valeurs critiques du coefficient de corrélation" -->
-<table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Seuil de signification</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="6">Taille de l'échantillon</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">5</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">10</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">20</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">50</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">100</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">1000</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$5\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}878$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}632$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}279$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}197$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}062$</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$2\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}934$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}715$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}444$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}328$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}232$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}074$</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$1\%$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}959$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}765$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}561$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}361$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}256$</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">$0{,}081$</td></tr></tbody></table>
+<table>
+<thead>
+<tr>
+  <th rowspan="2">Seuil de signification</th>
+  <th colspan="6">Taille de l'échantillon</th>
+</tr>
+<tr>
+  <th>5</th>
+  <th>10</th>
+  <th>20</th>
+  <th>50</th>
+  <th>100</th>
+  <th>1000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$5\%$</td>
+  <td>$0{,}878$</td>
+  <td>$0{,}632$</td>
+  <td>$0{,}444$</td>
+  <td>$0{,}279$</td>
+  <td>$0{,}197$</td>
+  <td>$0{,}062$</td>
+</tr>
+<tr>
+  <td>$2\%$</td>
+  <td>$0{,}934$</td>
+  <td>$0{,}715$</td>
+  <td>$0{,}444$</td>
+  <td>$0{,}328$</td>
+  <td>$0{,}232$</td>
+  <td>$0{,}074$</td>
+</tr>
+<tr>
+  <td>$1\%$</td>
+  <td>$0{,}959$</td>
+  <td>$0{,}765$</td>
+  <td>$0{,}561$</td>
+  <td>$0{,}361$</td>
+  <td>$0{,}256$</td>
+  <td>$0{,}081$</td>
+</tr>
+</tbody>
+</table>
 <!-- /BLOC:tableau -->
+
+#### Interprétation des statistiques de régression
+
+On vérifie d'abord que le coefficient de corrélation linéaire $r$ est supérieur à la valeur critique pour le seuil de signification choisi et la taille de l'échantillon. Si c'est le cas, on considère que la relation linéaire entre $X$ et $Y$ est statistiquement significative, et on peut commenter sur la force et la direction de cette relation, ainsi que sur la proportion de la variance de $Y$ qui est expliquée par cette relation linéaire (coefficient de détermination $r^2$).
+
+Par exemple, si on a $n = 10, r = -0,78, r^2 = 0,60$ et $\alpha = 5\%$ on l'interprète comme :
+<div style="text-align:center;">
+    "Il existe une relation linéaire négative forte entre $X$ et $Y$, qui est statistiquement significative au seuil de 5%. Environ 60% de la variance de $Y$ est expliquée par cette relation linéaire avec $X$."
+</div>
+
+Inversement, si on a $n = 10, r = 0{,}50, r^2 = 0{,}25$ et $\alpha = 5\%$, on l'interprète comme :
+<div style="text-align:center;">
+    "Il n'existe pas de relation linéaire statistiquement significative au seuil de 5%.
+</div>
+
+On peut ensuite donner une interprétation plus concrète à partir de l'équation de la droite de régression linéaire. Supposons qu'on ait établi qu'il existe une relation significative entre X et Y et qu'on ait calculé la droite de régression linéaire de $Y$ sur $X$ donnée par l'équation $y = ax + b$. On peut alors interpréter le coefficient de pente $a$ comme la variation moyenne de $Y$ pour une unité de variation de $X$. 
+<div style="text-align:center;">
+    "En moyenne, pour chaque augmentation de 1 unité de $X$, $Y$ augmente de $a$ unités."
+</div>
+Souvent, le coefficient $a$ n'est pas entier, par exemple $a = 1,25 = 5/4$. Dans ce cas, pour rendre l'interprétation plus concrète, on peut dire "En moyenne, pour chaque augmentation de 4 unités de $X$, $Y$ augmente de 5 unités".
 
 ### Prédictions ?
 
@@ -529,4 +698,3 @@ L'absurdité du modèle est claire si on le pousse plus loin encore : assez loin
 - Le coefficient de détermination $r^2$ représente la proportion de la variance de $Y$ expliquée par $X$
 
 <!-- /BLOC:resume -->
-

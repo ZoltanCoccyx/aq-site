@@ -13,6 +13,11 @@ Usage :
     python md_to_html.py                     # tous les *.md du dossier courant
                                              # ou dans chapitres/ si aucun trouvé
 
+Page d'index :
+    Si un fichier intro.md existe dans le répertoire courant (ou, à défaut,
+    à côté du script), il personnalise index.html. Placez le marqueur
+    <!-- CHAPITRES --> pour choisir où insérer la liste des chapitres.
+
 Convention des blocs :
     <!-- BLOC:type id="..." [titre="..."] [image="chemin.png"] -->
     contenu markdown
@@ -87,6 +92,10 @@ except FileNotFoundError as e:
 # ─────────────────────────────────────────────────────────────────────────────
 
 HEADING_RE = re.compile(r'^(#{1,3})[ \t]+(.+?)(?:[ \t]+#+)?[ \t]*$', re.MULTILINE)
+INTRO_CHAPTERS_MARKER_RE = re.compile(
+    r'^\s*<!--\s*(?:CHAPITRES|TABLE_DES_CHAPITRES|CHAPTER_LINKS)\s*-->\s*$',
+    re.IGNORECASE | re.MULTILINE,
+)
 
 
 ROMAN_RE = re.compile(r'Chapitre\s+([IVXLCDM]+)')
@@ -556,6 +565,31 @@ def build_chapter_links(all_md_files: list[str], current_file: str) -> str:
     return "\n".join(links)
 
 
+def split_intro_md(intro_md: str) -> tuple[str, str]:
+    """Sépare intro.md autour du marqueur d'insertion de la liste des chapitres."""
+    match = INTRO_CHAPTERS_MARKER_RE.search(intro_md)
+    if not match:
+        return intro_md, ""
+    return intro_md[:match.start()], intro_md[match.end():]
+
+
+def find_intro_path(script_dir: str) -> str | None:
+    """Cherche intro.md dans le répertoire courant, puis près du script."""
+    candidates = [
+        os.path.join(os.getcwd(), "intro.md"),
+        os.path.join(script_dir, "intro.md"),
+    ]
+    seen = set()
+    for path in candidates:
+        abs_path = os.path.abspath(path)
+        if abs_path in seen:
+            continue
+        seen.add(abs_path)
+        if os.path.exists(abs_path):
+            return abs_path
+    return None
+
+
 def convert_file(md_path: str, all_md_files: list[str], output_dir: str | None = None) -> str:
     with open(md_path, encoding="utf-8") as f:
         source = f.read()
@@ -595,7 +629,12 @@ def convert_file(md_path: str, all_md_files: list[str], output_dir: str | None =
     return out_path
 
 
-def build_index(all_md_files: list[str], output_dir: str, intro_md: str | None = None):
+def build_index(
+    all_md_files: list[str],
+    output_dir: str,
+    intro_md: str | None = None,
+    intro_dir: str | None = None,
+):
     items = []
     for f in sorted(all_md_files):
         basename  = os.path.basename(f)
@@ -604,25 +643,35 @@ def build_index(all_md_files: list[str], output_dir: str, intro_md: str | None =
             title = extract_title(fh.read())
         items.append(f'<li><a href="{html_name}">{html_mod.escape(title)}</a></li>')
 
+    chapter_list_html = (
+        "<hr>\n"
+        "<h2>Table des chapitres</h2>\n"
+        "<ul>\n" + "\n".join(items) + "\n</ul>\n"
+    )
+
     if intro_md:
-        intro_html = process_markdown(intro_md, output_dir)
+        intro_dir = intro_dir or output_dir
+        intro_before_md, intro_after_md = split_intro_md(intro_md)
+        intro_before_html = process_markdown(intro_before_md, intro_dir) if intro_before_md.strip() else ""
+        intro_after_html = process_markdown(intro_after_md, intro_dir) if intro_after_md.strip() else ""
+        intro_html = "\n".join(part for part in [intro_before_html, intro_after_html] if part)
         # Extraire le titre s'il y en a un
         intro_title_m = re.search(r'<h1[^>]*>(.*?)</h1>', intro_html)
         if intro_title_m:
             page_title = html_mod.escape(intro_title_m.group(1))
-            body = intro_html
         else:
             page_title = "Analyse quantitative"
-            body = intro_html
-        body += f'\n<hr>\n<h2>Table des chapitres</h2>\n<ul>\n' + "\n".join(items) + "\n</ul>\n"
+        body = "\n".join(
+            part
+            for part in [intro_before_html, chapter_list_html, intro_after_html]
+            if part
+        )
     else:
         page_title = "Analyse quantitative — Table des matières"
         body = (
             "<h1>Analyse quantitative en sciences humaines</h1>\n"
             "<p>Balthazar Charles, 2026</p>\n"
-            "<hr>\n"
-            "<h2>Table des chapitres</h2>\n"
-            "<ul>\n" + "\n".join(items) + "\n</ul>\n"
+            f"{chapter_list_html}"
         )
 
     page = HTML_TEMPLATE.format(
@@ -676,14 +725,16 @@ def main():
         convert_file(f, all_abs, output_dir)
 
     # Chercher un éventuel intro.md pour personnaliser l'index
-    intro_path = os.path.join(script_dir, "intro.md")
+    intro_path = find_intro_path(script_dir)
     intro_content = None
-    if os.path.exists(intro_path):
+    intro_dir = None
+    if intro_path:
         with open(intro_path, encoding="utf-8") as f:
             intro_content = f.read()
-        print(f"ℹ️  intro.md trouvé — personnalisation de l'index.")
+        intro_dir = os.path.dirname(intro_path)
+        print(f"ℹ️  intro.md trouvé : {intro_path}")
 
-    build_index(all_abs, output_dir, intro_content)
+    build_index(all_abs, output_dir, intro_content, intro_dir)
     print(f"\n✅  Terminé ! Ouvrez {output_dir}/index.html dans votre navigateur.")
 
 

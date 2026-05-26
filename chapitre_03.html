@@ -7,7 +7,7 @@
   <title>Chapitre III — Concepts fondamentaux</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
   <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
-  <link rel="stylesheet" href="style.css?v=1779804476">
+  <link rel="stylesheet" href="style.css?v=1779837799">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -724,7 +724,45 @@ Typiquement, comme à la fois les lignes et les colonnes servent déjà à indiq
   <div class="bloc-body"><p>Voici un exemple réel basé sur le jeu de données <code>mtcars</code> (Motor Trend, 1974). On croise le nombre de cylindres et le type de boîte.</p>
 <div class="bloc bloc-tableau" id="tab-7">
   <div class="bloc-header">📊 Tableau 7 — Répartition des 32 véhicules du jeu `mtcars` par nombre de cylindres et type de boîte <span class="bloc-id">(tab-7)</span></div>
-  <div class="bloc-body"><table style="border-collapse:collapse;width:100%;margin:1rem 0;"><thead><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Cylindres</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="2">Type de boîte</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2">Total</th></tr><tr style="background:var(--table-hdr);"><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Automatique</th><th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Manuelle</th></tr></thead><tbody><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">4</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">3</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">8</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">11</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">6</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">4</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">3</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">7</td></tr><tr style="background:var(--table-row-even);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">8</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">12</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">2</td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">14</td></tr><tr style="background:var(--table-row-odd);"><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>19</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>13</strong></td><td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>32</strong></td></tr></tbody></table></div>
+  <div class="bloc-body"><table>
+<thead>
+<tr>
+  <th rowspan="2">Cylindres</th>
+  <th colspan="2">Type de boîte</th>
+  <th rowspan="2">Total</th>
+</tr>
+<tr>
+  <th>Automatique</th>
+  <th>Manuelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>4</td>
+  <td>3</td>
+  <td>8</td>
+  <td>11</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>4</td>
+  <td>3</td>
+  <td>7</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>12</td>
+  <td>2</td>
+  <td>14</td>
+</tr>
+<tr>
+  <td><strong>Total</strong></td>
+  <td><strong>19</strong></td>
+  <td><strong>13</strong></td>
+  <td><strong>32</strong></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <p>On observe par exemple que, dans ce jeu, la majorité des voitures 4 cylindres sont à boîte manuelle (8 sur 11), tandis que la plupart des 8 cylindres sont automatiques (12 sur 14).</p></div>
 </div>
@@ -948,9 +986,9 @@ La création de tableaux de fréquences à plus de deux entrées est possible, m
 </div>
 
 <h3 id="un-cas-particulier-les-séries-chronologiques">III.3.4 Un cas particulier : les séries chronologiques</h3>
-<p>On appelle <strong>série chronologique</strong> une série de données quantitatives collectées au fil du temps, le plus souvent à des intervalles de temps réguliers. Si l'intervalle de temps entre les collectes est constant, on l'appelle <strong>périodicité</strong> de la série. Les séries chronologiques sont utilisées pour analyser les tendances, les cycles et les variations saisonnières dans les données au fil du temps. Les différents types de tableaux et graphiques que l'on a discutés précédemment peuvent être appliqués aux séries chronologiques. Pour les plus adaptés d'entre eux, on utilise souvent un nom différent pour indiquer qu'on travaille avec des données temporelles. Plus généralement,</p>
-<p>un diagramme indiquant une variable quantitative en fonction du temps est souvent appelé un <strong>chronogramme</strong> ou un <strong>historiogramme</strong>.<br />
-<strong>Tableau de séries chronologiques</strong> : un tableau qui présente les valeurs de la variable mesurée à différents points dans le temps. Chaque ligne du tableau correspond à un point dans le temps (date, heure, etc.) et la (ou les) colonne suivante contient la valeur mesurée à ce moment-là.</p>
+<p>On appelle <strong>série chronologique</strong> une série de données quantitatives collectées au fil du temps, le plus souvent à des intervalles de temps réguliers. Si l'intervalle de temps entre les collectes est constant, on l'appelle <strong>périodicité</strong> de la série. Les séries chronologiques sont utilisées pour analyser les tendances, les cycles et les variations saisonnières dans les données au fil du temps. Les différents types de tableaux et graphiques que l'on a discutés précédemment peuvent être appliqués aux séries chronologiques. Pour les plus adaptés d'entre eux, on utilise souvent un nom différent pour indiquer qu'on travaille avec des données temporelles. Plus généralement,<br />
+un diagramme indiquant une variable quantitative en fonction du temps est souvent appelé un <strong>chronogramme</strong> ou un <strong>historiogramme</strong>.</p>
+<p><strong>Tableau de séries chronologiques</strong> : un tableau qui présente les valeurs de la variable mesurée à différents points dans le temps. Chaque ligne du tableau correspond à un point dans le temps (date, heure, etc.) et la (ou les) colonne suivante contient la valeur mesurée à ce moment-là.</p>
 <div class="bloc bloc-exemple" id="exemple-31">
   <div class="bloc-header">💡 Exemple 31 <span class="bloc-id">(exemple-31)</span></div>
   <div class="bloc-body"><div class="bloc bloc-tableau" id="tab-8">
@@ -1142,76 +1180,41 @@ Le titre de la première colonne est le nom de la variable considérée, le nom 
 Dans ce cas, toutes les lignes et colonnes servent à indiquer une valeur/classe/modalité d'une variable, et le type de données contenu dans les cases est indiqué dans le titre du graphique : par exemple, "Répartition de … en fonction de … et de … (pourcentages)", "Budget moyen de … en fonction de … et de … (en dollars)", etc.</p>
 <div class="bloc bloc-tableau" id="tab-9">
   <div class="bloc-header">📊 Tableau 9 — Structure d&#x27;un tableau à deux entrées <span class="bloc-id">(tab-9)</span></div>
-  <div class="bloc-body"><table style="border-collapse:collapse;width:100%;margin:1rem 0;">
-
+  <div class="bloc-body"><table>
 <thead>
-
-<tr style="background:var(--table-hdr);">
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2"><strong>Nom de la variable des lignes</strong></th>
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" colspan="3"><strong>Nom de la variable des colonnes</strong></th>
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);" rowspan="2"><strong>Total</strong></th>
-
+<tr>
+  <th rowspan="2"><strong>Nom de la variable des lignes</strong></th>
+  <th colspan="3"><strong>Nom de la variable des colonnes</strong></th>
+  <th rowspan="2"><strong>Total</strong></th>
 </tr>
-
-<tr style="background:var(--table-hdr);">
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Classe 1</th>
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">…</th>
-
-<th style="color:var(--table-hdr-txt);padding:.6rem 1rem;text-align:left;border:1px solid var(--border);">Classe $k$</th>
-
+<tr>
+  <th>Classe 1</th>
+  <th>…</th>
+  <th>Classe $k$</th>
 </tr>
-
 </thead>
-
 <tbody>
-
-<tr style="background:var(--table-row-even);">
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Modalité 1</strong></td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;" colspan="3" rowspan="3">Le type de données des cases est indiqué dans le titre du graphique.</td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"></td>
-
+<tr>
+  <td><strong>Modalité 1</strong></td>
+  <td colspan="3" rowspan="3">Le type de données des cases est indiqué dans le titre du graphique.</td>
+  <td></td>
 </tr>
-
-<tr style="background:var(--table-row-odd);">
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">…</td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">…</td>
-
+<tr>
+  <td>…</td>
+  <td>…</td>
 </tr>
-
-<tr style="background:var(--table-row-even);">
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Modalité $n$</strong></td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"></td>
-
+<tr>
+  <td><strong>Modalité $n$</strong></td>
+  <td></td>
 </tr>
-
-<tr style="background:var(--table-row-odd);">
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"><strong>Total</strong></td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"></td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;">…</td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"></td>
-
-<td style="padding:.5rem 1rem;border:1px solid var(--border);vertical-align:top;"></td>
-
+<tr>
+  <td><strong>Total</strong></td>
+  <td></td>
+  <td>…</td>
+  <td></td>
+  <td></td>
 </tr>
-
 </tbody>
-
 </table></div>
 </div></div>
 </div>
