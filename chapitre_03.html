@@ -7,7 +7,7 @@
   <title>Chapitre III — Concepts fondamentaux</title>
   <!-- Anti-FOUC : applique le thème avant le rendu -->
   <script>(function(){var s=new URLSearchParams(location.search),t=s.get('theme')||localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
-  <link rel="stylesheet" href="style.css?v=1779837799">
+  <link rel="stylesheet" href="style.css?v=1779919895">
   <!-- MathJax pour le rendu des équations LaTeX -->
   <script>
   MathJax = {
@@ -791,11 +791,13 @@ La création de tableaux de fréquences à plus de deux entrées est possible, m
   <div class="bloc-header">🖼 Figure 1 — Répartition des langues maternelles au Québec (2021) <span class="bloc-id">(fig-1)</span></div>
   <div class="bloc-body"><img src="figures/langues_quebec_pie.png" alt="Figure"></div>
 </div>
+
 <p>Pour le même ensemble de données, on peut utiliser un diagramme en anneau :</p>
 <div class="bloc bloc-figure" id="fig-2">
   <div class="bloc-header">🖼 Figure 2 — Répartition des langues maternelles au Québec (2021) <span class="bloc-id">(fig-2)</span></div>
   <div class="bloc-body"><img src="figures/langues_quebec_donut.png" alt="Figure"></div>
 </div>
+
 <p>On observe que le français est largement dominant comme langue maternelle au Québec, représentant plus des trois quarts de la population parmi les répondants.</p></div>
 </div>
 
@@ -1347,10 +1349,10 @@ $$</p>
 <p>La variation d'une grandeur est exprimée dans les mêmes unités que la grandeur elle-même. Par exemple, si $V$ est une population, $\Delta V$ est exprimé en nombre d'habitants. Si $V$ est un revenu, $\Delta V$ est exprimé en dollars.</p>
 <div class="bloc bloc-exemple" id="exemple-38">
   <div class="bloc-header">💡 Exemple 38 <span class="bloc-id">(exemple-38)</span></div>
-  <div class="bloc-body"><p>Si entre 2025 et 2026, votre salaire est passé de 50 000 $ à 55 000 $, la variation de votre salaire est de $\Delta V = 55\,000 - 50\,000 = 5\,000$ $. Votre salaire a augmenté de 5 000 $ entre 2025 et 2026.</p></div>
+  <div class="bloc-body"><p>Si entre 2025 et 2026, votre salaire est passé de 50 000$ à 55 000$, la variation de votre salaire est de $\Delta V =$ 55 000 - 50 000 = 5 000$. Votre salaire a augmenté de 5 000$ entre 2025 et 2026.</p></div>
 </div>
 
-<p>Cependant, la variation « absolue » peut être difficile à interpréter : par exemple, une personne qui travaille pour la première fois pendant l'été et dont les revenus passent de 0 $ à 5 000 $ a une variation de 5 000 $, tout comme la personne qui gagne déjà 50 000 $ et dont le salaire passe à 55 000 $. Pourtant, la première personne a vu son revenu augmenter de manière beaucoup plus importante que la seconde. Pour résoudre ce problème, on parle de <em>variation relative</em>.</p>
+<p>Cependant, la variation « absolue » peut être difficile à interpréter : par exemple, une personne qui travaille pour la première fois pendant l'été et dont les revenus passent de 0$ à 5 000$ a une variation de 5 000$, tout comme la personne qui gagne déjà 50 000$ et dont le salaire passe à 55 000$. Pourtant, la première personne a vu son revenu augmenter de manière beaucoup plus importante que la seconde. Pour résoudre ce problème, on parle de <em>variation relative</em>.</p>
 <div class="bloc bloc-definition" id="definition-22">
   <div class="bloc-header">📘 Définition 22 — Variation relative <span class="bloc-id">(definition-22)</span></div>
   <div class="bloc-body"><p>La <strong>variation relative</strong> (ou taux de variation) d'une grandeur $V$ entre deux points $A$ et $B$ est le rapport $\frac{V(B) - V(A)}{V(A)}$. On le note $\frac{\Delta V}{V(A)}$.</p></div>
@@ -1362,10 +1364,10 @@ $$</p>
 $$</p>
 <div class="bloc bloc-exemple" id="exemple-39">
   <div class="bloc-header">💡 Exemple 39 <span class="bloc-id">(exemple-39)</span></div>
-  <div class="bloc-body"><p>Si $V$ a augmenté de 5 000 $ entre 2025 et 2026, et que le salaire initial était de 50 000 $, la variation relative est de $\frac{5\,000}{50\,000} = 0,1$, soit une augmentation de 10 %.</p></div>
+  <div class="bloc-body"><p>Si $V$ a augmenté de 5 000$ entre 2025 et 2026, et que le salaire initial était de 50 000$, la variation relative est de $\frac{5\,000}{50\,000} = 0,1$, soit une augmentation de 10 %.</p></div>
 </div>
 
-<p>Enfin, si votre salaire est passé de 50 000 $ en 2025 à 55 000 $ en 2026, c'est une augmentation très satisfaisante, plus que si votre salaire était passé de 50 000 $ à 55 000 $, de 2020 à 2025 : c'est la même augmentation de 10 %, mais sur une période plus courte. Pour quantifier cela, on parle de <em>variation moyenne</em>.</p>
+<p>Enfin, si votre salaire est passé de 50 000$ en 2025 à 55 000$ en 2026, c'est une augmentation très satisfaisante, plus que si votre salaire était passé de 50 000$ à 55 000 $, de 2020 à 2025 : c'est la même augmentation de 10 %, mais sur une période plus courte. Pour quantifier cela, on parle de <em>variation moyenne</em>.</p>
 <div class="bloc bloc-definition" id="definition-23">
   <div class="bloc-header">📘 Définition 23 — Variation moyenne <span class="bloc-id">(definition-23)</span></div>
   <div class="bloc-body"><p>La <strong>variation moyenne</strong> d'une grandeur $V$ entre deux temps $t_0$ et $t_1$ est le rapport de la variation absolue à la durée de l'intervalle de temps entre $t_0$ et $t_1$. On la note $\frac{\Delta V}{\Delta t}$, où $\Delta t$ est la durée entre $t_0$ et $t_1$.</p></div>
@@ -1374,7 +1376,7 @@ $$</p>
 <p>Notez que la variation moyenne est calculée entre deux temps, alors que dans les autres cas, la variation est calculée entre deux points, qui peuvent être des temps, mais aussi d'autres types de points (par exemple, des lieux). L'unité de la variation moyenne est l'unité de $V$ divisée par l'unité de temps. Par exemple, si $V$ est une population exprimée en habitants, et que le temps est exprimé en années, la variation moyenne est exprimée en habitants par an.</p>
 <div class="bloc bloc-exemple" id="exemple-40">
   <div class="bloc-header">💡 Exemple 40 <span class="bloc-id">(exemple-40)</span></div>
-  <div class="bloc-body"><p>Si votre salaire est passé de 50 000 $ en 2020 à 55 000 $ en 2025, la variation absolue est de 5 000 $, la variation relative est de 10 %, et la variation moyenne est de $\frac{5\,000}{5} = 1\,000$ $ par an.<br />
+  <div class="bloc-body"><p>Si votre salaire est passé de 50 000$ en 2020 à 55 000$ en 2025, la variation absolue est de 5 000$, la variation relative est de 10%, et la variation moyenne est de $\frac{5\,000}{5} =$ 1000$ par an.<br />
 La même augmentation de salaire sur 1 an au lieu de 5 ans correspond à une variation moyenne de 5 000 $/an, soit une augmentation beaucoup plus rapide.</p></div>
 </div>
 

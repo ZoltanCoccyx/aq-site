@@ -51,6 +51,7 @@
 [data-theme="dark"] .bloc-methode    { background:#1f180e; border-color:#f97316; }
 [data-theme="dark"] .bloc-tableau    { background:#0a1823; border-color:#0ea5e9; }
 [data-theme="dark"] .bloc-figure     { background:#0f172a; border-color:#64748b; }
+[data-theme="dark"] .bloc-figure img { background:#f8fafc; padding:8px; border-radius:4px; }
 [data-theme="dark"] .bloc-resume     { background:#0a0f1a; border-color:var(--bleu); }
 [data-theme="dark"] .nav-item.active,
 [data-theme="dark"] .nav-item:hover { background:#1e293b; }

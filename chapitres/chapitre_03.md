@@ -445,20 +445,22 @@ On y verra les différents types de graphiques qui suivent.
 - chaque secteur représente une modalité,
 
 - dans le cas des diagrammes en anneau, un cercle vide est présent au centre pour améliorer l'esthétique et la lisibilité, ce qui permet également de comparer plusieurs distributions en imbriquant deux ou plusieurs anneaux.
+
 <!-- BLOC:exemple id="exemple-19" -->
 **Exemple**
 Voici un exemple basé sur des données réelles du recensement canadien de 2021 concernant la répartition des langues maternelles au Québec (en simplifiant les catégories) :
+
 <!-- BLOC:figure id="fig-1" image="figures/langues_quebec_pie.png" -->
 **Figure 1 — Répartition des langues maternelles au Québec (2021)**
-
 <!-- /BLOC:figure -->
+
 Pour le même ensemble de données, on peut utiliser un diagramme en anneau :
+
 <!-- BLOC:figure id="fig-2" image="figures/langues_quebec_donut.png" -->
 **Figure 2 — Répartition des langues maternelles au Québec (2021)**
-
 <!-- /BLOC:figure -->
-On observe que le français est largement dominant comme langue maternelle au Québec, représentant plus des trois quarts de la population parmi les répondants.
 
+On observe que le français est largement dominant comme langue maternelle au Québec, représentant plus des trois quarts de la population parmi les répondants.
 <!-- /BLOC:exemple -->
 
 **Diagramme en barres (simples, groupées, empilées)** — Constitué de barres horizontales dont la longueur est proportionnelle à la fréquence de (ou à la quantité associée à) chaque modalité.
@@ -847,9 +849,9 @@ La variation d'une grandeur est exprimée dans les mêmes unités que la grandeu
 <!-- BLOC:exemple id="exemple-38" -->
 **Exemple**
 
-Si entre 2025 et 2026, votre salaire est passé de 50 000 $ à 55 000 $, la variation de votre salaire est de $\Delta V = 55\,000 - 50\,000 = 5\,000$ $. Votre salaire a augmenté de 5 000 $ entre 2025 et 2026.
+Si entre 2025 et 2026, votre salaire est passé de 50 000$ à 55 000$, la variation de votre salaire est de $\Delta V =$ 55 000 - 50 000 = 5 000$. Votre salaire a augmenté de 5 000$ entre 2025 et 2026.
 <!-- /BLOC:exemple -->
-Cependant, la variation « absolue » peut être difficile à interpréter : par exemple, une personne qui travaille pour la première fois pendant l'été et dont les revenus passent de 0 $ à 5 000 $ a une variation de 5 000 $, tout comme la personne qui gagne déjà 50 000 $ et dont le salaire passe à 55 000 $. Pourtant, la première personne a vu son revenu augmenter de manière beaucoup plus importante que la seconde. Pour résoudre ce problème, on parle de *variation relative*.
+Cependant, la variation « absolue » peut être difficile à interpréter : par exemple, une personne qui travaille pour la première fois pendant l'été et dont les revenus passent de 0$ à 5 000$ a une variation de 5 000$, tout comme la personne qui gagne déjà 50 000$ et dont le salaire passe à 55 000$. Pourtant, la première personne a vu son revenu augmenter de manière beaucoup plus importante que la seconde. Pour résoudre ce problème, on parle de *variation relative*.
 
 <!-- BLOC:definition id="definition-22" titre="Variation relative" -->
 **Définition — Variation relative**
@@ -865,9 +867,9 @@ $$
 <!-- BLOC:exemple id="exemple-39" -->
 **Exemple**
 
-Si $V$ a augmenté de 5 000 $ entre 2025 et 2026, et que le salaire initial était de 50 000 $, la variation relative est de $\frac{5\,000}{50\,000} = 0,1$, soit une augmentation de 10 %.
+Si $V$ a augmenté de 5 000$ entre 2025 et 2026, et que le salaire initial était de 50 000$, la variation relative est de $\frac{5\,000}{50\,000} = 0,1$, soit une augmentation de 10 %.
 <!-- /BLOC:exemple -->
-Enfin, si votre salaire est passé de 50 000 $ en 2025 à 55 000 $ en 2026, c'est une augmentation très satisfaisante, plus que si votre salaire était passé de 50 000 $ à 55 000 $, de 2020 à 2025 : c'est la même augmentation de 10 %, mais sur une période plus courte. Pour quantifier cela, on parle de *variation moyenne*.
+Enfin, si votre salaire est passé de 50 000$ en 2025 à 55 000$ en 2026, c'est une augmentation très satisfaisante, plus que si votre salaire était passé de 50 000$ à 55 000 $, de 2020 à 2025 : c'est la même augmentation de 10 %, mais sur une période plus courte. Pour quantifier cela, on parle de *variation moyenne*.
 
 <!-- BLOC:definition id="definition-23" titre="Variation moyenne" -->
 **Définition — Variation moyenne**
@@ -879,7 +881,7 @@ Notez que la variation moyenne est calculée entre deux temps, alors que dans le
 <!-- BLOC:exemple id="exemple-40" -->
 **Exemple**
 
-Si votre salaire est passé de 50 000 $ en 2020 à 55 000 $ en 2025, la variation absolue est de 5 000 $, la variation relative est de 10 %, et la variation moyenne est de $\frac{5\,000}{5} = 1\,000$ $ par an.
+Si votre salaire est passé de 50 000$ en 2020 à 55 000$ en 2025, la variation absolue est de 5 000$, la variation relative est de 10%, et la variation moyenne est de $\frac{5\,000}{5} =$ 1000$ par an.
 La même augmentation de salaire sur 1 an au lieu de 5 ans correspond à une variation moyenne de 5 000 $/an, soit une augmentation beaucoup plus rapide.
 <!-- /BLOC:exemple -->
 #### Parler d'une variation d'un pourcentage
